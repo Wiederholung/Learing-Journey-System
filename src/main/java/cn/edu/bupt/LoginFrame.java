@@ -95,7 +95,7 @@ public class LoginFrame extends JFrame {
 
         // 设置窗口参数
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 200);
+        setSize(600, 300);
         setLocationRelativeTo(null);
         setVisible(true);
     }

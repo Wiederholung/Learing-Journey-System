@@ -16,6 +16,7 @@ public class Student {
     private String grad_date;
     private List<Course> courses;
     private List<Project> projs;
+    private List<Honor> honors;
 
     public String getSid() {
         return s_id;
@@ -120,6 +121,14 @@ public class Student {
     public void setProjs(List<Project> projs) {
         this.projs = projs;
     }
+
+    public List<Honor> getHonors() {
+        return honors;
+    }
+
+    public void setHonors(List<Honor> honors) {
+        this.honors = honors;
+    }
 }
 
 class Course {
@@ -164,4 +173,32 @@ class Project {
         this.describe = describe;
     }
 
+}
+
+class Honor{
+
+
+    private String honor_time;
+    private String honor_name;
+
+    public Honor(String honor_time, String honor_name) {
+        this.honor_time = honor_time;
+        this.honor_name = honor_name;
+    }
+
+    public String getHonor_time() {
+        return honor_time;
+    }
+
+    public void setHonor_time(String honor_time) {
+        this.honor_time = honor_time;
+    }
+
+    public String getHonor_name() {
+        return honor_name;
+    }
+
+    public void setHonor_name(String honor_name) {
+        this.honor_name = honor_name;
+    }
 }

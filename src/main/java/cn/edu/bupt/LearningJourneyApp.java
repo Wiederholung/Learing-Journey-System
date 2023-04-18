@@ -43,10 +43,10 @@ public class LearningJourneyApp extends JFrame {
         studentHonorsButton.setHorizontalAlignment(JButton.CENTER);
         studentHonorsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // 跳转到 StudentHonors 页面
-//                StudentHonors studentHonors = new StudentHonors();
-//                studentHonors.setVisible(true);
-//                dispose();
+//                 跳转到 StudentHonors 页面
+               StudentHonorApp studentHonorApp=new StudentHonorApp(studentID);
+                studentHonorApp.setVisible(true);
+                dispose();
             }
         });
 
