@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+import java.util.List;
 import java.util.Scanner;
 
 public class ProjectExperienceForm extends JFrame{
@@ -102,45 +103,27 @@ public class ProjectExperienceForm extends JFrame{
         // 清空所有输入框内容
         submitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-// 获取输入框中的信息
+                // 获取输入框中的信息
                 String projectName = projectNameField.getText();
                 String projectTime = projectTimeField.getText();
                 String projectContent = projectContentArea.getText();
-// 从StudentInfo.csv中获取学生姓名和学号
+                // 从StudentInfo.csv中获取学生姓名和学号
                 String studentName = "";
                 String student_ID = " ";
 
-
-                try {
-                    File file = new File("./src/StudentInfo.csv");
-                    Scanner scanner = new Scanner(file);
-                    while (scanner.hasNextLine()) {
-                        String line = scanner.nextLine();
-                        String[] fields = line.split(",");
-                        if (fields[3].equals(studentID)) {
-                            studentName = fields[1];
-                            student_ID = fields[3];
-                            break;
-                        }
-                    }
-                    scanner.close();
-                } catch (FileNotFoundException ex) {
-                    ex.printStackTrace();
-                }
-
                 // 将项目信息写入StudentProject.csv中
-                try {
-                    FileWriter writer = new FileWriter("./src/StudentProject.csv", true);
-                    writer.write(studentName + "," + student_ID + "," + projectName + "," + projectTime + "," + projectContent + "\n");
-                    writer.close();
-                    JOptionPane.showMessageDialog(null, "Project submitted successfully!");
-                    // 清空所有输入框内容
+                Student s = DB.getStudent(studentID);
+                List<Project> projs = null;
+                if (s != null) {
+                    projs = s.getProjs();
+                    projs.add(new Project(projectName, projectTime, projectContent));
+                    s.setProjs(projs);
+                    DB.updateStudent(s);
+
                     projectNameField.setText("");
                     projectTimeField.setText("");
                     projectContentArea.setText("");
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                    JOptionPane.showMessageDialog(null, "Failed to submit project.");
+                    JOptionPane.showMessageDialog(null, "Project submitted successfully!");
                 }
             }
 

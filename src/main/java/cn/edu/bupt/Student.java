@@ -135,6 +135,11 @@ class Project {
     private String proj_time;
     private String describe;
 
+    public Project(String proj_name, String proj_time, String describe) {
+        this.proj_name = proj_name;
+        this.proj_time = proj_time;
+        this.describe = describe;
+    }
     public String getProj_name() {
         return proj_name;
     }
@@ -159,5 +164,4 @@ class Project {
         this.describe = describe;
     }
 
-    // 省略构造方法、Getter 和 Setter 方法
 }
