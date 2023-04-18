@@ -69,10 +69,10 @@ public class LearningJourneyApp extends JFrame {
         studentExamResultsButton.setHorizontalAlignment(JButton.CENTER);
         studentExamResultsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-//                // 跳转到 StudentExamResults 页面
-//                StudentExamResults studentExamResults = new StudentExamResults();
-//                studentExamResults.setVisible(true);
-//                dispose();
+                // 跳转到 StudentExamResults 页面
+                StudentScoreApp studentExamResults = new StudentScoreApp(studentID);
+                studentExamResults.setVisible(true);
+                dispose();
             }
         });
 
