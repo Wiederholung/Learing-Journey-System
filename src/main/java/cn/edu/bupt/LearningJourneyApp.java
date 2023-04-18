@@ -1,3 +1,5 @@
+package cn.edu.bupt;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
