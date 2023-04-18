@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentProjectApp extends JFrame {
     private String studentID;
@@ -14,7 +15,19 @@ public class StudentProjectApp extends JFrame {
     public StudentProjectApp(String studentID) {
         this.studentID = studentID;
         this.projects = new ArrayList<>();
-        readProjects();
+//        readProjects();
+        Student s = DB.getStudent(studentID);
+        if (s != null) {
+            List<Project> projs = s.getProjs();
+            // 将projs转为ArrayList<String[]>
+            for (Project p : projs) {
+                String[] project = new String[3];
+                project[0] = p.getProj_name();
+                project[1] = p.getProj_time();
+                project[2] = p.getDescribe();
+                projects.add(project);
+            }
+        }
 
         setTitle("Student Projects");
         setSize(600, 400);
@@ -53,46 +66,46 @@ public class StudentProjectApp extends JFrame {
 
         // 创建每个项目的按钮
         for (String[] project : projects) {
-            if (project[1].equals(studentID)) {
-                JButton projectButton = new JButton(project[2] + " " + project[3]);
-                projectButton.setPreferredSize(new Dimension(550, 50));
-                projectButton.setMaximumSize(new Dimension(Short.MAX_VALUE, 50));
-                projectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-                // 创建项目按钮的监听器
-                projectButton.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        // 创建新的项目详情面板
-                        JPanel projectDetailPanel = new JPanel();
-                        projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
+            JButton projectButton = new JButton(project[1] + " " + project[2]);
+            projectButton.setPreferredSize(new Dimension(550, 50));
+            projectButton.setMaximumSize(new Dimension(Short.MAX_VALUE, 50));
+            projectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-                        // 添加项目详情信息
-                        projectDetailPanel.add(new JLabel("Project Name: " + project[2]));
-                        projectDetailPanel.add(new JLabel("Project Time: " + project[3]));
-                        projectDetailPanel.add(new JLabel("Project Description: " + project[4]));
+            // 创建项目按钮的监听器
+            projectButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // 创建新的项目详情面板
+                    JPanel projectDetailPanel = new JPanel();
+                    projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
 
-                        // 添加返回按钮
-                        JButton backButton = new JButton("Back");
-                        backButton.addActionListener(new ActionListener() {
-                            @Override
-                            public void actionPerformed(ActionEvent e) {
-                                mainPanel.setVisible(true);
-                                projectDetailPanel.setVisible(false);
-                            }
-                        });
-                        projectDetailPanel.add(backButton);
+                    // 添加项目详情信息
+                    projectDetailPanel.add(new JLabel("Project Name: " + project[0]));
+                    projectDetailPanel.add(new JLabel("Project Time: " + project[1]));
+                    projectDetailPanel.add(new JLabel("Project Description: " + project[2]));
 
-                        // 显示项目详情面板
-                        mainPanel.setVisible(false);
-                        projectDetailPanel.setVisible(true);
-                        getContentPane().add(projectDetailPanel, BorderLayout.CENTER);
-                    }
-                });
+                    // 添加返回按钮
+                    JButton backButton = new JButton("Back");
+                    backButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            mainPanel.setVisible(true);
+                            projectDetailPanel.setVisible(false);
+                        }
+                    });
+                    projectDetailPanel.add(backButton);
 
-                projectPanel.add(projectButton);
-            }
+                    // 显示项目详情面板
+                    mainPanel.setVisible(false);
+                    projectDetailPanel.setVisible(true);
+                    getContentPane().add(projectDetailPanel, BorderLayout.CENTER);
+                }
+            });
+
+            projectPanel.add(projectButton);
         }
+
 
         // 添加项目面板到主面板
         mainPanel.add(projectPanel, BorderLayout.CENTER);
@@ -103,7 +116,7 @@ public class StudentProjectApp extends JFrame {
 
     private void readProjects() {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader("./src/StudentProject.csv"));
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/StudentProject.csv"));
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
@@ -117,7 +130,7 @@ public class StudentProjectApp extends JFrame {
 
     private void writeProjects() {
         try {
-            FileWriter writer = new FileWriter("./src/StudentProject.csv");
+            FileWriter writer = new FileWriter("src/main/resources/StudentProject.csv");
             BufferedWriter out = new BufferedWriter(writer);
 
             for (String[] project : projects) {
@@ -130,8 +143,9 @@ public class StudentProjectApp extends JFrame {
             e.printStackTrace();
         }
     }
+
     public static void main(String[] args) {
-        String ID="2020213362";
+        String ID = "2020213362";
         new StudentProjectApp(ID);
     }
 }

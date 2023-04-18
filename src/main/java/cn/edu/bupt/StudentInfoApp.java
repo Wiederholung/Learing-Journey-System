@@ -3,14 +3,9 @@ package cn.edu.bupt;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class StudentInfoApp extends JFrame {
-    private final String CSV_FILE = "./src/StudentInfo.csv";
-    private final String[] COLUMN_NAMES = {"信息", "数值"};
-    private String studentID;
+    private final String studentID;
 
     public StudentInfoApp(String studentID) {
 
@@ -26,6 +21,7 @@ public class StudentInfoApp extends JFrame {
 
         // 创建表格
         String[][] data = loadStudentData();
+        String[] COLUMN_NAMES = {"Info", "Value"};
         JTable table = new JTable(data, COLUMN_NAMES);
         table.setEnabled(false);
 
@@ -55,42 +51,29 @@ public class StudentInfoApp extends JFrame {
         contentPane.add(buttonPanel, BorderLayout.SOUTH);
     }
 
-
-
-
-    private String[][] loadStudentData() {
-        String[][] data = new String[9][2];
-
-        try (BufferedReader br = new BufferedReader(new FileReader(CSV_FILE))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] fields = line.split(",");
-                if (fields.length >= 2 && fields[3].equals(studentID)) {
-//                    data[0] = new String[] {"Password", fields[0].replaceAll("\\(.*\\)", "")};
-                    data[1] = new String[] {"Name", fields[1]};
-                    data[2] = new String[] {"Gender", fields[2]};
-                    data[3] = new String[] {"StudentID", fields[3]};
-                    data[4] = new String[] {"Class", fields[4]};
-                    data[5] = new String[] {"Major", fields[5]};
-                    data[6] = new String[] {"Date of Enrollment", fields[6]};
-                    data[7] = new String[] {"Date of Graduation", fields[7]};
-                    data[8] = new String[] {"School", fields[8]};
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return data;
-    }
-
     public static void main(String[] args) {
         // 在事件分派线程中启动GUI
         SwingUtilities.invokeLater(() -> {
-             String ID="2020213362";
+            String ID = "2020213362";
             StudentInfoApp app = new StudentInfoApp(ID);
             app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             app.setVisible(true);
         });
+    }
+
+    private String[][] loadStudentData() {
+        String[][] data = new String[8][2];
+        Student s = DB.getStudent(studentID);
+        if (s != null) {
+            data[0] = new String[]{"Name", s.getName()};
+            data[1] = new String[]{"Gender", s.getGender()};
+            data[2] = new String[]{"StudentID", s.getSid()};
+            data[3] = new String[]{"Class", s.getClassId()};
+            data[4] = new String[]{"Major", s.getMajor()};
+            data[5] = new String[]{"Date of Enrollment", s.getEnrollDate()};
+            data[6] = new String[]{"Date of Graduation", s.getGradDate()};
+            data[7] = new String[]{"School", s.getAffiliation()};
+        }
+        return data;
     }
 }

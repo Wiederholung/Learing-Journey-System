@@ -37,7 +37,7 @@ public class LearningJourneyApp extends JFrame {
             }
         });
 
-        studentHonorsButton = new JButton("<html>Student<br>honors</html>");
+        studentHonorsButton = new JButton("<html>Student<br>Honors</html>");
         studentHonorsButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
         studentHonorsButton.setPreferredSize(new Dimension(150, 80));
         studentHonorsButton.setHorizontalAlignment(JButton.CENTER);

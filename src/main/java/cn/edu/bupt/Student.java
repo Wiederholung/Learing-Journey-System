@@ -135,5 +135,29 @@ class Project {
     private String proj_time;
     private String describe;
 
+    public String getProj_name() {
+        return proj_name;
+    }
+
+    public void setProj_name(String proj_name) {
+        this.proj_name = proj_name;
+    }
+
+    public String getProj_time() {
+        return proj_time;
+    }
+
+    public void setProj_time(String proj_time) {
+        this.proj_time = proj_time;
+    }
+
+    public String getDescribe() {
+        return describe;
+    }
+
+    public void setDescribe(String describe) {
+        this.describe = describe;
+    }
+
     // 省略构造方法、Getter 和 Setter 方法
 }

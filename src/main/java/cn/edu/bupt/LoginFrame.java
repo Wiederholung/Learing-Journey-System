@@ -77,20 +77,8 @@ public class LoginFrame extends JFrame {
                 String studentID = idTextField.getText();
                 String password = new String(passwordField.getPassword());
                 boolean loginSuccess = false;
-                try {
-                    BufferedReader reader = new BufferedReader(new FileReader("./src/StudentInfo.csv"));
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        String[] fields = line.split(",");
-                        if (fields[3].equals(studentID) && fields[0].equals(password)) {
-                            loginSuccess = true;
-                            break;
-                        }
-                    }
-                    reader.close();
-                } catch (IOException ex) {
-                    ex.printStackTrace();
-                }
+                Student s = DB.getStudent(studentID);
+                if (s.getPassword().equals(password)) loginSuccess = true;
                 if (loginSuccess) {
                     new LearningJourneyApp(studentID);
                     dispose();
