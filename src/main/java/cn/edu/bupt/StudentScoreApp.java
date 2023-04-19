@@ -22,8 +22,8 @@ public class StudentScoreApp extends JFrame {
                 course[0] = c.getCourse_id();
                 course[1] =  c.getCredits();
                 course[2] = String.valueOf(c.getGrade());
-                // TODO: 修正GPA计算公式
-                course[3]=String.valueOf((double) (c.getGrade())/20-1);
+                double gpa = 4 - 3 * (100 - (double) c.getGrade()) * (100 - (double) c.getGrade()) / 1600;
+                course[3] = String.format("%.2f", gpa);
                 courses.add(course);
             }
         }
