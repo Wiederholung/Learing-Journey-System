@@ -48,34 +48,12 @@ public class StudentScoreApp extends JFrame {
         buttonPanel.add(addButton);
         mainPanel.add(buttonPanel, BorderLayout.NORTH);
 
-        // 创建表头面板
-        JPanel headerPanel = new JPanel();
-        headerPanel.setLayout(new GridLayout(1, 4));
-        JLabel courseIDLabel = new JLabel("Course ID");
-        JLabel creditsLabel = new JLabel("Credits");
-        JLabel scoreLabel = new JLabel("Score");
-        JLabel gpaLabel = new JLabel("GPA");
-        headerPanel.add(courseIDLabel);
-        headerPanel.add(creditsLabel);
-        headerPanel.add(scoreLabel);
-        headerPanel.add(gpaLabel);
-        mainPanel.add(headerPanel, BorderLayout.CENTER);
+        // 创建表格
+        String[] columnNames = {"Course ID", "Credits", "Score", "GPA"};
+        JTable table = new JTable(courses.toArray(new Object[0][0]), columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        mainPanel.add(scrollPane, BorderLayout.CENTER);
 
-        // 创建项目按钮面板
-        JPanel projectPanel = new JPanel();
-        projectPanel.setLayout(new GridLayout(courses.size(), 1));
-
-        // 创建每个项目的按钮
-        for (String[] project : courses) {
-            JButton projectButton = new JButton(project[0] + " " + project[1] + " " + project[2] + " " + project[3]);
-            projectButton.setPreferredSize(new Dimension(550 / courses.size(), 50));
-            projectButton.setMaximumSize(new Dimension(Short.MAX_VALUE, 50));
-            projectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-            projectButton.setEnabled(false);
-            projectPanel.add(projectButton);
-        }
-
-        mainPanel.add(projectPanel, BorderLayout.SOUTH);
         setSize(600, 800);
         add(mainPanel);
         setVisible(true);
@@ -85,6 +63,4 @@ public class StudentScoreApp extends JFrame {
         new StudentScoreApp(ID);
     }
 }
-
-
 
