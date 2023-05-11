@@ -96,6 +96,23 @@ public class StudentProjectApp extends JFrame {
                     });
                     projectDetailPanel.add(backButton);
 
+                    // 添加删除按钮
+                    JButton deleteButton = new JButton("Delete");
+                    deleteButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this project?", "Delete Project", JOptionPane.YES_NO_OPTION);
+                            if (result == JOptionPane.YES_OPTION) {
+                                System.out.println("success");
+                                DB.deleteProject(project[0],project[1]);
+                                writeProjects();
+                                new StudentProjectApp(studentID);
+                                dispose();
+                            }
+                        }
+                    });
+                    projectDetailPanel.add(deleteButton);
+
                     // 显示项目详情面板
                     mainPanel.setVisible(false);
                     projectDetailPanel.setVisible(true);
@@ -145,8 +162,13 @@ public class StudentProjectApp extends JFrame {
         }
     }
 
+
+
     public static void main(String[] args) {
         String ID = "2020213362";
         new StudentProjectApp(ID);
     }
+
+
+
 }

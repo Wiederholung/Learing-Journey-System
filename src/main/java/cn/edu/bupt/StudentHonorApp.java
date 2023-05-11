@@ -96,6 +96,21 @@ public class StudentHonorApp extends JFrame {
                     });
                     projectDetailPanel.add(backButton);
 
+                    JButton deleteButton = new JButton("Delete");
+                    deleteButton.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this honor?", "Delete honor", JOptionPane.YES_NO_OPTION);
+                            if (result == JOptionPane.YES_OPTION) {
+                                System.out.println("success");
+                                DB.deleteHonor(project[0],project[1]);
+                                writeProjects();
+                                new StudentHonorApp(studentID);
+                                dispose();
+                            }
+                        }
+                    });
+                    projectDetailPanel.add(deleteButton);
                     // 显示项目详情面板
                     mainPanel.setVisible(false);
                     projectDetailPanel.setVisible(true);
