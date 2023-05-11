@@ -3,11 +3,10 @@ package cn.edu.bupt;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.List;
 
 public class StudentScoreApp extends JFrame {
-    private String studentID;
-    private ArrayList<String[]> courses;
+    private final String studentID;
+    private final ArrayList<String[]> courses;
 
     public StudentScoreApp(String studentID) {
         this.studentID = studentID;
@@ -15,22 +14,16 @@ public class StudentScoreApp extends JFrame {
 //        readProjects();
         Student s = DB.getStudent(studentID);
         if (s != null) {
-            List<Course> cours = s.getCourses();
-            // 将projs转为ArrayList<String[]>
-            for (Course  c : cours) {
+            for (Course c : s.getCourses()) {
                 String[] course = new String[4];
                 course[0] = c.getCourse_id();
-                course[1] =  c.getCredits();
+                course[1] = c.getCredits();
                 course[2] = String.valueOf(c.getGrade());
-                double gpa = 4 - 3 * (100 - (double) c.getGrade()) * (100 - (double) c.getGrade()) / 1600;
-                course[3] = String.format("%.2f", gpa);
+                double gp = 4 - 3 * (100 - (double) c.getGrade()) * (100 - (double) c.getGrade()) / 1600;
+                course[3] = String.format("%.2f", gp);
                 courses.add(course);
             }
         }
-
-        setTitle("Student Projects");
-        setSize(600, 400);
-        setLocationRelativeTo(null);
 
         // 创建主面板
         JPanel mainPanel = new JPanel();
@@ -48,20 +41,42 @@ public class StudentScoreApp extends JFrame {
         buttonPanel.add(backButton);
         buttonPanel.add(addButton);
         mainPanel.add(buttonPanel, BorderLayout.NORTH);
+//        点击按钮，弹出对话框
+        addButton.addActionListener(e -> {
+            String[] columnNames = {"Weighted Average Mark", "GPA"};
+            String[] statInfo = new String[2];
+            double wam = 0;
+            double gpa = 0;
+            double totalCredits = 0;
+            for (String[] course : courses) {
+                wam += Double.parseDouble(course[1]) * Double.parseDouble(course[2]);
+                gpa += Double.parseDouble(course[1]) * Double.parseDouble(course[3]);
+                totalCredits += Double.parseDouble(course[1]);
+            }
+            wam /= totalCredits;
+            gpa /= totalCredits;
+            statInfo[0] = String.format("%.2f", wam);
+            statInfo[1] = String.format("%.2f", gpa);
+
+//            弹出对话框，打印统计信息
+            JOptionPane.showMessageDialog(null, "Weighted Average Mark: " + statInfo[0] + "\n" + "GPA: " + statInfo[1], "Statistic Information", JOptionPane.INFORMATION_MESSAGE);
+
+        });
 
         // 创建表格
-        String[] columnNames = {"Course ID", "Credits", "Score", "GPA"};
+        String[] columnNames = {"Course ID", "Credits", "Score", "GP"};
         JTable table = new JTable(courses.toArray(new Object[0][0]), columnNames);
         JScrollPane scrollPane = new JScrollPane(table);
         mainPanel.add(scrollPane, BorderLayout.CENTER);
-
-        setSize(600, 800);
         add(mainPanel);
+
+        setTitle("Student Projects");
+        setSize(600, 800);
+        setLocationRelativeTo(null);
         setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    public static void main(String[] args) {
-        String ID = "2020213362";
-        new StudentScoreApp(ID);
-    }
+
+
 }
 
