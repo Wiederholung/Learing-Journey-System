@@ -5,19 +5,16 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class StudentInfoApp extends JFrame {
-    private final String studentID;
+
 
     public StudentInfoApp(String studentID) {
-
-        this.studentID = studentID;
-
         // 创建顶部标题
         JLabel titleLabel = new JLabel("Your Status Information", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         titleLabel.setBorder(new EmptyBorder(10, 0, 10, 0));
 
         // 创建表格
-        String[][] data = loadStudentData();
+        String[][] data = loadStudentData(studentID);
         String[] COLUMN_NAMES = {"Info", "Value"};
         JTable table = new JTable(data, COLUMN_NAMES);
         table.setEnabled(false);
@@ -53,7 +50,7 @@ public class StudentInfoApp extends JFrame {
     }
 
 
-    private String[][] loadStudentData() {
+    private String[][] loadStudentData(String studentID) {
         String[][] data = new String[8][2];
         Student s = DB.getStudent(studentID);
         if (s != null) {

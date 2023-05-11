@@ -2,8 +2,6 @@ package cn.edu.bupt;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 public class StudentHonorForm extends JFrame {
@@ -13,13 +11,10 @@ public class StudentHonorForm extends JFrame {
     private final JTextArea projectContentArea;
     private final JButton submitButton;
     private final JButton backButton;
-    private final String studentID;
 
     public StudentHonorForm(final String studentID) {
-
         super("Adding your project experience here");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.studentID = studentID;
+
         // 创建标题标签，设置字体和尺寸，居中对齐
         titleLabel = new JLabel("Adding your project experience here");
         titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
@@ -81,40 +76,28 @@ public class StudentHonorForm extends JFrame {
         panel.add(backButton, gbc);
 
         // 清空所有输入框内容
-        submitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // 获取输入框中的信息
-                String honorTime = projectTimeField.getText();
-                String honorContent = projectContentArea.getText();
-                // 从StudentInfo.csv中获取学生姓名和学号
-                String studentName = "";
-                String student_ID = " ";
+        submitButton.addActionListener(e -> {
+            // 获取输入框中的信息
+            String honorTime = projectTimeField.getText();
+            String honorContent = projectContentArea.getText();
 
-                // 将项目信息写入StudentProject.csv中
-                Student s = DB.getStudent(studentID);
-                List<Honor> s_honor = null;
-                if (s != null) {
-                    s_honor = s.getHonors();
-                    s_honor.add(new Honor(honorTime, honorContent));
-                    s.setHonors(s_honor);
-                    DB.updateStudent(s);
+            // 将项目信息写入StudentProject.csv中
+            Student s = DB.getStudent(studentID);
+            List<Honor> s_honor;
+            if (s != null) {
+                s_honor = s.getHonors();
+                s_honor.add(new Honor(honorTime, honorContent));
+                s.setHonors(s_honor);
+                DB.updateStudent(s);
 
-
-                    projectTimeField.setText("");
-                    projectContentArea.setText("");
-                    JOptionPane.showMessageDialog(null, "Project submitted successfully!");
-                }
+                projectTimeField.setText("");
+                projectContentArea.setText("");
+                JOptionPane.showMessageDialog(null, "Project submitted successfully!");
             }
-
         });
-        backButton.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
-                new StudentHonorApp(studentID);
-
-            }
+        backButton.addActionListener(e -> {
+            dispose();
+            new StudentHonorApp(studentID);
         });
 
         // 将面板添加到窗口上
@@ -122,8 +105,6 @@ public class StudentHonorForm extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
-
 }

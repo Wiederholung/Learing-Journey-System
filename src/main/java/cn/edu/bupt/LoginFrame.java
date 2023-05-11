@@ -2,8 +2,6 @@ package cn.edu.bupt;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class LoginFrame extends JFrame {
     private final JTextField idTextField;
@@ -68,29 +66,25 @@ public class LoginFrame extends JFrame {
         loginPanel.add(loginButton, gbc);
 
         // 添加登录按钮的监听器
-        loginButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String studentID = idTextField.getText();
-                String password = new String(passwordField.getPassword());
-                boolean loginSuccess = false;
-                Student s = DB.getStudent(studentID);
-                if (s.getPassword().equals(password)) loginSuccess = true;
-                if (loginSuccess) {
-                    new LearningJourneyApp(studentID);
-                    dispose();
-                } else {
-                    JOptionPane.showMessageDialog(LoginFrame.this,
-                            "Invalid StudentID or Password!",
-                            "Login Failed",
-                            JOptionPane.ERROR_MESSAGE);
-                }
+        loginButton.addActionListener(e -> {
+            String studentID = idTextField.getText();
+            String password = new String(passwordField.getPassword());
+            boolean loginSuccess = false;
+            Student s = DB.getStudent(studentID);
+            if (s != null && s.getPassword().equals(password)) loginSuccess = true;
+            if (loginSuccess) {
+                new LearningJourneyApp(studentID);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(LoginFrame.this,
+                        "Invalid StudentID or Password!",
+                        "Login Failed",
+                        JOptionPane.ERROR_MESSAGE);
             }
         });
 
         add(loginPanel, BorderLayout.CENTER);
 
-        // 设置窗口参数
         setSize(600, 300);
         setLocationRelativeTo(null);
         setVisible(true);

@@ -5,11 +5,9 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class StudentScoreApp extends JFrame {
-    private final String studentID;
     private final ArrayList<String[]> courses;
 
     public StudentScoreApp(String studentID) {
-        this.studentID = studentID;
         this.courses = new ArrayList<>();
 //        readProjects();
         Student s = DB.getStudent(studentID);
@@ -43,7 +41,6 @@ public class StudentScoreApp extends JFrame {
         mainPanel.add(buttonPanel, BorderLayout.NORTH);
 //        点击按钮，弹出对话框
         addButton.addActionListener(e -> {
-            String[] columnNames = {"Weighted Average Mark", "GPA"};
             String[] statInfo = new String[2];
             double wam = 0;
             double gpa = 0;
