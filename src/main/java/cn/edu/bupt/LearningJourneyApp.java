@@ -23,7 +23,7 @@ public class LearningJourneyApp extends JFrame {
         titleLabel.setHorizontalAlignment(JLabel.CENTER);
 
         // 创建按钮，设置字体和尺寸，居中对齐
-        studentStatusButton = new JButton("<html>Student Personal<br>Data</html>");
+        studentStatusButton = new JButton("<html>Student<br>Personal<br>Information</html>");
         studentStatusButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
         studentStatusButton.setPreferredSize(new Dimension(150, 80));
         studentStatusButton.setHorizontalAlignment(JButton.CENTER);
@@ -134,8 +134,6 @@ public class LearningJourneyApp extends JFrame {
     }
 
     public static void main(String[] args) {
-        LoginFrame loginFrame = new LoginFrame();
-        loginFrame.pack();
-        loginFrame.setVisible(true);
+        new LearningJourneyApp("2020213362");
     }
 }
