@@ -2,24 +2,25 @@ package cn.edu.bupt;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
-import java.util.Scanner;
 
-public class ProjectExperienceForm extends JFrame{
+public class ProjectExperienceForm extends JFrame {
 
-    private JLabel titleLabel;
-    private JTextField projectNameField, projectTimeField;
-    private JTextArea projectContentArea;
-    private JButton submitButton, backButton;
-    private String studentID;
+    private final JLabel titleLabel;
+    private final JTextField projectNameField;
+    private final JTextField projectTimeField;
+    private final JTextArea projectContentArea;
+    private final JButton submitButton;
+    private final JButton backButton;
+    private final String studentID;
 
     public ProjectExperienceForm(final String studentID) {
 
         super("Adding your project experience here");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.studentID=studentID;
+        this.studentID = studentID;
+
         // 创建标题标签，设置字体和尺寸，居中对齐
         titleLabel = new JLabel("Adding your project experience here");
         titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
@@ -143,12 +144,7 @@ public class ProjectExperienceForm extends JFrame{
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
-
-
-
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    public static void main(String[] args) {
-        String ID="2020213362";
-        new ProjectExperienceForm(ID);
-    }
+
 }

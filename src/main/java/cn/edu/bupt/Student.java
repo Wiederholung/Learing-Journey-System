@@ -173,6 +173,7 @@ class Project {
         this.proj_time = proj_time;
         this.describe = describe;
     }
+
     public String getProj_name() {
         return proj_name;
     }
@@ -199,7 +200,7 @@ class Project {
 
 }
 
-class Honor{
+class Honor {
 
 
     private String honor_time;

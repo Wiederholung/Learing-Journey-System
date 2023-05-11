@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentHonorApp extends JFrame {
-    private String studentID;
-    private ArrayList<String[]> honors;
+    private final String studentID;
+    private final ArrayList<String[]> honors;
 
     public StudentHonorApp(String studentID) {
         this.studentID = studentID;
@@ -18,7 +18,7 @@ public class StudentHonorApp extends JFrame {
 //        readProjects();
         Student s = DB.getStudent(studentID);
         if (s != null) {
-            List<Honor> honor =s.getHonors();
+            List<Honor> honor = s.getHonors();
             // 将projs转为ArrayList<String[]>
             for (Honor h : honor) {
                 String[] s_honor = new String[2];
@@ -29,9 +29,6 @@ public class StudentHonorApp extends JFrame {
             }
         }
 
-        setTitle("Student Honors");
-        setSize(600, 400);
-        setLocationRelativeTo(null);
 
         // 创建主面板
         JPanel mainPanel = new JPanel();
@@ -103,7 +100,7 @@ public class StudentHonorApp extends JFrame {
                             int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this honor?", "Delete honor", JOptionPane.YES_NO_OPTION);
                             if (result == JOptionPane.YES_OPTION) {
                                 System.out.println("success");
-                                DB.deleteHonor(project[0],project[1]);
+                                DB.deleteHonor(project[0], project[1]);
                                 writeProjects();
                                 new StudentHonorApp(studentID);
                                 dispose();
@@ -124,9 +121,13 @@ public class StudentHonorApp extends JFrame {
 
         // 添加项目面板到主面板
         mainPanel.add(projectPanel, BorderLayout.CENTER);
-
         getContentPane().add(mainPanel);
+
+        setTitle("Student Honors");
+        setSize(600, 400);
+        setLocationRelativeTo(null);
         setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
     private void readProjects() {
@@ -143,7 +144,7 @@ public class StudentHonorApp extends JFrame {
         }
     }
 
-    //    TODO
+    // TODO
     private void writeProjects() {
         try {
             FileWriter writer = new FileWriter("src/main/resources/StudentProject.csv");
@@ -158,10 +159,5 @@ public class StudentHonorApp extends JFrame {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void main(String[] args) {
-        String ID = "2020213362";
-        new StudentHonorApp(ID);
     }
 }

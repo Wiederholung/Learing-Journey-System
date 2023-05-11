@@ -78,7 +78,6 @@ public class DB {
     }
 
 
-
     // 删除honor信息
     public static void deleteHonor(String honor_name, String honor_time) {
         try {
@@ -194,10 +193,4 @@ public class DB {
         return null;
     }
 
-    public static void main(String[] args) {
-        // 新增学生信息
-//        deleteStudent(2020213362);
-        Student a = getStudent("2020213362");
-
-    }
 }

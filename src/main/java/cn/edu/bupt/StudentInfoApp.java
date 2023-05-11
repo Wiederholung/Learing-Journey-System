@@ -10,9 +10,6 @@ public class StudentInfoApp extends JFrame {
     public StudentInfoApp(String studentID) {
 
         this.studentID = studentID;
-        // 设置窗口标题和大小
-        setTitle("Your Status Information");
-        setSize(500, 400);
 
         // 创建顶部标题
         JLabel titleLabel = new JLabel("Your Status Information", SwingConstants.CENTER);
@@ -41,7 +38,6 @@ public class StudentInfoApp extends JFrame {
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         buttonPanel.add(returnButton);
 
-
         // 将组件添加到内容面板中
         JPanel contentPane = new JPanel(new BorderLayout());
         contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
@@ -49,17 +45,13 @@ public class StudentInfoApp extends JFrame {
         contentPane.add(new JScrollPane(table), BorderLayout.CENTER);
         setContentPane(contentPane);
         contentPane.add(buttonPanel, BorderLayout.SOUTH);
+
+        // 设置窗口标题和大小
+        setTitle("Your Status Information");
+        setSize(500, 400);
+        setLocationRelativeTo(null);
     }
 
-    public static void main(String[] args) {
-        // 在事件分派线程中启动GUI
-        SwingUtilities.invokeLater(() -> {
-            String ID = "2020213362";
-            StudentInfoApp app = new StudentInfoApp(ID);
-            app.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            app.setVisible(true);
-        });
-    }
 
     private String[][] loadStudentData() {
         String[][] data = new String[8][2];

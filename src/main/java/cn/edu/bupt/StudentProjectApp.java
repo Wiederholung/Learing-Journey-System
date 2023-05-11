@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentProjectApp extends JFrame {
-    private String studentID;
-    private ArrayList<String[]> projects;
+    private final String studentID;
+    private final ArrayList<String[]> projects;
 
     public StudentProjectApp(String studentID) {
         this.studentID = studentID;
@@ -29,6 +29,7 @@ public class StudentProjectApp extends JFrame {
             }
         }
 
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Student Projects");
         setSize(600, 400);
         setLocationRelativeTo(null);
@@ -104,7 +105,7 @@ public class StudentProjectApp extends JFrame {
                             int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this project?", "Delete Project", JOptionPane.YES_NO_OPTION);
                             if (result == JOptionPane.YES_OPTION) {
                                 System.out.println("success");
-                                DB.deleteProject(project[0],project[1]);
+                                DB.deleteProject(project[0], project[1]);
                                 writeProjects();
                                 new StudentProjectApp(studentID);
                                 dispose();
@@ -130,6 +131,7 @@ public class StudentProjectApp extends JFrame {
         getContentPane().add(mainPanel);
         setVisible(true);
     }
+
 
     private void readProjects() {
         try {
@@ -161,14 +163,6 @@ public class StudentProjectApp extends JFrame {
             e.printStackTrace();
         }
     }
-
-
-
-    public static void main(String[] args) {
-        String ID = "2020213362";
-        new StudentProjectApp(ID);
-    }
-
 
 
 }

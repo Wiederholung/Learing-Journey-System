@@ -4,13 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class LoginFrame extends JFrame {
-    private JTextField idTextField;
-    private JPasswordField passwordField;
+    private final JTextField idTextField;
+    private final JPasswordField passwordField;
 
 
     public LoginFrame() {
@@ -23,7 +20,7 @@ public class LoginFrame extends JFrame {
         titleLabel.setFont(new Font("Arial", Font.BOLD, 14));
         titleLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        JLabel subTitleLabel = new JLabel("QMUL&BUPT");
+        JLabel subTitleLabel = new JLabel("QMUL & BUPT");
         subTitleLabel.setFont(new Font("Arial", Font.PLAIN, 12));
         subTitleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         titlePanel.add(titleLabel, BorderLayout.NORTH);
@@ -94,13 +91,10 @@ public class LoginFrame extends JFrame {
         add(loginPanel, BorderLayout.CENTER);
 
         // 设置窗口参数
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 300);
         setLocationRelativeTo(null);
         setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public static void main(String[] args) {
-        new LoginFrame();
-    }
 }

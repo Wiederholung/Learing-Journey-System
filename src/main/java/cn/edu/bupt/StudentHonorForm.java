@@ -2,24 +2,24 @@ package cn.edu.bupt;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
-import java.util.Scanner;
 
-public class StudentHonorForm extends JFrame{
+public class StudentHonorForm extends JFrame {
 
-    private JLabel titleLabel;
-    private JTextField projectTimeField;
-    private JTextArea projectContentArea;
-    private JButton submitButton, backButton;
-    private String studentID;
+    private final JLabel titleLabel;
+    private final JTextField projectTimeField;
+    private final JTextArea projectContentArea;
+    private final JButton submitButton;
+    private final JButton backButton;
+    private final String studentID;
 
     public StudentHonorForm(final String studentID) {
 
         super("Adding your project experience here");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.studentID=studentID;
+        this.studentID = studentID;
         // 创建标题标签，设置字体和尺寸，居中对齐
         titleLabel = new JLabel("Adding your project experience here");
         titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
@@ -80,14 +80,6 @@ public class StudentHonorForm extends JFrame{
         gbc.gridy = 3;
         panel.add(backButton, gbc);
 
-
-        // 将面板添加到窗口上
-        add(panel);
-        pack();
-        setLocationRelativeTo(null);
-        setVisible(true);
-
-
         // 清空所有输入框内容
         submitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -103,7 +95,7 @@ public class StudentHonorForm extends JFrame{
                 List<Honor> s_honor = null;
                 if (s != null) {
                     s_honor = s.getHonors();
-                    s_honor.add(new Honor(honorTime,honorContent));
+                    s_honor.add(new Honor(honorTime, honorContent));
                     s.setHonors(s_honor);
                     DB.updateStudent(s);
 
@@ -131,11 +123,7 @@ public class StudentHonorForm extends JFrame{
         setLocationRelativeTo(null);
         setVisible(true);
 
+    }
 
 
-    }
-    public static void main(String[] args) {
-        String ID="2020213362";
-        new StudentHonorForm(ID);
-    }
 }
