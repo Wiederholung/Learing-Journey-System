@@ -27,19 +27,27 @@ public class StudentScoreApp extends JFrame {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
 
+        // 创建表格
+        String[] columnNames = {"Course ID", "Credits", "Score", "GP"};
+        JTable table = new JTable(courses.toArray(new Object[0][0]), columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        mainPanel.add(scrollPane, BorderLayout.CENTER);
+        add(mainPanel);
+
         // 创建返回按钮和添加按钮
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
             dispose();
             new LearningJourneyApp(studentID);
         });
+
         JButton addButton = new JButton("Statistic Information");
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.add(backButton);
         buttonPanel.add(addButton);
         mainPanel.add(buttonPanel, BorderLayout.NORTH);
-//        点击按钮，弹出对话框
+        // 点击添加按钮，弹出对话框，打印统计信息
         addButton.addActionListener(e -> {
             String[] statInfo = new String[2];
             double wam = 0;
@@ -55,17 +63,8 @@ public class StudentScoreApp extends JFrame {
             statInfo[0] = String.format("%.2f", wam);
             statInfo[1] = String.format("%.2f", gpa);
 
-//            弹出对话框，打印统计信息
             JOptionPane.showMessageDialog(null, "Weighted Average Mark: " + statInfo[0] + "\n" + "GPA: " + statInfo[1], "Statistic Information", JOptionPane.INFORMATION_MESSAGE);
-
         });
-
-        // 创建表格
-        String[] columnNames = {"Course ID", "Credits", "Score", "GP"};
-        JTable table = new JTable(courses.toArray(new Object[0][0]), columnNames);
-        JScrollPane scrollPane = new JScrollPane(table);
-        mainPanel.add(scrollPane, BorderLayout.CENTER);
-        add(mainPanel);
 
         setTitle("Student Projects");
         setSize(600, 800);
