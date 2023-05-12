@@ -133,7 +133,7 @@ public class LearningJourneyApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public static void main(String[] args) {
-        new LearningJourneyApp("2020213362");
-    }
+//    public static void main(String[] args) {
+//        new LearningJourneyApp("2020213362");
+//    }
 }
