@@ -30,6 +30,7 @@ public class StudentScoreApp extends JFrame {
         // 创建表格
         String[] columnNames = {"Course ID", "Credits", "Score", "GP"};
         JTable table = new JTable(courses.toArray(new Object[0][0]), columnNames);
+        table.setEnabled(false);
         JScrollPane scrollPane = new JScrollPane(table);
         mainPanel.add(scrollPane, BorderLayout.CENTER);
         add(mainPanel);
