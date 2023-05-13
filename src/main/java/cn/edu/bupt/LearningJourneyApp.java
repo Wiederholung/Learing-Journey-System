@@ -92,7 +92,7 @@ public class LearningJourneyApp extends JFrame {
         studyAbroadAssessmentButton.setPreferredSize(new Dimension(150, 80));
         studyAbroadAssessmentButton.setHorizontalAlignment(JButton.CENTER);
         studyAbroadAssessmentButton.addActionListener(e -> {
-            SikllsApp sikllsApp = new SikllsApp(studentID);
+            SikllApp sikllApp = new SikllApp(studentID);
             dispose();
         });
 

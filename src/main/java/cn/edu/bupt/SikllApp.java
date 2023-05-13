@@ -5,10 +5,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SikllsApp extends JFrame {
+public class SikllApp extends JFrame {
     private final ArrayList<String[]> skills;
 
-    public SikllsApp(String studentID) {
+    public SikllApp(String studentID) {
 
 
         this.skills = new ArrayList<>();
@@ -39,7 +39,7 @@ public class SikllsApp extends JFrame {
         JButton addButton = new JButton("Add New");
         addButton.addActionListener(e -> {
             dispose();
-            new SkillsForm(studentID);
+            new SkillForm(studentID);
         });
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -84,7 +84,7 @@ public class SikllsApp extends JFrame {
                     if (result == JOptionPane.YES_OPTION) {
                         System.out.println("success");
                         DB.deleteHonor(skill[0], skill[1]);
-                        new SikllsApp(studentID);
+                        new SikllApp(studentID);
                         dispose();
                     }
                 });
@@ -102,7 +102,7 @@ public class SikllsApp extends JFrame {
         mainPanel.add(skillPanel, BorderLayout.CENTER);
         getContentPane().add(mainPanel);
 
-        setTitle("Student Honors");
+        setTitle("Student Skills");
         setSize(600, 400);
         setLocationRelativeTo(null);
         setVisible(true);
