@@ -88,10 +88,6 @@ public class StudentInfoApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public static void main(String[] args) {
-        new StudentInfoApp("2020213362");
-    }
-
     private String[][] loadStudentData(String studentID) {
         String[][] data = new String[8][2];
         Student s = DB.getStudent(studentID);

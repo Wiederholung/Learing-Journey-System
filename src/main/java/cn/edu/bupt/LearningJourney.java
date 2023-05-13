@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
-public class LearningJourney {
+public class LearningJourney extends JFrame {
     public String dateOfGradual;
     public String major;
     private final int days;
@@ -42,7 +42,6 @@ public class LearningJourney {
         major = student.getMajor();
 
         JFrame frame = new JFrame("Learning Journey");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
 
         JPanel panel = new JPanel(new GridLayout(9, 1));
@@ -85,8 +84,8 @@ public class LearningJourney {
 
         frame.setSize(600, 900);
         frame.getContentPane().add(panel);
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
-
 }
