@@ -17,6 +17,7 @@ public class Student {
     private List<Course> courses;
     private List<Project> projs;
     private List<Honor> honors;
+    private List<Skill> skills;
 
     public String getSid() {
         return s_id;
@@ -129,6 +130,10 @@ public class Student {
     public void setHonors(List<Honor> honors) {
         this.honors = honors;
     }
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
 }
 
 class Course {
@@ -201,8 +206,6 @@ class Project {
 }
 
 class Honor {
-
-
     private String honor_time;
     private String honor_name;
 
@@ -225,5 +228,31 @@ class Honor {
 
     public void setHonor_name(String honor_name) {
         this.honor_name = honor_name;
+    }
+}
+
+class Skill {
+    private String skill_name;
+    private String skill_level;
+
+    public Skill(String skill_name, String skill_level) {
+        this.skill_name = skill_name;
+        this.skill_level = skill_level;
+    }
+
+    public String getSkill_name() {
+        return skill_name;
+    }
+
+    public void setSkill_name(String skill_name) {
+        this.skill_name = skill_name;
+    }
+
+    public String getSkill_level() {
+        return skill_level;
+    }
+
+    public void setSkill_level(String skill_level) {
+        this.skill_level = skill_level;
     }
 }

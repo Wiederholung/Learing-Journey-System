@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class DB {
 
-    private static final String FILE_PATH = "src/main/resources/db.json"; // JSON文件路径
+    private static final String FILE_PATH = "src/main/resources/db.json";
     private static final Gson gson = new Gson(); // GSON对象
 
     // 新增学生信息

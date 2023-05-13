@@ -87,15 +87,13 @@ public class LearningJourneyApp extends JFrame {
 //                dispose();
         });
 
-        studyAbroadAssessmentButton = new JButton("<html>Study Abroad<br>Assessment</html>");
+        studyAbroadAssessmentButton = new JButton("<html>Student<br>Skills</html>");
         studyAbroadAssessmentButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
         studyAbroadAssessmentButton.setPreferredSize(new Dimension(150, 80));
         studyAbroadAssessmentButton.setHorizontalAlignment(JButton.CENTER);
         studyAbroadAssessmentButton.addActionListener(e -> {
-            // 跳转到 StudyAbroadAssessment 页面
-//                StudyAbroadAssessment studyAbroadAssessment = new StudyAbroadAssessment();
-//                studyAbroadAssessment.setVisible(true);
-//                dispose();
+            SikllsApp sikllsApp = new SikllsApp(studentID);
+            dispose();
         });
 
         exitButton = new JButton("Exit");

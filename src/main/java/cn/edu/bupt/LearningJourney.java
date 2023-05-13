@@ -9,14 +9,14 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class LearningJourney extends JFrame {
-    public String dateOfGradual;
-    public String major;
     private final int days;
     private final int courses;
-    private String lessons;
-    private double score;
     private final int numOfHonors;
     private final int numOfProjects;
+    public String dateOfGradual;
+    public String major;
+    private String lessons;
+    private double score;
 
     public LearningJourney(String studentID) {
         Student student = DB.getStudent(studentID);

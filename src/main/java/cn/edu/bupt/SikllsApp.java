@@ -5,22 +5,24 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentHonorApp extends JFrame {
-    private final ArrayList<String[]> honors;
+public class SikllsApp extends JFrame {
+    private final ArrayList<String[]> skills;
 
-    public StudentHonorApp(String studentID) {
-        this.honors = new ArrayList<>();
+    public SikllsApp(String studentID) {
+
+
+        this.skills = new ArrayList<>();
 //        readProjects();
         Student s = DB.getStudent(studentID);
         if (s != null) {
-            List<Honor> honor = s.getHonors();
+            List<Skill> skill = s.getSkills();
             // 将projs转为ArrayList<String[]>
-            for (Honor h : honor) {
-                String[] s_honor = new String[2];
-                s_honor[0] = h.getHonor_name();
-                s_honor[1] = h.getHonor_time();
+            for (Skill ski : skill) {
+                String[] s_skill = new String[2];
+                s_skill[0] = ski.getSkill_name();
+                s_skill[1] = ski.getSkill_level();
 
-                honors.add(s_honor);
+                skills.add(s_skill);
             }
         }
 
@@ -37,7 +39,7 @@ public class StudentHonorApp extends JFrame {
         JButton addButton = new JButton("Add New");
         addButton.addActionListener(e -> {
             dispose();
-            new StudentHonorForm(studentID);
+            new SkillsForm(studentID);
         });
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -46,13 +48,13 @@ public class StudentHonorApp extends JFrame {
         mainPanel.add(buttonPanel, BorderLayout.NORTH);
 
         // 创建项目按钮面板
-        JPanel projectPanel = new JPanel();
-        projectPanel.setLayout(new BoxLayout(projectPanel, BoxLayout.Y_AXIS));
+        JPanel skillPanel = new JPanel();
+        skillPanel.setLayout(new BoxLayout(skillPanel, BoxLayout.Y_AXIS));
 
         // 创建每个项目的按钮
-        for (String[] project : honors) {
+        for (String[] skill : skills) {
 
-            JButton projectButton = new JButton(project[0] + " " + project[1]);
+            JButton projectButton = new JButton(skill[0] + " " + skill[1]);
             projectButton.setPreferredSize(new Dimension(550, 50));
             projectButton.setMaximumSize(new Dimension(Short.MAX_VALUE, 50));
             projectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -64,8 +66,8 @@ public class StudentHonorApp extends JFrame {
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
 
                 // 添加项目详情信息
-                projectDetailPanel.add(new JLabel("Honor Name: " + project[0]));
-                projectDetailPanel.add(new JLabel("Honor Time: " + project[1]));
+                projectDetailPanel.add(new JLabel("Honor Name: " + skill[0]));
+                projectDetailPanel.add(new JLabel("Honor Time: " + skill[1]));
 //                    projectDetailPanel.add(new JLabel("Project Description: " + project[2]));
 
                 // 添加返回按钮
@@ -81,8 +83,8 @@ public class StudentHonorApp extends JFrame {
                     int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this honor?", "Delete honor", JOptionPane.YES_NO_OPTION);
                     if (result == JOptionPane.YES_OPTION) {
                         System.out.println("success");
-                        DB.deleteHonor(project[0], project[1]);
-                        new StudentHonorApp(studentID);
+                        DB.deleteHonor(skill[0], skill[1]);
+                        new SikllsApp(studentID);
                         dispose();
                     }
                 });
@@ -93,11 +95,11 @@ public class StudentHonorApp extends JFrame {
                 getContentPane().add(projectDetailPanel, BorderLayout.CENTER);
             });
 
-            projectPanel.add(projectButton);
+            skillPanel.add(projectButton);
         }
 
         // 添加项目面板到主面板
-        mainPanel.add(projectPanel, BorderLayout.CENTER);
+        mainPanel.add(skillPanel, BorderLayout.CENTER);
         getContentPane().add(mainPanel);
 
         setTitle("Student Honors");

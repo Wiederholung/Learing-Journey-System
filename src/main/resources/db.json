@@ -94,6 +94,48 @@
         "honor_time": "2022-6-1",
         "honor_name": "北京市国家奖学金"
       }
+    ],
+    "skills": [
+      {
+        "skill_name": "C++",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Java",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Python",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "JavaScript",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "HTML",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "CSS",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "SQL",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "PHP",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C#",
+        "skill_level": "A"
+      }
     ]
   },
   {
