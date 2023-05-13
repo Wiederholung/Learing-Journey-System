@@ -71,10 +71,9 @@ public class LearningJourneyApp extends JFrame {
         learningJourneyButton.setPreferredSize(new Dimension(150, 80));
         learningJourneyButton.setHorizontalAlignment(JButton.CENTER);
         learningJourneyButton.addActionListener(e -> {
-//                // 跳转到 LearningJourney 页面
-//                LearningJourney learningJourney = new LearningJourney();
-//                learningJourney.setVisible(true);
-//                dispose();
+            // 跳转到 LearningJourney 页面
+            LearningJourney learningJourney = new LearningJourney(studentID);
+            dispose();
         });
 
         cvGenerationButton = new JButton("<html>CV<br>Generation</html>");
@@ -127,9 +126,11 @@ public class LearningJourneyApp extends JFrame {
         contentPane.add(buttonPanel, BorderLayout.CENTER);
 
         // 设置窗口大小、位置、可见性
+
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
 }
