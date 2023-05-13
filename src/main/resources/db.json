@@ -93,6 +93,10 @@
       {
         "honor_time": "2022-6-1",
         "honor_name": "北京市国家奖学金"
+      },
+      {
+        "honor_time": "2023-03-01",
+        "honor_name": "校级一等奖学金"
       }
     ],
     "skills": [
@@ -125,15 +129,15 @@
         "skill_level": "A"
       },
       {
-        "skill_name": "PHP",
-        "skill_level": "A"
-      },
-      {
         "skill_name": "C",
         "skill_level": "A"
       },
       {
         "skill_name": "C#",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "PyTorch",
         "skill_level": "A"
       }
     ]

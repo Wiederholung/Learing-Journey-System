@@ -80,10 +80,10 @@ public class SikllApp extends JFrame {
 
                 JButton deleteButton = new JButton("Delete");
                 deleteButton.addActionListener(e12 -> {
-                    int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this honor?", "Delete honor", JOptionPane.YES_NO_OPTION);
+                    int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this skill?", "Delete skill", JOptionPane.YES_NO_OPTION);
                     if (result == JOptionPane.YES_OPTION) {
                         System.out.println("success");
-                        DB.deleteHonor(skill[0], skill[1]);
+                        DB.deleteSkill(skill[0], skill[1]);
                         new SikllApp(studentID);
                         dispose();
                     }

@@ -193,4 +193,38 @@ public class DB {
         return null;
     }
 
+    public static void deleteSkill(String skill_name, String skill_level) {
+        try {
+            // 读取JSON文件中的数据
+            BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
+            JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
+
+            // 遍历JSON数组，查找需要删除的skills信息
+            for (int i = 0; i < jsonArray.size(); i++) {
+                JsonObject jsonStudent = jsonArray.get(i).getAsJsonObject();
+                if (jsonStudent.has("skills")) {
+                    JsonArray skills = jsonStudent.getAsJsonArray("skills");
+                    for (int j = 0; j < skills.size(); j++) {
+                        JsonObject jsonSkill = skills.get(j).getAsJsonObject();
+                        if (jsonSkill.has("skill_name") && jsonSkill.has("skill_level")) {
+                            String skillName = jsonSkill.get("skill_name").getAsString();
+                            String skillLevel = jsonSkill.get("skill_level").getAsString();
+                            if (skillName.equals(skill_name) && skillLevel.equals(skill_level)) {
+                                skills.remove(j);
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 将JSON数组写回文件
+            FileWriter fw = new FileWriter(FILE_PATH);
+            fw.write(gson.toJson(jsonArray));
+            fw.flush();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

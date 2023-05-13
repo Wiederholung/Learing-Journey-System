@@ -13,10 +13,10 @@ public class StudentHonorForm extends JFrame {
     private final JButton backButton;
 
     public StudentHonorForm(final String studentID) {
-        super("Adding your project experience here");
+        super("Adding your honor here");
 
         // 创建标题标签，设置字体和尺寸，居中对齐
-        titleLabel = new JLabel("Adding your project experience here");
+        titleLabel = new JLabel("Adding your honor experience here");
         titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
         titleLabel.setHorizontalAlignment(JLabel.CENTER);
 
@@ -52,7 +52,7 @@ public class StudentHonorForm extends JFrame {
         gbc.gridx = 0;
         gbc.gridy = 1;
         gbc.gridwidth = 1;
-        panel.add(new JLabel("Project Time:"), gbc);
+        panel.add(new JLabel("Honor Time:"), gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 1;
@@ -60,7 +60,7 @@ public class StudentHonorForm extends JFrame {
 
         gbc.gridx = 0;
         gbc.gridy = 2;
-        panel.add(new JLabel("Project Content:"), gbc);
+        panel.add(new JLabel("Honor Content:"), gbc);
 
         gbc.gridx = 1;
         gbc.gridy = 2;
@@ -92,7 +92,7 @@ public class StudentHonorForm extends JFrame {
 
                 projectTimeField.setText("");
                 projectContentArea.setText("");
-                JOptionPane.showMessageDialog(null, "Project submitted successfully!");
+                JOptionPane.showMessageDialog(null, "Honor submitted successfully!");
             }
         });
         backButton.addActionListener(e -> {
