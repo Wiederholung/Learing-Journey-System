@@ -19,6 +19,27 @@ public class Student {
     private List<Honor> honors;
     private List<Skill> skills;
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "s_id='" + s_id + '\'' + "\n" +
+                ", password='" + password + '\'' + "\n" +
+                ", email='" + email + '\'' + "\n" +
+                ", phone='" + phone + '\'' + "\n" +
+                ", name='" + name + '\'' + "\n" +
+                ", gender='" + gender + '\'' + "\n" +
+                ", affiliation='" + affiliation + '\'' + "\n" +
+                ", class_id='" + class_id + '\'' + "\n" +
+                ", major='" + major + '\'' + "\n" +
+                ", enroll_date='" + enroll_date + '\'' + "\n" +
+                ", grad_date='" + grad_date + '\'' + "\n" +
+                ", Courses='" + courses.toString() + '\'' + "\n" +
+                ", Honor='" + honors.toString() + '\'' + "\n" +
+                ", Project='" + projs.toString() + '\'' + "\n" +
+                ", Skills='" + skills.toString() + '\'' + "\n" +
+                '}';
+    }
+
     public String getSid() {
         return s_id;
     }
@@ -145,6 +166,15 @@ class Course {
     private String credits;
     private int grade;
 
+    @Override
+    public String toString() {
+        return "Course{" +
+                "course_id='" + course_id + '\'' +
+                ", credits='" + credits + '\'' +
+                ", grade=" + grade +
+                '}';
+    }
+
     public String getCourse_id() {
         return course_id;
     }
@@ -176,6 +206,15 @@ class Project {
     private String proj_name;
     private String proj_time;
     private String describe;
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "proj_name='" + proj_name + '\'' +
+                ", proj_time='" + proj_time + '\'' +
+                ", describe='" + describe + '\'' +
+                '}';
+    }
 
     public Project(String proj_name, String proj_time, String describe) {
         this.proj_name = proj_name;
@@ -218,6 +257,14 @@ class Honor {
         this.honor_name = honor_name;
     }
 
+    @Override
+    public String toString() {
+        return "Honor{" +
+                "honor_time='" + honor_time + '\'' +
+                ", honor_name='" + honor_name + '\'' +
+                '}';
+    }
+
     public String getHonor_time() {
         return honor_time;
     }
@@ -242,6 +289,14 @@ class Skill {
     public Skill(String skill_name, String skill_level) {
         this.skill_name = skill_name;
         this.skill_level = skill_level;
+    }
+
+    @Override
+    public String toString() {
+        return "Skill{" +
+                "skill_name='" + skill_name + '\'' +
+                ", skill_level='" + skill_level + '\'' +
+                '}';
     }
 
     public String getSkill_name() {

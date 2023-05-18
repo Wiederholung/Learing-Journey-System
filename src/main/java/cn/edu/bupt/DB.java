@@ -29,17 +29,14 @@ public class DB {
             jsonArray.add(jsonStudent);
 
             // 将JSON数组写回文件
-            FileWriter fw = new FileWriter(FILE_PATH);
-            fw.write(gson.toJson(jsonArray));
-            fw.flush();
-            fw.close();
+           writeToJson(jsonArray);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     //删除学生项目
-    public static void deleteProject(String name, String time) {
+    public static JsonArray deleteProject(String name, String time) {
         try {
             // 读取JSON文件中的数据
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
@@ -65,21 +62,16 @@ public class DB {
                     }
                 }
             }
-
-
-            // 将JSON数组写回文件
-            FileWriter fw = new FileWriter(FILE_PATH);
-            fw.write(gson.toJson(jsonArray));
-            fw.flush();
-            fw.close();
+          return jsonArray;
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
 
     // 删除honor信息
-    public static void deleteHonor(String honor_name, String honor_time) {
+    public static JsonArray deleteHonor(String honor_name, String honor_time) {
         try {
             // 读取JSON文件中的数据
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
@@ -105,13 +97,11 @@ public class DB {
             }
 
             // 将JSON数组写回文件
-            FileWriter fw = new FileWriter(FILE_PATH);
-            fw.write(gson.toJson(jsonArray));
-            fw.flush();
-            fw.close();
+            return jsonArray;
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
 
@@ -144,7 +134,7 @@ public class DB {
     }
 
     // 修改学生信息
-    public static void updateStudent(Student student) {
+    public static JsonArray updateStudent(Student student) {
         try {
             // 读取JSON文件中的数据
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
@@ -160,15 +150,11 @@ public class DB {
                     break;
                 }
             }
-
-            // 将JSON数组写回文件
-            FileWriter fw = new FileWriter(FILE_PATH);
-            fw.write(gson.toJson(jsonArray));
-            fw.flush();
-            fw.close();
+            return jsonArray;
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
     // 查询学生信息
@@ -193,7 +179,7 @@ public class DB {
         return null;
     }
 
-    public static void deleteSkill(String skill_name, String skill_level) {
+    public static JsonArray deleteSkill(String skill_name, String skill_level) {
         try {
             // 读取JSON文件中的数据
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
@@ -219,12 +205,31 @@ public class DB {
             }
 
             // 将JSON数组写回文件
-            FileWriter fw = new FileWriter(FILE_PATH);
-            fw.write(gson.toJson(jsonArray));
-            fw.flush();
-            fw.close();
+       return jsonArray;
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
+
+
+    public static void writeToJson(JsonArray jsonArray){
+
+        try {
+                // 将JSON数组写回文件
+                FileWriter fw = new FileWriter(FILE_PATH);
+                fw.write(gson.toJson(jsonArray));
+                fw.flush();
+                fw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+
+    }
+
+
+
+
+
 }

@@ -101,10 +101,13 @@ public class ProjectExperienceForm extends JFrame {
             List<Project> projs;
             if (s != null) {
                 projs = s.getProjs();
+                if(projectName.equals("") || projectTime.equals("") || projectContent.equals("")){
+                    JOptionPane.showMessageDialog(null, "Please fill in all fields!");
+                    return;
+                }
                 projs.add(new Project(projectName, projectTime, projectContent));
                 s.setProjs(projs);
-                DB.updateStudent(s);
-
+                DB.writeToJson(DB.updateStudent(s));
                 projectNameField.setText("");
                 projectTimeField.setText("");
                 projectContentArea.setText("");

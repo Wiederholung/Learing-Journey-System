@@ -65,34 +65,44 @@ public class SikllApp extends JFrame {
                 JPanel projectDetailPanel = new JPanel();
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
 
-                // 添加项目详情信息
-                projectDetailPanel.add(new JLabel("Honor Name: " + skill[0]));
-                projectDetailPanel.add(new JLabel("Honor Time: " + skill[1]));
-//                    projectDetailPanel.add(new JLabel("Project Description: " + project[2]));
+                JLabel honorNameLabel = new JLabel("Honor Name: " + skill[0]);
+                JLabel honorTimeLabel = new JLabel("Honor Time: " + skill[1]);
+                JPanel detailPanel = new JPanel();
+                detailPanel.setLayout(new BoxLayout(detailPanel, BoxLayout.Y_AXIS));
+                detailPanel.add(honorNameLabel);
+                detailPanel.add(honorTimeLabel);
 
                 // 添加返回按钮
                 JButton backButton1 = new JButton("Back");
+                backButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
                 backButton1.addActionListener(e1 -> {
-                    mainPanel.setVisible(true);
-                    projectDetailPanel.setVisible(false);
+                   new SikllApp(studentID);
+                    dispose();
                 });
-                projectDetailPanel.add(backButton1);
 
                 JButton deleteButton = new JButton("Delete");
+                deleteButton.setAlignmentX(Component.CENTER_ALIGNMENT);
                 deleteButton.addActionListener(e12 -> {
                     int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this skill?", "Delete skill", JOptionPane.YES_NO_OPTION);
                     if (result == JOptionPane.YES_OPTION) {
                         System.out.println("success");
-                        DB.deleteSkill(skill[0], skill[1]);
+                        DB.writeToJson(DB.deleteSkill(skill[0], skill[1]));
                         new SikllApp(studentID);
                         dispose();
                     }
                 });
-                projectDetailPanel.add(deleteButton);
+
+                JPanel buttonPanel2 = new JPanel();
+                buttonPanel2.setLayout(new FlowLayout(FlowLayout.CENTER));
+                buttonPanel2.add(backButton1);
+                buttonPanel2.add(deleteButton);
+
                 // 显示项目详情面板
+                detailPanel.add(buttonPanel2);
                 mainPanel.setVisible(false);
-                projectDetailPanel.setVisible(true);
-                getContentPane().add(projectDetailPanel, BorderLayout.CENTER);
+                detailPanel.setVisible(true);
+                getContentPane().add(detailPanel, BorderLayout.CENTER);
+
             });
 
             skillPanel.add(projectButton);

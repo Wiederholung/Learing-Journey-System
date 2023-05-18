@@ -84,8 +84,7 @@ public class SkillForm extends JFrame {
                     skills = s.getSkills();
                     skills.add(new Skill(skillName, skillLevel));
                     s.setSkills(skills);
-                    DB.updateStudent(s);
-
+                    DB.writeToJson(DB.updateStudent(s));
                     skillNameField.setText("");
                     skillLevelField.setText("");
                     JOptionPane.showMessageDialog(null, "Skill submitted successfully!");

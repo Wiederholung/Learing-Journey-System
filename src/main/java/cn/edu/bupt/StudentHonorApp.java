@@ -63,10 +63,10 @@ public class StudentHonorApp extends JFrame {
                 JPanel projectDetailPanel = new JPanel();
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
 
-                // 添加项目详情信息
-                projectDetailPanel.add(new JLabel("Honor Name: " + project[0]));
-                projectDetailPanel.add(new JLabel("Honor Time: " + project[1]));
-//                    projectDetailPanel.add(new JLabel("Project Description: " + project[2]));
+                JPanel detailPanel = new JPanel();
+                detailPanel.setLayout(new GridLayout(2, 1, 0, 10));
+                detailPanel.add(new JLabel("Honor Name: " + project[0], SwingConstants.CENTER));
+                detailPanel.add(new JLabel("Honor Time: " + project[1], SwingConstants.CENTER));
 
                 // 添加返回按钮
                 JButton backButton1 = new JButton("Back");
@@ -74,22 +74,36 @@ public class StudentHonorApp extends JFrame {
                     mainPanel.setVisible(true);
                     projectDetailPanel.setVisible(false);
                 });
-                projectDetailPanel.add(backButton1);
+                backButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+                //添加删除按钮
                 JButton deleteButton = new JButton("Delete");
                 deleteButton.addActionListener(e12 -> {
                     int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this honor?", "Delete honor", JOptionPane.YES_NO_OPTION);
                     if (result == JOptionPane.YES_OPTION) {
                         System.out.println("success");
-                        DB.deleteHonor(project[0], project[1]);
+                        DB.writeToJson( DB.deleteHonor(project[0], project[1]));
                         new StudentHonorApp(studentID);
                         dispose();
                     }
                 });
-                projectDetailPanel.add(deleteButton);
+                deleteButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
                 // 显示项目详情面板
                 mainPanel.setVisible(false);
                 projectDetailPanel.setVisible(true);
+
+                // 添加到项目详情面板
+                projectDetailPanel.removeAll();
+                projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
+                projectDetailPanel.add(Box.createVerticalGlue());
+                projectDetailPanel.add(detailPanel);
+                projectDetailPanel.add(Box.createVerticalGlue());
+                projectDetailPanel.add(backButton1);
+                projectDetailPanel.add(Box.createVerticalGlue());
+                projectDetailPanel.add(deleteButton);
+                projectDetailPanel.add(Box.createVerticalGlue());
+
                 getContentPane().add(projectDetailPanel, BorderLayout.CENTER);
             });
 

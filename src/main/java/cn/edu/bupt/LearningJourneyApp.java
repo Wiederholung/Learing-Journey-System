@@ -15,8 +15,18 @@ public class LearningJourneyApp extends JFrame {
     private final JButton exitButton;
 
     public LearningJourneyApp(String studentID) {
-        super("Learning Journey Application for International School");
 
+        super("Learning Journey Application for International School");
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        }catch(Exception e) {
+            System.out.println(e);
+        }
         // 创建标题标签，设置字体和尺寸，居中对齐
         titleLabel = new JLabel("Learning Journey Application for International School");
         titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
@@ -118,17 +128,22 @@ public class LearningJourneyApp extends JFrame {
         buttonPanel.add(studyAbroadAssessmentButton);
         buttonPanel.add(exitButton);
 
-        // 将标题和按钮面板添加到窗口中
+        // 创建新面板，添加到窗口中
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setPreferredSize(new Dimension(0, 200));
         Container contentPane = getContentPane();
         contentPane.add(titleLabel, BorderLayout.NORTH);
         contentPane.add(buttonPanel, BorderLayout.CENTER);
+        contentPane.add(bottomPanel, BorderLayout.SOUTH);
 
         // 设置窗口大小、位置、可见性
-
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    public static void main(String[] args) {
+        new LearningJourneyApp("2020213362");
     }
 
 }

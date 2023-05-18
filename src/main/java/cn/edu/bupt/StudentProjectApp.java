@@ -65,11 +65,20 @@ public class StudentProjectApp extends JFrame {
                 // 创建新的项目详情面板
                 JPanel projectDetailPanel = new JPanel();
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
+                projectDetailPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
                 // 添加项目详情信息
-                projectDetailPanel.add(new JLabel("Project Name: " + project[0]));
-                projectDetailPanel.add(new JLabel("Project Time: " + project[1]));
-                projectDetailPanel.add(new JLabel("Project Description: " + project[2]));
+                JLabel projectNameLabel = new JLabel("Project Name: " + project[0]);
+                projectNameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                projectDetailPanel.add(projectNameLabel);
+
+                JLabel projectTimeLabel = new JLabel("Project Time: " + project[1]);
+                projectTimeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                projectDetailPanel.add(projectTimeLabel);
+
+                JLabel projectDescriptionLabel = new JLabel("Project Description: " + project[2]);
+                projectDescriptionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                projectDetailPanel.add(projectDescriptionLabel);
 
                 // 添加返回按钮
                 JButton backButton1 = new JButton("Back");
@@ -77,6 +86,7 @@ public class StudentProjectApp extends JFrame {
                     mainPanel.setVisible(true);
                     projectDetailPanel.setVisible(false);
                 });
+                backButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
                 projectDetailPanel.add(backButton1);
 
                 // 添加删除按钮
@@ -85,11 +95,12 @@ public class StudentProjectApp extends JFrame {
                     int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this project?", "Delete Project", JOptionPane.YES_NO_OPTION);
                     if (result == JOptionPane.YES_OPTION) {
                         System.out.println("success");
-                        DB.deleteProject(project[0], project[1]);
+                       DB.writeToJson( DB.deleteProject(project[0], project[1]));
                         new StudentProjectApp(studentID);
                         dispose();
                     }
                 });
+                deleteButton.setAlignmentX(Component.CENTER_ALIGNMENT);
                 projectDetailPanel.add(deleteButton);
 
                 // 显示项目详情面板

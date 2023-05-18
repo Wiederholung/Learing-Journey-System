@@ -76,16 +76,10 @@ public class StudentHonorForm extends JFrame {
         panel.add(backButton, gbc);
 
         // 清空所有输入框内容
-        // 清空所有输入框内容
         submitButton.addActionListener(e -> {
             // 获取输入框中的信息
             String honorTime = projectTimeField.getText();
             String honorContent = projectContentArea.getText();
-
-            if (honorTime.isEmpty() || honorContent.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "Please fill in all fields.");
-                return;
-            }
 
             // 将项目信息写入StudentProject.csv中
             Student s = DB.getStudent(studentID);

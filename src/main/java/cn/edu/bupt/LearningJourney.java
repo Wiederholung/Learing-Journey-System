@@ -46,46 +46,54 @@ public class LearningJourney extends JFrame {
 
         JPanel panel = new JPanel(new GridLayout(9, 1));
 
-        JLabel label1 = new JLabel("<html><h1>Dear " + student.getName() + "：</h1></html>");
+        JLabel label1 = new JLabel("<html><h1 style='text-align:center;'>" + student.getName() + "：</h1></html>");
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(label1);
 
-        JLabel label2 = new JLabel("<html><h2>Enjoy your Learning journey in BUPT and QMUL!</h2></html>");
+        JLabel label2 = new JLabel("<html><h2 style='text-align:center;'>Enjoy your Learning journey in BUPT and QMUL!</h2></html>");
+        label2.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(label2);
 
-        JLabel label3 = new JLabel("<html><h3>Now you have joined us for " + days + " days!</h3></html>");
+        JLabel label3 = new JLabel("<html><h3 style='text-align:center;'>Now you have joined us for <font size='6'>" + days + "</font> days!</h3></html>");
+        label3.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(label3);
 
-        JLabel label4 = new JLabel("<html><h3>You have learned " + courses + " subjects, receive unsurmontable knowledge!</h3></html>");
+        JLabel label4 = new JLabel("<html><h3 style='text-align:center;'>You have learned <font size='6'>" + courses + "</font> subjects, receive unsurmontable knowledge!</h3></html>");
+        label4.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(label4);
 
-        JLabel label5 = new JLabel("<html><h3>Overall, you performed best in the subject " + lessons + ", scored " + score + " ! How excellent you are!</h3></html>");
+        JLabel label5 = new JLabel("<html><h3 style='text-align:center;'>Overall, you performed best in the subject <font size='6'>" + lessons + "</font>, scored <font size='6'>" + score + "</font> ! How excellent you are!</h3></html>");
+        label5.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(label5);
 
 
-        JLabel label6 = new JLabel("<html><h3>Until now, you have gained " + numOfHonors + " honors/scolarships!</h3></html>");
+        JLabel label6 = new JLabel("<html><h3 style='text-align:center;'>Until now, you have gained <font size='6'>" + numOfHonors + "</font> honors/scolarships!</h3></html>");
+        label6.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(label6);
 
-        JLabel label7 = new JLabel("<html><h3>You have completed " + numOfProjects + " during these time. <br>--the difficulties you beat will become your glories!</h3></html>");
+        JLabel label7 = new JLabel("<html><h3 style='text-align:center;'>You have completed <font size='6'>" + numOfProjects + "</font> during these time. <br>--the difficulties you beat will become your glories!</h3></html>");
+        label7.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(label7);
 
-        JLabel label8 = new JLabel("<html><h3>In " + dateOfGradual + ", you will receive a bachelor’s degree of ： <br>" + major + " ! <br>That is a significant step you take in your career and we believe you will be excellent in the future!</h3></html>");
+        JLabel label8 = new JLabel("<html><h3 style='text-align:center;'>In <font size='6'>" + dateOfGradual + "</font>, you will receive a bachelor’s degree of ： <br>" + "<font size='12'>" + major + "</font>" + " ! <br>That is a significant step you take in your career and we believe you will be excellent in the future!</font></h3></html>");
+        label8.setHorizontalAlignment(SwingConstants.CENTER);
         panel.add(label8);
-        JButton backButton = new JButton("back!");
+        JButton backButton = new JButton("Back");
+        backButton.setPreferredSize(new Dimension(200, 100));
+        panel.add(backButton);
         backButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                LearningJourneyApp app = new LearningJourneyApp(studentID);
-                app.show();
+                new LearningJourneyApp(studentID);
             }
         });
-        backButton.setSize(200, 100);
-        panel.add(backButton);
-
-
-        frame.setSize(600, 900);
+        frame.setSize(800, 1000);
         frame.getContentPane().add(panel);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+    public static void main(String[] args) {
+        LearningJourney learningJourney=new LearningJourney("2020213362");
     }
 }
