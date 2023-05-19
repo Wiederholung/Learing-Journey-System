@@ -63,7 +63,6 @@ public class StudentScoreApp extends JFrame {
             gpa /= totalCredits;
             statInfo[0] = String.format("%.2f", wam);
             statInfo[1] = String.format("%.2f", gpa);
-
             JOptionPane.showMessageDialog(null, "Weighted Average Mark: " + statInfo[0] + "\n" + "GPA: " + statInfo[1], "Statistic Information", JOptionPane.INFORMATION_MESSAGE);
         });
 

@@ -8,7 +8,7 @@ class TestDB {
     Student student=DB.getStudent("2020213362");
     @Test
     void testGetStudent(){
-
+        System.out.println(student.toString());
     }
 
     @Test
@@ -45,8 +45,6 @@ class TestDB {
         DB.writeToJson(DB.updateStudent(student));
         Student testStudent=DB.getStudent("2020213362");
         System.out.println(testStudent.getName());
-
-
         //repeal
         student.setName("Anna Shelbacova");
         DB.writeToJson(DB.updateStudent(student));

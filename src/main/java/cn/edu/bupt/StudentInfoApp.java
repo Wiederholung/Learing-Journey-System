@@ -59,8 +59,7 @@ public class StudentInfoApp extends JFrame {
             }
             // 更新数据库
             writeStudentData(studentID, stuInfo);
-            // 提示修改成功
-            JOptionPane.showMessageDialog(null, "Modify Successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+
             // 关闭当前窗口
             dispose();
             // 创建并显示 StudentInfoApp 窗口
@@ -107,15 +106,23 @@ public class StudentInfoApp extends JFrame {
     private void writeStudentData(String studentID, String[][] data) {
         Student s = DB.getStudent(studentID);
         if (s != null && s.getSid().equals(studentID)) {
-            s.setName(data[0][1]);
-            s.setGender(data[1][1]);
-//            s.setSid(stuInfo[2][1]);
-            s.setClassId(data[3][1]);
-            s.setMajor(data[4][1]);
-            s.setEnrollDate(data[5][1]);
-            s.setGradDate(data[6][1]);
-            s.setAffiliation(data[7][1]);
-            DB.updateStudent(s);
+            for (int i = 0; i < data.length; i++) {
+                if (data[i][1].equals("")) {
+                    JOptionPane.showMessageDialog(null, "Value cannot be empty!", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            }
         }
+        s.setName(data[0][1]);
+        s.setGender(data[1][1]);
+//            s.setSid(stuInfo[2][1]);
+        s.setClassId(data[3][1]);
+        s.setMajor(data[4][1]);
+        s.setEnrollDate(data[5][1]);
+        s.setGradDate(data[6][1]);
+        s.setAffiliation(data[7][1]);
+        DB.writeToJson(DB.updateStudent(s));
+        // 提示修改成功
+        JOptionPane.showMessageDialog(null, "Modify Successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 }
