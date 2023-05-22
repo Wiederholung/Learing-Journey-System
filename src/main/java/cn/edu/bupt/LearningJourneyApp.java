@@ -22,16 +22,7 @@ public class LearningJourneyApp extends JFrame {
     public LearningJourneyApp(String studentID) {
 
         super("Learning Journey Application for International School");
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        }catch(Exception e) {
-            System.out.println(e);
-        }
+
         //Set the label
         titleLabel = new JLabel("Learning Journey Application for International School");
         titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
@@ -90,11 +81,13 @@ public class LearningJourneyApp extends JFrame {
             dispose();
         });
 
-        cvGenerationButton = new JButton("<html>CV<br>Generation</html>");
+        cvGenerationButton = new JButton("<html>Export<br>Data</html>");
         cvGenerationButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
         cvGenerationButton.setPreferredSize(new Dimension(150, 80));
         cvGenerationButton.setHorizontalAlignment(JButton.CENTER);
         cvGenerationButton.addActionListener(e -> {
+            ExportInfo exportInfo = new ExportInfo();
+            exportInfo.export(studentID);
         });
 
         studyAbroadAssessmentButton = new JButton("<html>Student<br>Skills</html>");

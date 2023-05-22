@@ -14,6 +14,17 @@ public class LoginFrame extends JFrame {
     public LoginFrame() {
         setTitle("Learning Journey Application for International School");
         setLayout(new BorderLayout());
+
+         try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        }catch(Exception e) {
+            System.out.println(e);
+        }
         /**
          * This is the title area
          * include Big title and Small title

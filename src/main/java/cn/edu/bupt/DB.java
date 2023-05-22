@@ -9,8 +9,10 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.io.*;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class DB {
 
@@ -29,14 +31,31 @@ public class DB {
             jsonArray.add(jsonStudent);
 
             // 将JSON数组写回文件
-           writeToJson(jsonArray);
+            writeToJson(jsonArray);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    public static JsonArray exportStudent(Student student) {
+        try {
+
+            // 将学生对象转换为JSON对象
+            JsonObject jsonStudent = gson.toJsonTree(student).getAsJsonObject();
+
+            // 将JSON对象添加到JSON数组中
+            JsonArray jsonArray = new JsonArray();
+            jsonArray.add(jsonStudent);
+            return jsonArray;
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     /**
      * Delete the student's project
+     *
      * @param name project's name
      * @param time project's time
      * @return An array of student's object
@@ -67,7 +86,7 @@ public class DB {
                     }
                 }
             }
-          return jsonArray;
+            return jsonArray;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -139,6 +158,7 @@ public class DB {
 
     /**
      * Transfer a student object into JsonArray, in order to write them into JSON file.
+     *
      * @param student student object that are modified
      * @return JsonArray Object
      */
@@ -167,6 +187,7 @@ public class DB {
 
     /**
      * Get the Student Object by the ID of the Students
+     *
      * @param sId Student's ID
      * @return Student Object
      */
@@ -193,6 +214,7 @@ public class DB {
 
     /**
      * Delete the Skill
+     *
      * @return JsonArray that the skill is deleted
      */
     public static JsonArray deleteSkill(String skill_name, String skill_level) {
@@ -219,7 +241,7 @@ public class DB {
                     }
                 }
             }
-       return jsonArray;
+            return jsonArray;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -229,25 +251,32 @@ public class DB {
 
     /**
      * Write the Student Object into JSON file
+     *
      * @param jsonArray
      */
-    public static void writeToJson(JsonArray jsonArray){
+    public static void writeToJson(JsonArray jsonArray) {
         try {
-                // 将JSON数组写回文件
-                FileWriter fw = new FileWriter(FILE_PATH);
-                fw.write(gson.toJson(jsonArray));
-                fw.flush();
-                fw.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
+            // 将JSON数组写回文件
+            FileWriter fw = new FileWriter(FILE_PATH);
+            fw.write(gson.toJson(jsonArray));
+            fw.flush();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-
-
-
+    public static void writeToJson(JsonArray jsonArray, String path) {
+        try {
+            // 将JSON数组写回文件
+            FileWriter fw = new FileWriter(path);
+            fw.write(gson.toJson(jsonArray));
+            fw.flush();
+            fw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }
