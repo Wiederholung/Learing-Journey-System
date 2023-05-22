@@ -1,3 +1,6 @@
+/**
+ * This class is used to add the project experience
+ */
 package cn.edu.bupt;
 
 import javax.swing.*;
@@ -16,36 +19,34 @@ public class ProjectExperienceForm extends JFrame {
     public ProjectExperienceForm(final String studentID) {
         super("Adding your project experience here");
 
-        // 创建标题标签，设置字体和尺寸，居中对齐
+        // Set the title
         titleLabel = new JLabel("Adding your project experience here");
         titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
         titleLabel.setHorizontalAlignment(JLabel.CENTER);
-
-        // 创建项目名称输入框，设置大小和位置
+        /**
+         * set the field of name,time and content
+         */
         projectNameField = new JTextField(20);
         projectNameField.setHorizontalAlignment(JTextField.CENTER);
         projectNameField.setPreferredSize(new Dimension(200, 30));
 
-        // 创建项目时间输入框，设置大小和位置
         projectTimeField = new JTextField(20);
         projectTimeField.setHorizontalAlignment(JTextField.CENTER);
         projectTimeField.setPreferredSize(new Dimension(200, 30));
 
-        // 创建项目内容文本框，设置大小和位置
         projectContentArea = new JTextArea(5, 20);
         projectContentArea.setLineWrap(true);
         projectContentArea.setWrapStyleWord(true);
         JScrollPane scrollPane = new JScrollPane(projectContentArea);
 
-        // 创建提交按钮，设置大小和位置
+        // create submit and back button
         submitButton = new JButton("Submit");
         submitButton.setPreferredSize(new Dimension(200, 30));
 
-        // 创建返回按钮，设置大小和位置
         backButton = new JButton("Back");
         backButton.setPreferredSize(new Dimension(200, 30));
 
-        // 创建面板，将组件添加到面板上
+        // create the panel and add into the frame
         JPanel panel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
@@ -96,7 +97,7 @@ public class ProjectExperienceForm extends JFrame {
             String projectTime = projectTimeField.getText();
             String projectContent = projectContentArea.getText();
 
-            // 将项目信息写入StudentProject.csv中
+            // write the information into the JSON file
             Student s = DB.getStudent(studentID);
             List<Project> projs;
             if (s != null) {
@@ -119,7 +120,7 @@ public class ProjectExperienceForm extends JFrame {
             new StudentProjectApp(studentID);
         });
 
-        // 将面板添加到窗口上
+
         add(panel);
         pack();
         setLocationRelativeTo(null);

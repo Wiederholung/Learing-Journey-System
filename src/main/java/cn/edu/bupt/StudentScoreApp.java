@@ -1,3 +1,6 @@
+/**
+ * this class is used to screen student's score ,and calculate their average points and GPA
+ */
 package cn.edu.bupt;
 
 import javax.swing.*;
@@ -6,10 +9,9 @@ import java.util.ArrayList;
 
 public class StudentScoreApp extends JFrame {
     private final ArrayList<String[]> courses;
-
     public StudentScoreApp(String studentID) {
         this.courses = new ArrayList<>();
-//        readProjects();
+
         Student s = DB.getStudent(studentID);
         if (s != null) {
             for (Course c : s.getCourses()) {
@@ -23,11 +25,10 @@ public class StudentScoreApp extends JFrame {
             }
         }
 
-        // 创建主面板
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
 
-        // 创建表格
+        // Create the forms
         String[] columnNames = {"Course ID", "Credits", "Score", "GP"};
         JTable table = new JTable(courses.toArray(new Object[0][0]), columnNames);
         table.setEnabled(false);
@@ -35,7 +36,7 @@ public class StudentScoreApp extends JFrame {
         mainPanel.add(scrollPane, BorderLayout.CENTER);
         add(mainPanel);
 
-        // 创建返回按钮和添加按钮
+        //Create back and add Button
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
             dispose();
@@ -48,7 +49,7 @@ public class StudentScoreApp extends JFrame {
         buttonPanel.add(backButton);
         buttonPanel.add(addButton);
         mainPanel.add(buttonPanel, BorderLayout.NORTH);
-        // 点击添加按钮，弹出对话框，打印统计信息
+        // Click the add button to pop up the dialog box and print the statistics.
         addButton.addActionListener(e -> {
             String[] statInfo = new String[2];
             double wam = 0;

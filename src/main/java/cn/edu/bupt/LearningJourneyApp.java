@@ -1,3 +1,8 @@
+/**
+ * Main Interface of the system
+ * Can navigate to every function int the project
+ */
+
 package cn.edu.bupt;
 
 import javax.swing.*;
@@ -27,12 +32,14 @@ public class LearningJourneyApp extends JFrame {
         }catch(Exception e) {
             System.out.println(e);
         }
-        // 创建标题标签，设置字体和尺寸，居中对齐
+        //Set the label
         titleLabel = new JLabel("Learning Journey Application for International School");
         titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
         titleLabel.setHorizontalAlignment(JLabel.CENTER);
 
-        // 创建按钮，设置字体和尺寸，居中对齐
+        /**
+         * Create all the Buttons and navigate to the functions
+         */
         studentStatusButton = new JButton("<html>Student<br>Personal<br>Information</html>");
         studentStatusButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
         studentStatusButton.setPreferredSize(new Dimension(150, 80));
@@ -48,7 +55,6 @@ public class LearningJourneyApp extends JFrame {
         studentHonorsButton.setPreferredSize(new Dimension(150, 80));
         studentHonorsButton.setHorizontalAlignment(JButton.CENTER);
         studentHonorsButton.addActionListener(e -> {
-//                 跳转到 StudentHonors 页面
             StudentHonorApp studentHonorApp = new StudentHonorApp(studentID);
             studentHonorApp.setVisible(true);
             dispose();
@@ -59,7 +65,6 @@ public class LearningJourneyApp extends JFrame {
         studentProjectButton.setPreferredSize(new Dimension(150, 80));
         studentProjectButton.setHorizontalAlignment(JButton.CENTER);
         studentProjectButton.addActionListener(e -> {
-//                 跳转到 StudentProject 页面
             StudentProjectApp studentProject = new StudentProjectApp(studentID);
             studentProject.setVisible(true);
             dispose();
@@ -70,7 +75,6 @@ public class LearningJourneyApp extends JFrame {
         studentExamResultsButton.setPreferredSize(new Dimension(150, 80));
         studentExamResultsButton.setHorizontalAlignment(JButton.CENTER);
         studentExamResultsButton.addActionListener(e -> {
-            // 跳转到 StudentExamResults 页面
             StudentScoreApp studentExamResults = new StudentScoreApp(studentID);
             studentExamResults.setVisible(true);
             dispose();
@@ -81,8 +85,8 @@ public class LearningJourneyApp extends JFrame {
         learningJourneyButton.setPreferredSize(new Dimension(150, 80));
         learningJourneyButton.setHorizontalAlignment(JButton.CENTER);
         learningJourneyButton.addActionListener(e -> {
-            // 跳转到 LearningJourney 页面
             LearningJourney learningJourney = new LearningJourney(studentID);
+            learningJourney.setVisible(true);
             dispose();
         });
 
@@ -91,10 +95,6 @@ public class LearningJourneyApp extends JFrame {
         cvGenerationButton.setPreferredSize(new Dimension(150, 80));
         cvGenerationButton.setHorizontalAlignment(JButton.CENTER);
         cvGenerationButton.addActionListener(e -> {
-            // 跳转到 CVGeneration 页面
-//                CVGeneration cvGeneration = new CVGeneration();
-//                cvGeneration.setVisible(true);
-//                dispose();
         });
 
         studyAbroadAssessmentButton = new JButton("<html>Student<br>Skills</html>");
@@ -102,7 +102,8 @@ public class LearningJourneyApp extends JFrame {
         studyAbroadAssessmentButton.setPreferredSize(new Dimension(150, 80));
         studyAbroadAssessmentButton.setHorizontalAlignment(JButton.CENTER);
         studyAbroadAssessmentButton.addActionListener(e -> {
-            SikllApp sikllApp = new SikllApp(studentID);
+            SkillApp skillApp = new SkillApp(studentID);
+            skillApp.setVisible(true);
             dispose();
         });
 
@@ -117,7 +118,7 @@ public class LearningJourneyApp extends JFrame {
             dispose();
         });
 
-        // 创建面板，并将组件添加到面板上
+        // create the panel and set the layout
         JPanel buttonPanel = new JPanel(new GridLayout(2, 4, 10, 10));
         buttonPanel.add(studentStatusButton);
         buttonPanel.add(studentHonorsButton);
@@ -128,7 +129,7 @@ public class LearningJourneyApp extends JFrame {
         buttonPanel.add(studyAbroadAssessmentButton);
         buttonPanel.add(exitButton);
 
-        // 创建新面板，添加到窗口中
+        // create the panel and add it into the frame
         JPanel bottomPanel = new JPanel();
         bottomPanel.setPreferredSize(new Dimension(0, 200));
         Container contentPane = getContentPane();
@@ -136,14 +137,11 @@ public class LearningJourneyApp extends JFrame {
         contentPane.add(buttonPanel, BorderLayout.CENTER);
         contentPane.add(bottomPanel, BorderLayout.SOUTH);
 
-        // 设置窗口大小、位置、可见性
+        // set the size and visibility
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
-    public static void main(String[] args) {
-        new LearningJourneyApp("2020213362");
     }
 
 }

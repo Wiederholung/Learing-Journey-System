@@ -1,3 +1,7 @@
+/**
+ * All class of student, all the getter and setter
+ * can be found in this class
+ */
 package cn.edu.bupt;
 
 import java.util.List;

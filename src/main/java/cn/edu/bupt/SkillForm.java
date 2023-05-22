@@ -1,3 +1,7 @@
+/**
+ * this class is used to add the skills
+ */
+
 package cn.edu.bupt;
 
 import javax.swing.*;
@@ -14,30 +18,27 @@ public class SkillForm extends JFrame {
     public SkillForm(final String studentID) {
         super("Adding your skill here");
 
-        // 创建标题标签，设置字体和尺寸，居中对齐
+        // create titles
         titleLabel = new JLabel("Adding your skill here");
         titleLabel.setFont(new java.awt.Font("Helvetica", 1, 20));
         titleLabel.setHorizontalAlignment(JLabel.CENTER);
 
-        // 创建技能名称输入框，设置大小和位置
+        // create the input box
         skillNameField = new JTextField(20);
         skillNameField.setHorizontalAlignment(JTextField.CENTER);
         skillNameField.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        // 创建技能等级输入框，设置大小和位置
         skillLevelField = new JTextField(20);
         skillLevelField.setHorizontalAlignment(JTextField.CENTER);
         skillLevelField.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        // 创建提交按钮，设置大小和位置
+        // create submit and back button
         submitButton = new JButton("Submit");
         submitButton.setPreferredSize(new java.awt.Dimension(200, 30));
-
-        // 创建返回按钮，设置大小和位置
         backButton = new JButton("Back");
         backButton.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        // 创建面板，将组件添加到面板上
+        // create the panel and add the components
         JPanel panel = new JPanel(new java.awt.GridBagLayout());
         java.awt.GridBagConstraints gbc = new java.awt.GridBagConstraints();
         gbc.insets = new java.awt.Insets(10, 10, 10, 10);
@@ -72,6 +73,10 @@ public class SkillForm extends JFrame {
         gbc.gridy = 3;
         panel.add(backButton, gbc);
 
+
+        /**
+         * Extract all the information and add them into json
+         */
         submitButton.addActionListener(e -> {
             String skillName = skillNameField.getText();
             String skillLevel = skillLevelField.getText();
@@ -94,12 +99,11 @@ public class SkillForm extends JFrame {
 
         backButton.addActionListener(e -> {
             this.dispose();
-            new SikllApp(studentID);
+            new SkillApp(studentID);
         });
 
-        // 设置窗口属性
-        this.add(panel);
 
+        this.add(panel);
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);

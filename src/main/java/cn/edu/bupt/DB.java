@@ -1,3 +1,7 @@
+/**
+ * This class encapsulates some reading
+ * , modifying and writing methods involving Student.json files.
+ */
 package cn.edu.bupt;
 
 import com.google.gson.Gson;
@@ -5,24 +9,19 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 public class DB {
 
     private static final String FILE_PATH = "src/main/resources/db.json";
-    private static final Gson gson = new Gson(); // GSON对象
+    private static final Gson gson = new Gson(); // GSON Object
 
-    // 新增学生信息
     public static void addStudent(Student student) {
         try {
-            // 读取JSON文件中的数据
+            // read the JSON Files
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
             JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
-
             // 将学生对象转换为JSON对象
             JsonObject jsonStudent = gson.toJsonTree(student).getAsJsonObject();
 
@@ -36,7 +35,12 @@ public class DB {
         }
     }
 
-    //删除学生项目
+    /**
+     * Delete the student's project
+     * @param name project's name
+     * @param time project's time
+     * @return An array of student's object
+     */
     public static JsonArray deleteProject(String name, String time) {
         try {
             // 读取JSON文件中的数据
@@ -71,14 +75,15 @@ public class DB {
     }
 
 
-    // 删除honor信息
+    /**
+     * Delete student's Honor
+     */
     public static JsonArray deleteHonor(String honor_name, String honor_time) {
         try {
-            // 读取JSON文件中的数据
+
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
             JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
 
-            // 遍历JSON数组，查找需要删除的honors信息
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonObject jsonStudent = jsonArray.get(i).getAsJsonObject();
                 if (jsonStudent.has("honors")) {
@@ -105,8 +110,6 @@ public class DB {
         return null;
     }
 
-
-    // 删除学生信息
     public static void deleteStudent(int sId) {
         try {
             // 读取JSON文件中的数据
@@ -134,7 +137,11 @@ public class DB {
         }
     }
 
-    // 修改学生信息
+    /**
+     * Transfer a student object into JsonArray, in order to write them into JSON file.
+     * @param student student object that are modified
+     * @return JsonArray Object
+     */
     public static JsonArray updateStudent(Student student) {
         try {
             // 读取JSON文件中的数据
@@ -158,7 +165,11 @@ public class DB {
         return null;
     }
 
-    // 查询学生信息
+    /**
+     * Get the Student Object by the ID of the Students
+     * @param sId Student's ID
+     * @return Student Object
+     */
     public static Student getStudent(String sId) {
         try {
             // 读取JSON文件中的数据
@@ -180,6 +191,10 @@ public class DB {
         return null;
     }
 
+    /**
+     * Delete the Skill
+     * @return JsonArray that the skill is deleted
+     */
     public static JsonArray deleteSkill(String skill_name, String skill_level) {
         try {
             // 读取JSON文件中的数据
@@ -204,8 +219,6 @@ public class DB {
                     }
                 }
             }
-
-            // 将JSON数组写回文件
        return jsonArray;
         } catch (IOException e) {
             e.printStackTrace();
@@ -213,8 +226,12 @@ public class DB {
         return null;
     }
 
-    public static void writeToJson(JsonArray jsonArray){
 
+    /**
+     * Write the Student Object into JSON file
+     * @param jsonArray
+     */
+    public static void writeToJson(JsonArray jsonArray){
         try {
                 // 将JSON数组写回文件
                 FileWriter fw = new FileWriter(FILE_PATH);
@@ -227,6 +244,7 @@ public class DB {
 
 
     }
+
 
 
 

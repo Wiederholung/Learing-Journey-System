@@ -1,3 +1,6 @@
+/**
+ * This class is the login interface of the system
+ */
 package cn.edu.bupt;
 
 import javax.swing.*;
@@ -11,8 +14,10 @@ public class LoginFrame extends JFrame {
     public LoginFrame() {
         setTitle("Learning Journey Application for International School");
         setLayout(new BorderLayout());
-
-        // 添加标题区域
+        /**
+         * This is the title area
+         * include Big title and Small title
+         */
         JPanel titlePanel = new JPanel(new BorderLayout());
         JLabel titleLabel = new JLabel("Learning Journey Application for International School");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 14));
@@ -25,7 +30,9 @@ public class LoginFrame extends JFrame {
         titlePanel.add(subTitleLabel, BorderLayout.CENTER);
         add(titlePanel, BorderLayout.NORTH);
 
-        // 添加登录信息框和按钮
+        /**
+         * Add the login information box and button
+         */
         JPanel loginPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -65,7 +72,9 @@ public class LoginFrame extends JFrame {
         loginButton.setFont(new Font("Arial", Font.PLAIN, 14));
         loginPanel.add(loginButton, gbc);
 
-        // 添加登录按钮的监听器
+        /**
+         * Identify the ID and password and login
+         */
         loginButton.addActionListener(e -> {
             String studentID = idTextField.getText();
             String password = new String(passwordField.getPassword());

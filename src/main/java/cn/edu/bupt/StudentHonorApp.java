@@ -1,3 +1,6 @@
+/**
+ * this class is used to show all the information of honor and make some operation on it
+ */
 package cn.edu.bupt;
 
 import javax.swing.*;
@@ -10,11 +13,9 @@ public class StudentHonorApp extends JFrame {
 
     public StudentHonorApp(String studentID) {
         this.honors = new ArrayList<>();
-//        readProjects();
         Student s = DB.getStudent(studentID);
         if (s != null) {
             List<Honor> honor = s.getHonors();
-            // 将projs转为ArrayList<String[]>
             for (Honor h : honor) {
                 String[] s_honor = new String[2];
                 s_honor[0] = h.getHonor_name();
@@ -23,12 +24,10 @@ public class StudentHonorApp extends JFrame {
                 honors.add(s_honor);
             }
         }
-
-        // 创建主面板
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
 
-        // 创建返回按钮和添加按钮
+        // Create the back and the add button
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
             dispose();
@@ -45,11 +44,10 @@ public class StudentHonorApp extends JFrame {
         buttonPanel.add(addButton);
         mainPanel.add(buttonPanel, BorderLayout.NORTH);
 
-        // 创建项目按钮面板
         JPanel projectPanel = new JPanel();
         projectPanel.setLayout(new BoxLayout(projectPanel, BoxLayout.Y_AXIS));
 
-        // 创建每个项目的按钮
+        //Create the button of every honors
         for (String[] project : honors) {
 
             JButton projectButton = new JButton(project[0] + " " + project[1]);
@@ -57,9 +55,10 @@ public class StudentHonorApp extends JFrame {
             projectButton.setMaximumSize(new Dimension(Short.MAX_VALUE, 50));
             projectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-            // 创建项目按钮的监听器
+
+
             projectButton.addActionListener(e -> {
-                // 创建新的项目详情面板
+                // Create new panel of the content of honors
                 JPanel projectDetailPanel = new JPanel();
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
 
@@ -68,15 +67,15 @@ public class StudentHonorApp extends JFrame {
                 detailPanel.add(new JLabel("Honor Name: " + project[0], SwingConstants.CENTER));
                 detailPanel.add(new JLabel("Honor Time: " + project[1], SwingConstants.CENTER));
 
-                // 添加返回按钮
+
+
+                // Create back button and delete button
                 JButton backButton1 = new JButton("Back");
                 backButton1.addActionListener(e1 -> {
                     mainPanel.setVisible(true);
                     projectDetailPanel.setVisible(false);
                 });
                 backButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-                //添加删除按钮
                 JButton deleteButton = new JButton("Delete");
                 deleteButton.addActionListener(e12 -> {
                     int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this honor?", "Delete honor", JOptionPane.YES_NO_OPTION);
@@ -89,11 +88,11 @@ public class StudentHonorApp extends JFrame {
                 });
                 deleteButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-                // 显示项目详情面板
+
                 mainPanel.setVisible(false);
                 projectDetailPanel.setVisible(true);
 
-                // 添加到项目详情面板
+
                 projectDetailPanel.removeAll();
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
                 projectDetailPanel.add(Box.createVerticalGlue());
@@ -110,7 +109,6 @@ public class StudentHonorApp extends JFrame {
             projectPanel.add(projectButton);
         }
 
-        // 添加项目面板到主面板
         mainPanel.add(projectPanel, BorderLayout.CENTER);
         getContentPane().add(mainPanel);
 
