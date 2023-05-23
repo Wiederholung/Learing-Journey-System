@@ -27,7 +27,7 @@ public class LearningJourneyApp extends JFrame {
     private void createUI() {
         JLabel titleLabel = createTitleLabel();
 
-        JButton studentStatusButton = createButton("Personal Information", e -> {
+        JButton studentStatusButton = createButton("Personal<br>Information", e -> {
             new StudentInfoApp(studentID);
             dispose();
         });
@@ -43,7 +43,7 @@ public class LearningJourneyApp extends JFrame {
             new StudentScoreApp(studentID);
             dispose();
         });
-        JButton learningJourneyButton = createButton("Learning Journey", e -> {
+        JButton learningJourneyButton = createButton("Learning<br>Journey", e -> {
             new LearningJourney(studentID);
             dispose();
         });
