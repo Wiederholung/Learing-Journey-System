@@ -18,6 +18,7 @@ public class DB {
 
     private static final String FILE_PATH = "src/main/resources/db.json";
     private static final Gson gson = new Gson(); // GSON Object
+
     public static JsonArray exportStudent(Student student) {
         try {
             JsonObject jsonStudent = gson.toJsonTree(student).getAsJsonObject();
@@ -41,7 +42,7 @@ public class DB {
         try {
             // 读取JSON文件中的数据
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
-            JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
+            JsonArray jsonArray = JsonParser.parseReader(br).getAsJsonArray();
 
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonObject jsonProject = jsonArray.get(i).getAsJsonObject();
@@ -76,7 +77,7 @@ public class DB {
         try {
 
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
-            JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
+            JsonArray jsonArray = JsonParser.parseReader(br).getAsJsonArray();
 
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonObject jsonStudent = jsonArray.get(i).getAsJsonObject();
@@ -103,6 +104,7 @@ public class DB {
         }
         return null;
     }
+
     /**
      * Transfer a student object into JsonArray, in order to write them into JSON file.
      *
@@ -112,7 +114,7 @@ public class DB {
     public static JsonArray updateStudent(Student student) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
-            JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
+            JsonArray jsonArray = JsonParser.parseReader(br).getAsJsonArray();
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonObject jsonStudent = jsonArray.get(i).getAsJsonObject();
                 String id = jsonStudent.get("s_id").getAsString();
@@ -137,7 +139,7 @@ public class DB {
     public static Student getStudent(String sId) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
-            JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
+            JsonArray jsonArray = JsonParser.parseReader(br).getAsJsonArray();
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonObject jsonStudent = jsonArray.get(i).getAsJsonObject();
                 String id = jsonStudent.get("s_id").getAsString();
@@ -159,7 +161,7 @@ public class DB {
     public static JsonArray deleteSkill(String skill_name, String skill_level) {
         try {
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
-            JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
+            JsonArray jsonArray = JsonParser.parseReader(br).getAsJsonArray();
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonObject jsonStudent = jsonArray.get(i).getAsJsonObject();
                 if (jsonStudent.has("skills")) {
@@ -188,7 +190,7 @@ public class DB {
     /**
      * Write the Student Object into JSON file
      *
-     * @param jsonArray
+     * @param jsonArray JsonArray Object
      */
     public static void writeToJson(JsonArray jsonArray) {
         try {
