@@ -1,142 +1,105 @@
 /**
  * Main Interface of the system
- * Can navigate to every function int the project
+ * Can navigate to every function in the project
  */
 
 package cn.edu.bupt;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
 public class LearningJourneyApp extends JFrame {
-    private final JLabel titleLabel;
-    private final JButton studentStatusButton;
-    private final JButton studentHonorsButton;
-    private final JButton studentProjectButton;
-    private final JButton studentExamResultsButton;
-    private final JButton learningJourneyButton;
-    private final JButton dataExportButton;
-    private final JButton studentSkillButton;
-    private final JButton exitButton;
+    private final String studentID;
 
     public LearningJourneyApp(String studentID) {
-
         super("Learning Journey Application for International School");
+        this.studentID = studentID;
 
-        //Set the label
-        titleLabel = new JLabel("<html><br><br>Learning Journey Application for International School<br><br><html>");
-        titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
-        titleLabel.setHorizontalAlignment(JLabel.CENTER);
+        createUI();
+        pack();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        setVisible(true);
+    }
 
-        /**
-         * Create all the Buttons and navigate to the functions
-         */
-        studentStatusButton = new JButton("<html>Student<br>Personal<br>Information</html>");
-        studentStatusButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
-        studentStatusButton.setPreferredSize(new Dimension(150, 80));
-        studentStatusButton.setHorizontalAlignment(JButton.CENTER);
-        studentStatusButton.addActionListener(e -> {
-            StudentInfoApp studentInfoApp = new StudentInfoApp(studentID);
-            studentInfoApp.setVisible(true);
+    private void createUI() {
+        JLabel titleLabel = createTitleLabel();
+
+        JButton studentStatusButton = createButton("Personal Information", e -> {
+            new StudentInfoApp(studentID);
             dispose();
         });
-
-        studentHonorsButton = new JButton("<html>Student<br>Honors</html>");
-        studentHonorsButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
-        studentHonorsButton.setPreferredSize(new Dimension(150, 80));
-        studentHonorsButton.setHorizontalAlignment(JButton.CENTER);
-        studentHonorsButton.addActionListener(e -> {
-            StudentHonorApp studentHonorApp = new StudentHonorApp(studentID);
-            studentHonorApp.setVisible(true);
+        JButton studentHonorsButton = createButton("Honors", e -> {
+            new StudentHonorApp(studentID);
             dispose();
         });
-
-        studentProjectButton = new JButton("<html>Student<br>Project</html>");
-        studentProjectButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
-        studentProjectButton.setPreferredSize(new Dimension(150, 80));
-        studentProjectButton.setHorizontalAlignment(JButton.CENTER);
-        studentProjectButton.addActionListener(e -> {
-            StudentProjectApp studentProject = new StudentProjectApp(studentID);
-            studentProject.setVisible(true);
+        JButton studentProjectButton = createButton("Projects", e -> {
+            new StudentProjectApp(studentID);
             dispose();
         });
-
-        studentExamResultsButton = new JButton("<html>Student Exam<br>Results</html>");
-        studentExamResultsButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
-        studentExamResultsButton.setPreferredSize(new Dimension(150, 80));
-        studentExamResultsButton.setHorizontalAlignment(JButton.CENTER);
-        studentExamResultsButton.addActionListener(e -> {
-            StudentScoreApp studentExamResults = new StudentScoreApp(studentID);
-            studentExamResults.setVisible(true);
+        JButton studentExamResultsButton = createButton("Grades", e -> {
+            new StudentScoreApp(studentID);
             dispose();
         });
-
-        learningJourneyButton = new JButton("<html>Learning<br>Journey</html>");
-        learningJourneyButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
-        learningJourneyButton.setPreferredSize(new Dimension(150, 80));
-        learningJourneyButton.setHorizontalAlignment(JButton.CENTER);
-        learningJourneyButton.addActionListener(e -> {
-            LearningJourney learningJourney = new LearningJourney(studentID);
-            learningJourney.setVisible(true);
+        JButton learningJourneyButton = createButton("Learning Journey", e -> {
+            new LearningJourney(studentID);
             dispose();
         });
-
-        dataExportButton = new JButton("<html>Export<br>Data</html>");
-        dataExportButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
-        dataExportButton.setPreferredSize(new Dimension(150, 80));
-        dataExportButton.setHorizontalAlignment(JButton.CENTER);
-        dataExportButton.addActionListener(e -> {
+        JButton dataExportButton = createButton("Export Data", e -> {
             ExportInfo exportInfo = new ExportInfo();
             exportInfo.export(studentID);
         });
-
-        studentSkillButton = new JButton("<html>Student<br>Skills</html>");
-        studentSkillButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
-        studentSkillButton.setPreferredSize(new Dimension(150, 80));
-        studentSkillButton.setHorizontalAlignment(JButton.CENTER);
-        studentSkillButton.addActionListener(e -> {
-            SkillApp skillApp = new SkillApp(studentID);
-            skillApp.setVisible(true);
+        JButton studentSkillButton = createButton("Skills", e -> {
+            new SkillApp(studentID);
+            dispose();
+        });
+        JButton exitButton = createButton("Exit", e -> {
+            new LoginFrame();
             dispose();
         });
 
-        exitButton = new JButton("Exit");
-        exitButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
-        exitButton.setPreferredSize(new Dimension(150, 80));
-        exitButton.setHorizontalAlignment(JButton.CENTER);
-        exitButton.addActionListener(e -> {
-            JFrame newFrame = new LoginFrame();
-            newFrame.pack();
-            newFrame.setVisible(true);
-            dispose();
-        });
+        JPanel buttonPanel = createButtonPanel(studentExamResultsButton, studentHonorsButton, studentProjectButton, studentSkillButton,
+                studentStatusButton, learningJourneyButton, dataExportButton, exitButton);
 
-        // create the panel and set the layout
-        JPanel buttonPanel = new JPanel(new GridLayout(2, 4, 10, 10));
-        buttonPanel.add(studentStatusButton);
-        buttonPanel.add(studentHonorsButton);
-        buttonPanel.add(studentProjectButton);
-        buttonPanel.add(studentExamResultsButton);
-        buttonPanel.add(learningJourneyButton);
-        buttonPanel.add(dataExportButton);
-        buttonPanel.add(studentSkillButton);
-        buttonPanel.add(exitButton);
+        JPanel bottomPanel = createBottomPanel();
 
-         //create the panel and add it into the frame
-        JPanel bottomPanel = new JPanel();
-        bottomPanel.setVisible(true);
-        bottomPanel.setPreferredSize(new Dimension(0, 50));
         Container contentPane = getContentPane();
         contentPane.add(titleLabel, BorderLayout.NORTH);
         contentPane.add(buttonPanel, BorderLayout.CENTER);
         contentPane.add(bottomPanel, BorderLayout.SOUTH);
+    }
 
-        // set the size and visibility
-        pack();
-        setLocationRelativeTo(null);
-        setVisible(true);
-        setResizable(false);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    private JLabel createTitleLabel() {
+        JLabel titleLabel = new JLabel("<html><br><br>Learning Journey Application for International School<br><br><html>");
+        titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
+        titleLabel.setHorizontalAlignment(JLabel.CENTER);
+        return titleLabel;
+    }
+
+    private JButton createButton(String label, ActionListener actionListener) {
+        JButton button = new JButton("<html>" + label + "</html>");
+        button.setFont(new Font("Helvetica", Font.PLAIN, 16));
+        button.setPreferredSize(new Dimension(150, 80));
+        button.setHorizontalAlignment(JButton.CENTER);
+        button.addActionListener(actionListener);
+        return button;
+    }
+
+    private JPanel createButtonPanel(JButton... buttons) {
+        JPanel buttonPanel = new JPanel(new GridLayout(2, 4, 10, 10));
+        for (JButton button : buttons) {
+            buttonPanel.add(button);
+        }
+        return buttonPanel;
+    }
+
+    private JPanel createBottomPanel() {
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setVisible(true);
+        bottomPanel.setPreferredSize(new Dimension(0, 50));
+        return bottomPanel;
     }
 
 }
