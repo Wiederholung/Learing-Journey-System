@@ -8,10 +8,10 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-public class StudentInfoApp extends JFrame {
+public class InfoApp extends JFrame {
     String[][] stuInfo;
 
-    public StudentInfoApp(String studentID) {
+    public InfoApp(String studentID) {
         // set the title
         JLabel titleLabel = new JLabel("Your Status Information", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
@@ -47,7 +47,7 @@ public class StudentInfoApp extends JFrame {
         returnButton.addActionListener(e -> {
             dispose();
 
-            new LearningJourneyApp(studentID);
+            new WelcomeApp(studentID);
         });
 
         JButton modifyButton = new JButton("Modify");
@@ -58,7 +58,7 @@ public class StudentInfoApp extends JFrame {
             writeStudentData(studentID, stuInfo);
 
             dispose();
-            new StudentInfoApp(studentID);
+            new InfoApp(studentID);
         });
 
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));

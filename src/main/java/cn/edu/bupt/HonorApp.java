@@ -8,10 +8,10 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentHonorApp extends JFrame {
+public class HonorApp extends JFrame {
     private final ArrayList<String[]> honors;
 
-    public StudentHonorApp(String studentID) {
+    public HonorApp(String studentID) {
         this.honors = new ArrayList<>();
         Student s = DB.getStudent(studentID);
         if (s != null) {
@@ -31,12 +31,12 @@ public class StudentHonorApp extends JFrame {
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
             dispose();
-            new LearningJourneyApp(studentID);
+            new WelcomeApp(studentID);
         });
         JButton addButton = new JButton("Add New");
         addButton.addActionListener(e -> {
             dispose();
-            new StudentHonorForm(studentID);
+            new HonorForm(studentID);
         });
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -82,7 +82,7 @@ public class StudentHonorApp extends JFrame {
                     if (result == JOptionPane.YES_OPTION) {
                         System.out.println("success");
                         DB.writeToJson( DB.deleteHonor(project[0], project[1]));
-                        new StudentHonorApp(studentID);
+                        new HonorApp(studentID);
                         dispose();
                     }
                 });

@@ -6,11 +6,11 @@ package cn.edu.bupt;
 import javax.swing.*;
 import java.awt.*;
 
-public class LoginFrame extends JFrame {
+public class LoginApp extends JFrame {
     private JTextField idTextField;
     private JPasswordField passwordField;
 
-    public LoginFrame() {
+    public LoginApp() {
         initializeLookAndFeel();
         createTitlePanel();
         createLoginPanel();
@@ -32,7 +32,7 @@ public class LoginFrame extends JFrame {
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
                  javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LoginApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }
 
@@ -97,10 +97,10 @@ public class LoginFrame extends JFrame {
             Student s = DB.getStudent(studentID);
             if (s != null && s.getPassword().equals(password)) loginSuccess = true;
             if (loginSuccess) {
-                new LearningJourneyApp(studentID);
+                new WelcomeApp(studentID);
                 dispose();
             } else {
-                JOptionPane.showMessageDialog(LoginFrame.this, "Invalid StudentID or Password!", "Login Failed", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(LoginApp.this, "Invalid StudentID or Password!", "Login Failed", JOptionPane.ERROR_MESSAGE);
             }
         });
 

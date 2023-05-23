@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class ProjectExperienceForm extends JFrame {
+public class ProjForm extends JFrame {
 
     private final JLabel titleLabel;
     private final JTextField projectNameField;
@@ -16,7 +16,7 @@ public class ProjectExperienceForm extends JFrame {
     private final JButton submitButton;
     private final JButton backButton;
 
-    public ProjectExperienceForm(final String studentID) {
+    public ProjForm(final String studentID) {
         super("Adding your project experience here");
 
         // Set the title
@@ -115,7 +115,7 @@ public class ProjectExperienceForm extends JFrame {
         });
         backButton.addActionListener(e -> {
             dispose();
-            new StudentProjectApp(studentID);
+            new ProjApp(studentID);
         });
 
 

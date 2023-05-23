@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class StudentHonorForm extends JFrame {
+public class HonorForm extends JFrame {
 
     private final JLabel titleLabel;
     private final JTextField projectTimeField;
@@ -15,7 +15,7 @@ public class StudentHonorForm extends JFrame {
     private final JButton submitButton;
     private final JButton backButton;
 
-    public StudentHonorForm(final String studentID) {
+    public HonorForm(final String studentID) {
         super("Adding your honor here");
 
         //set the titles
@@ -99,7 +99,7 @@ public class StudentHonorForm extends JFrame {
         });
         backButton.addActionListener(e -> {
             dispose();
-            new StudentHonorApp(studentID);
+            new HonorApp(studentID);
         });
 
         add(panel);

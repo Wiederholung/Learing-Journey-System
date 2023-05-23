@@ -35,7 +35,7 @@ public class SkillApp extends JFrame {
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
             dispose();
-            new LearningJourneyApp(studentID);
+            new WelcomeApp(studentID);
         });
         JButton addButton = new JButton("Add New");
         addButton.addActionListener(e -> {

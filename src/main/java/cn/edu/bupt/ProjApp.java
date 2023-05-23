@@ -8,9 +8,9 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudentProjectApp extends JFrame {
+public class ProjApp extends JFrame {
 
-    public StudentProjectApp(String studentID) {
+    public ProjApp(String studentID) {
         ArrayList<String[]> projects = new ArrayList<>();
         Student s = DB.getStudent(studentID);
         if (s != null) {
@@ -37,12 +37,12 @@ public class StudentProjectApp extends JFrame {
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
             dispose();
-            new LearningJourneyApp(studentID);
+            new WelcomeApp(studentID);
         });
         JButton addButton = new JButton("Add New");
         addButton.addActionListener(e -> {
             dispose();
-            new ProjectExperienceForm(studentID);
+            new ProjForm(studentID);
         });
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -97,7 +97,7 @@ public class StudentProjectApp extends JFrame {
                     if (result == JOptionPane.YES_OPTION) {
                         System.out.println("success");
                        DB.writeToJson( DB.deleteProject(project[0], project[1]));
-                        new StudentProjectApp(studentID);
+                        new ProjApp(studentID);
                         dispose();
                     }
                 });
