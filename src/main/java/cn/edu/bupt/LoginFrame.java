@@ -1,3 +1,6 @@
+/**
+ * This class is the login interface of the system
+ */
 package cn.edu.bupt;
 
 import javax.swing.*;
