@@ -2,7 +2,10 @@
  * this class is used to show all the basic information of student
  * We can modify the information in this interface
  */
-package cn.edu.bupt;
+package cn.edu.bupt.app;
+
+import cn.edu.bupt.dao.DB;
+import cn.edu.bupt.dao.Student;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;

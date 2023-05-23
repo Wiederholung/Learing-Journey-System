@@ -3,7 +3,10 @@
  * Can navigate to every function in the project
  */
 
-package cn.edu.bupt;
+package cn.edu.bupt.app;
+
+import cn.edu.bupt.dao.DB;
+import cn.edu.bupt.dao.Student;
 
 import javax.swing.*;
 import java.awt.*;

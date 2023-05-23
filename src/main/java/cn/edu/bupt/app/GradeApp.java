@@ -1,7 +1,10 @@
 /**
  * this class is used to screen student's score ,and calculate their average points and GPA
  */
-package cn.edu.bupt;
+package cn.edu.bupt.app;
+
+import cn.edu.bupt.dao.DB;
+import cn.edu.bupt.dao.Student;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +17,7 @@ public class GradeApp extends JFrame {
 
         Student s = DB.getStudent(studentID);
         if (s != null) {
-            for (Course c : s.getCourses()) {
+            for (Student.Course c : s.getCourses()) {
                 String[] course = new String[4];
                 course[0] = c.getCourse_id();
                 course[1] = c.getCredits();

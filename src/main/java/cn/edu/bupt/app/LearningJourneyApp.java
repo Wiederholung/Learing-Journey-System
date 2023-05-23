@@ -2,7 +2,10 @@
  * This is the Learning Journey Interface
  * to show student's achievement during the time in BUPT&QMUL
  */
-package cn.edu.bupt;
+package cn.edu.bupt.app;
+
+import cn.edu.bupt.dao.DB;
+import cn.edu.bupt.dao.Student;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,7 +34,7 @@ public class LearningJourneyApp extends JFrame {
         days = (int) ChronoUnit.DAYS.between(enroll_date, LocalDate.now());
         courses = student.getCourses().size();
         double maxScore = 0;
-        for (Course course : student.getCourses()) {
+        for (Student.Course course : student.getCourses()) {
             if (course.getGrade() > maxScore) {
                 maxScore = course.getGrade();
                 lessons = course.getCourse_id();
