@@ -2,7 +2,6 @@
  * This class is the login interface of the system
  */
 package cn.edu.bupt;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,7 +11,7 @@ public class LoginFrame extends JFrame {
 
 
     public LoginFrame() {
-        setTitle("Learning Journey Application for International School");
+        setTitle("Login");
         setLayout(new BorderLayout());
 
          try {
@@ -30,7 +29,7 @@ public class LoginFrame extends JFrame {
          * include Big title and Small title
          */
         JPanel titlePanel = new JPanel(new BorderLayout());
-        JLabel titleLabel = new JLabel("Learning Journey Application for International School");
+        JLabel titleLabel = new JLabel("  Learning Journey Application for International School  ");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 14));
         titleLabel.setBorder(BorderFactory.createEmptyBorder(10, 0, 0, 0));
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);

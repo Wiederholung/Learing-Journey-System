@@ -1,11 +1,12 @@
+/**
+ * Export the JSON FILE to resources
+ */
 package cn.edu.bupt;
 
 import javax.swing.*;
 
 public class ExportInfo {
     Student student;
-
-
     public void export(String studentID) {
         student = DB.getStudent(studentID);
         if (student != null) {
@@ -14,6 +15,4 @@ public class ExportInfo {
             JOptionPane.showMessageDialog(null, "Data export successfully!");
         }
     }
-
-
 }

@@ -18,32 +18,9 @@ public class DB {
 
     private static final String FILE_PATH = "src/main/resources/db.json";
     private static final Gson gson = new Gson(); // GSON Object
-
-    public static void addStudent(Student student) {
-        try {
-            // read the JSON Files
-            BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
-            JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
-            // 将学生对象转换为JSON对象
-            JsonObject jsonStudent = gson.toJsonTree(student).getAsJsonObject();
-
-            // 将JSON对象添加到JSON数组中
-            jsonArray.add(jsonStudent);
-
-            // 将JSON数组写回文件
-            writeToJson(jsonArray);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static JsonArray exportStudent(Student student) {
         try {
-
-            // 将学生对象转换为JSON对象
             JsonObject jsonStudent = gson.toJsonTree(student).getAsJsonObject();
-
-            // 将JSON对象添加到JSON数组中
             JsonArray jsonArray = new JsonArray();
             jsonArray.add(jsonStudent);
             return jsonArray;
@@ -66,7 +43,6 @@ public class DB {
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
             JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
 
-            // 遍历JSON数组，查找需要删除的项目信息
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonObject jsonProject = jsonArray.get(i).getAsJsonObject();
                 if (jsonProject.has("projs")) {
@@ -74,7 +50,6 @@ public class DB {
                     for (int j = 0; j < projs.size(); j++) {
                         JsonObject proj = projs.get(j).getAsJsonObject();
                         if (proj.has("proj_name") && proj.has("proj_time")) {
-
                             String projectName = proj.get("proj_name").getAsString();
                             String projectTime = proj.get("proj_time").getAsString();
                             if (projectName.equals(name) && projectTime.equals(time)) {
@@ -128,34 +103,6 @@ public class DB {
         }
         return null;
     }
-
-    public static void deleteStudent(int sId) {
-        try {
-            // 读取JSON文件中的数据
-            BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
-            JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
-
-            // 遍历JSON数组，查找需要删除的学生信息
-            for (int i = 0; i < jsonArray.size(); i++) {
-                JsonObject jsonStudent = jsonArray.get(i).getAsJsonObject();
-                int id = jsonStudent.get("s_id").getAsInt();
-                if (id == sId) {
-                    // 删除该学生信息
-                    jsonArray.remove(i);
-                    break;
-                }
-            }
-
-            // 将JSON数组写回文件
-            FileWriter fw = new FileWriter(FILE_PATH);
-            fw.write(gson.toJson(jsonArray));
-            fw.flush();
-            fw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     /**
      * Transfer a student object into JsonArray, in order to write them into JSON file.
      *
@@ -164,16 +111,12 @@ public class DB {
      */
     public static JsonArray updateStudent(Student student) {
         try {
-            // 读取JSON文件中的数据
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
             JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
-
-            // 遍历JSON数组，查找需要修改的学生信息
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonObject jsonStudent = jsonArray.get(i).getAsJsonObject();
                 String id = jsonStudent.get("s_id").getAsString();
                 if (id.equals(student.getSid())) {
-                    // 将学生对象转换为JSON对象并替换原有JSON对象
                     jsonArray.set(i, gson.toJsonTree(student).getAsJsonObject());
                     break;
                 }
@@ -193,16 +136,12 @@ public class DB {
      */
     public static Student getStudent(String sId) {
         try {
-            // 读取JSON文件中的数据
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
             JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
-
-            // 遍历JSON数组，查找需要查询的学生信息
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonObject jsonStudent = jsonArray.get(i).getAsJsonObject();
                 String id = jsonStudent.get("s_id").getAsString();
                 if (id.equals(sId)) {
-                    // 将JSON对象转换为学生对象
                     return gson.fromJson(jsonStudent, Student.class);
                 }
             }
@@ -219,11 +158,8 @@ public class DB {
      */
     public static JsonArray deleteSkill(String skill_name, String skill_level) {
         try {
-            // 读取JSON文件中的数据
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
             JsonArray jsonArray = new JsonParser().parse(br).getAsJsonArray();
-
-            // 遍历JSON数组，查找需要删除的skills信息
             for (int i = 0; i < jsonArray.size(); i++) {
                 JsonObject jsonStudent = jsonArray.get(i).getAsJsonObject();
                 if (jsonStudent.has("skills")) {
@@ -256,7 +192,6 @@ public class DB {
      */
     public static void writeToJson(JsonArray jsonArray) {
         try {
-            // 将JSON数组写回文件
             FileWriter fw = new FileWriter(FILE_PATH);
             fw.write(gson.toJson(jsonArray));
             fw.flush();
@@ -266,9 +201,12 @@ public class DB {
         }
     }
 
+    /**
+     * Write the Student Object into JSON file
+     * by setting a specific path
+     */
     public static void writeToJson(JsonArray jsonArray, String path) {
         try {
-            // 将JSON数组写回文件
             FileWriter fw = new FileWriter(path);
             fw.write(gson.toJson(jsonArray));
             fw.flush();

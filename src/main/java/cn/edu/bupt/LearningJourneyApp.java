@@ -15,8 +15,8 @@ public class LearningJourneyApp extends JFrame {
     private final JButton studentProjectButton;
     private final JButton studentExamResultsButton;
     private final JButton learningJourneyButton;
-    private final JButton cvGenerationButton;
-    private final JButton studyAbroadAssessmentButton;
+    private final JButton dataExportButton;
+    private final JButton studentSkillButton;
     private final JButton exitButton;
 
     public LearningJourneyApp(String studentID) {
@@ -24,7 +24,7 @@ public class LearningJourneyApp extends JFrame {
         super("Learning Journey Application for International School");
 
         //Set the label
-        titleLabel = new JLabel("Learning Journey Application for International School");
+        titleLabel = new JLabel("<html><br><br>Learning Journey Application for International School<br><br><html>");
         titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
         titleLabel.setHorizontalAlignment(JLabel.CENTER);
 
@@ -81,20 +81,20 @@ public class LearningJourneyApp extends JFrame {
             dispose();
         });
 
-        cvGenerationButton = new JButton("<html>Export<br>Data</html>");
-        cvGenerationButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
-        cvGenerationButton.setPreferredSize(new Dimension(150, 80));
-        cvGenerationButton.setHorizontalAlignment(JButton.CENTER);
-        cvGenerationButton.addActionListener(e -> {
+        dataExportButton = new JButton("<html>Export<br>Data</html>");
+        dataExportButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
+        dataExportButton.setPreferredSize(new Dimension(150, 80));
+        dataExportButton.setHorizontalAlignment(JButton.CENTER);
+        dataExportButton.addActionListener(e -> {
             ExportInfo exportInfo = new ExportInfo();
             exportInfo.export(studentID);
         });
 
-        studyAbroadAssessmentButton = new JButton("<html>Student<br>Skills</html>");
-        studyAbroadAssessmentButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
-        studyAbroadAssessmentButton.setPreferredSize(new Dimension(150, 80));
-        studyAbroadAssessmentButton.setHorizontalAlignment(JButton.CENTER);
-        studyAbroadAssessmentButton.addActionListener(e -> {
+        studentSkillButton = new JButton("<html>Student<br>Skills</html>");
+        studentSkillButton.setFont(new Font("Helvetica", Font.PLAIN, 16));
+        studentSkillButton.setPreferredSize(new Dimension(150, 80));
+        studentSkillButton.setHorizontalAlignment(JButton.CENTER);
+        studentSkillButton.addActionListener(e -> {
             SkillApp skillApp = new SkillApp(studentID);
             skillApp.setVisible(true);
             dispose();
@@ -118,13 +118,14 @@ public class LearningJourneyApp extends JFrame {
         buttonPanel.add(studentProjectButton);
         buttonPanel.add(studentExamResultsButton);
         buttonPanel.add(learningJourneyButton);
-        buttonPanel.add(cvGenerationButton);
-        buttonPanel.add(studyAbroadAssessmentButton);
+        buttonPanel.add(dataExportButton);
+        buttonPanel.add(studentSkillButton);
         buttonPanel.add(exitButton);
 
-        // create the panel and add it into the frame
+         //create the panel and add it into the frame
         JPanel bottomPanel = new JPanel();
-        bottomPanel.setPreferredSize(new Dimension(0, 200));
+        bottomPanel.setVisible(true);
+        bottomPanel.setPreferredSize(new Dimension(0, 50));
         Container contentPane = getContentPane();
         contentPane.add(titleLabel, BorderLayout.NORTH);
         contentPane.add(buttonPanel, BorderLayout.CENTER);
@@ -134,6 +135,7 @@ public class LearningJourneyApp extends JFrame {
         pack();
         setLocationRelativeTo(null);
         setVisible(true);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 

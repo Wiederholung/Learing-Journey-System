@@ -90,9 +90,7 @@ public class ProjectExperienceForm extends JFrame {
         gbc.gridy = 4;
         panel.add(backButton, gbc);
 
-        // 清空所有输入框内容
         submitButton.addActionListener(e -> {
-            // 获取输入框中的信息
             String projectName = projectNameField.getText();
             String projectTime = projectTimeField.getText();
             String projectContent = projectContentArea.getText();
