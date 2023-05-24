@@ -1,4 +1,4 @@
-package cn.edu.bupt.dao;
+package com.metattri.dao;
 
 import com.google.gson.JsonArray;
 import org.junit.jupiter.api.AfterAll;

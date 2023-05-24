@@ -1,10 +1,10 @@
 /**
  * this class is used to show all the information of project and make some operation on it
  */
-package cn.edu.bupt.app;
+package com.metattri.app;
 
-import cn.edu.bupt.dao.DB;
-import cn.edu.bupt.dao.Student;
+import com.metattri.dao.DB;
+import com.metattri.dao.Student;
 
 import javax.swing.*;
 import java.awt.*;

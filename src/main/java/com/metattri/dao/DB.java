@@ -2,7 +2,7 @@
  * This class encapsulates some reading
  * , modifying and writing methods involving Student.json files.
  */
-package cn.edu.bupt.dao;
+package com.metattri.dao;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;

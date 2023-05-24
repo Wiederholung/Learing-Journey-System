@@ -1,10 +1,10 @@
 /**
  * This class is the interface to show all of student's skills
  */
-package cn.edu.bupt.app;
+package com.metattri.app;
 
-import cn.edu.bupt.dao.DB;
-import cn.edu.bupt.dao.Student;
+import com.metattri.dao.DB;
+import com.metattri.dao.Student;
 
 import javax.swing.*;
 import java.awt.*;

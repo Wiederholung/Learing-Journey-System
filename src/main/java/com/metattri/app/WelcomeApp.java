@@ -3,10 +3,10 @@
  * Can navigate to every function in the project
  */
 
-package cn.edu.bupt.app;
+package com.metattri.app;
 
-import cn.edu.bupt.dao.DB;
-import cn.edu.bupt.dao.Student;
+import com.metattri.dao.DB;
+import com.metattri.dao.Student;
 
 import javax.swing.*;
 import java.awt.*;

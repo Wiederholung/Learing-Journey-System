@@ -2,7 +2,7 @@
  * All class of student, all the getter and setter
  * can be found in this class
  */
-package cn.edu.bupt.dao;
+package com.metattri.dao;
 
 import java.util.List;
 
