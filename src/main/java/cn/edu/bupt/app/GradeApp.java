@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 public class GradeApp extends JFrame {
     private final ArrayList<String[]> courses;
+
     public GradeApp(String studentID) {
         this.courses = new ArrayList<>();
 
@@ -54,19 +55,7 @@ public class GradeApp extends JFrame {
         mainPanel.add(buttonPanel, BorderLayout.NORTH);
         // Click the add button to pop up the dialog box and print the statistics.
         addButton.addActionListener(e -> {
-            String[] statInfo = new String[2];
-            double wam = 0;
-            double gpa = 0;
-            double totalCredits = 0;
-            for (String[] course : courses) {
-                wam += Double.parseDouble(course[1]) * Double.parseDouble(course[2]);
-                gpa += Double.parseDouble(course[1]) * Double.parseDouble(course[3]);
-                totalCredits += Double.parseDouble(course[1]);
-            }
-            wam /= totalCredits;
-            gpa /= totalCredits;
-            statInfo[0] = String.format("%.2f", wam);
-            statInfo[1] = String.format("%.2f", gpa);
+            double[] statInfo = getStatics();
             JOptionPane.showMessageDialog(null, "Weighted Average Mark: " + statInfo[0] + "\n" + "GPA: " + statInfo[1], "Statistic Information", JOptionPane.INFORMATION_MESSAGE);
         });
 
@@ -77,6 +66,20 @@ public class GradeApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-
+    public double[] getStatics() {
+        double[] statInfo = new double[2];
+        double wam = 0;
+        double gpa = 0;
+        double totalCredits = 0;
+        for (String[] course : courses) {
+            wam += Double.parseDouble(course[1]) * Double.parseDouble(course[2]);
+            gpa += Double.parseDouble(course[1]) * Double.parseDouble(course[3]);
+            totalCredits += Double.parseDouble(course[1]);
+        }
+        wam /= totalCredits;
+        gpa /= totalCredits;
+        statInfo[0] = wam;
+        statInfo[1] = gpa;
+        return statInfo;
+    }
 }
-
