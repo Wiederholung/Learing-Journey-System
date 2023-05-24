@@ -131,17 +131,14 @@ public class HonorApp extends JFrame {
 
     public static class HonorForm extends JFrame {
 
-        private final JLabel titleLabel;
         private final JTextField projectTimeField;
         private final JTextArea projectContentArea;
-        private final JButton submitButton;
-        private final JButton backButton;
 
         public HonorForm(final String studentID) {
             super("Adding your honor here");
 
             //set the titles
-            titleLabel = new JLabel("Adding your honor experience here");
+            JLabel titleLabel = new JLabel("Adding your honor experience here");
             titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
             titleLabel.setHorizontalAlignment(JLabel.CENTER);
 
@@ -155,11 +152,11 @@ public class HonorApp extends JFrame {
             projectContentArea.setWrapStyleWord(true);
             JScrollPane scrollPane = new JScrollPane(projectContentArea);
 
-            submitButton = new JButton("Submit");
+            JButton submitButton = new JButton("Submit");
             submitButton.setPreferredSize(new Dimension(200, 30));
 
             // Create the back Button
-            backButton = new JButton("Back");
+            JButton backButton = new JButton("Back");
             backButton.setPreferredSize(new Dimension(200, 30));
 
             JPanel panel = new JPanel(new GridBagLayout());
