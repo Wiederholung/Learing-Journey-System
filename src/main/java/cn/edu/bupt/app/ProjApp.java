@@ -32,88 +32,64 @@ public class ProjApp extends JFrame {
         setSize(600, 400);
         setVisible(true);
         setLocationRelativeTo(null);
-
-
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
-
         // Create add and back button
-        JPanel buttonPanel = new JPanel();
         JButton backButton = new JButton("Back");
-        JButton addButton = new JButton("Add New");
-        buttonPanel.add(backButton);
-        buttonPanel.add(addButton);
-        mainPanel.add(buttonPanel, BorderLayout.NORTH);
-        buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
-
         backButton.addActionListener(e -> {
             dispose();
             new WelcomeApp(studentID);
         });
+        JButton addButton = new JButton("Add New");
         addButton.addActionListener(e -> {
             dispose();
             new ProjForm(studentID);
         });
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
+        buttonPanel.add(backButton);
+        buttonPanel.add(addButton);
+        mainPanel.add(buttonPanel, BorderLayout.NORTH);
 
-
-
-        // Create buttons to every project
         JPanel projectPanel = new JPanel();
         projectPanel.setLayout(new BoxLayout(projectPanel, BoxLayout.Y_AXIS));
+
+        // Create buttons to every project
         for (String[] project : projects) {
-
             JButton projectButton = new JButton(project[1] + " " + project[2]);
-            JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'" +
-                    "<h3>Project Name:</h3>" +project[0]+
-                    "<br><h3>Project Time:</h3>"+project[1] +
-                    "<br><h3>Project Description</h3>"+project[2] +
-                    "<br></body></html");
-
             projectButton.setPreferredSize(new Dimension(550, 50));
             projectButton.setMaximumSize(new Dimension(Short.MAX_VALUE, 50));
             projectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-
             projectButton.addActionListener(e -> {
                 // Create new panel for project
                 JPanel projectDetailPanel = new JPanel();
-                //add information to project
-                informationLabel.setHorizontalAlignment(SwingConstants.CENTER);
-
-
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
                 projectDetailPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+                //add information to project
+                JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'" +
+                        "<h3>Project Name:</h3>" +project[0]+
+                        "<br><h3>Project Time:</h3>"+project[1] +
+                        "<br><h3>Project Description</h3>"+project[2] +
+                        "<br></body></html");
+                informationLabel.setHorizontalAlignment(SwingConstants.CENTER);
                 informationLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                 informationLabel.setMaximumSize(new Dimension(300,Integer.MAX_VALUE));
-
                 projectDetailPanel.add(informationLabel);
-
-                // add back and delete button
+                // add back button
                 JPanel infoButtonPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
-                JButton returnButton = new JButton("Back");
-                JButton deleteButton = new JButton("Delete");
-                returnButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-                returnButton.setPreferredSize(new Dimension(100,50));
-                infoButtonPanel.add(returnButton);
-                deleteButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-                deleteButton.setPreferredSize(new Dimension(100,50));
-                infoButtonPanel.add(deleteButton);
-                projectDetailPanel.add(infoButtonPanel);
-                mainPanel.setVisible(false);
-                projectDetailPanel.setVisible(true);
-                getContentPane().add(projectDetailPanel, BorderLayout.CENTER);
-                projectPanel.add(projectButton);
-                mainPanel.add(projectPanel, BorderLayout.CENTER);
-                getContentPane().add(mainPanel);
-                setVisible(true);
-
-
-                returnButton.addActionListener(e1 -> {
+                JButton backButton1 = new JButton("Back");
+                backButton1.addActionListener(e1 -> {
                     mainPanel.setVisible(true);
                     projectDetailPanel.setVisible(false);
                 });
+                backButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
+                backButton1.setPreferredSize(new Dimension(100,50));
+                infoButtonPanel.add(backButton1);
+                // add delete button
+                JButton deleteButton = new JButton("Delete");
                 deleteButton.addActionListener(e12 -> {
-                    int result = JOptionPane.showConfirmDialog(null,
-                            "Are you sure you want to delete this project?", "Delete Project", JOptionPane.YES_NO_OPTION);
+                    int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this project?", "Delete Project", JOptionPane.YES_NO_OPTION);
                     if (result == JOptionPane.YES_OPTION) {
                         System.out.println("success");
                        DB.writeToJson( DB.deleteProject(project[0], project[1]));
@@ -121,8 +97,20 @@ public class ProjApp extends JFrame {
                         dispose();
                     }
                 });
+                deleteButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+                deleteButton.setPreferredSize(new Dimension(100,50));
+                infoButtonPanel.add(deleteButton);
+                projectDetailPanel.add(infoButtonPanel);
+                mainPanel.setVisible(false);
+                projectDetailPanel.setVisible(true);
+                getContentPane().add(projectDetailPanel, BorderLayout.CENTER);
             });
+
+            projectPanel.add(projectButton);
         }
+        mainPanel.add(projectPanel, BorderLayout.CENTER);
+        getContentPane().add(mainPanel);
+        setVisible(true);
     }
 
 
@@ -143,16 +131,16 @@ public class ProjApp extends JFrame {
               set the field of name,time and content
              */
             projectNameField = new JTextField(20);
-            projectTimeField = new JTextField(20);
-            projectContentArea = new JTextArea(5, 20);
-
             projectNameField.setHorizontalAlignment(JTextField.CENTER);
-            projectTimeField.setHorizontalAlignment(JTextField.CENTER);
             projectNameField.setPreferredSize(new Dimension(200, 30));
+
+            projectTimeField = new JTextField(20);
+            projectTimeField.setHorizontalAlignment(JTextField.CENTER);
             projectTimeField.setPreferredSize(new Dimension(200, 30));
+
+            projectContentArea = new JTextArea(5, 20);
             projectContentArea.setLineWrap(true);
             projectContentArea.setWrapStyleWord(true);
-
             JScrollPane scrollPane = new JScrollPane(projectContentArea);
 
             // create submit and back button
@@ -166,6 +154,7 @@ public class ProjApp extends JFrame {
             JPanel panel = new JPanel(new GridBagLayout());
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.insets = new Insets(10, 10, 10, 10);
+
             gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2; panel.add(titleLabel, gbc);
             gbc.gridx = 0; gbc.gridy = 1; gbc.gridwidth = 1; panel.add(new JLabel("Project Name:"), gbc);
             gbc.gridx = 1; gbc.gridy = 1; panel.add(projectNameField, gbc);
@@ -203,6 +192,7 @@ public class ProjApp extends JFrame {
                 dispose();
                 new ProjApp(studentID);
             });
+
             add(panel);
             pack();
             setLocationRelativeTo(null);

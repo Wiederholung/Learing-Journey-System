@@ -40,7 +40,6 @@ public class DB {
      */
     public static JsonArray deleteProject(String name, String time) {
         try {
-            // 读取JSON文件中的数据
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
             JsonArray jsonArray = JsonParser.parseReader(br).getAsJsonArray();
 
