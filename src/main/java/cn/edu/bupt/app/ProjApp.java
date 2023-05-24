@@ -127,22 +127,19 @@ public class ProjApp extends JFrame {
 
     public static class ProjForm extends JFrame {
 
-        private final JLabel titleLabel;
         private final JTextField projectNameField;
         private final JTextField projectTimeField;
         private final JTextArea projectContentArea;
-        private final JButton submitButton;
-        private final JButton backButton;
 
         public ProjForm(final String studentID) {
             super("Adding your project experience here");
 
             // Set the title
-            titleLabel = new JLabel("Adding your project experience here");
+            JLabel titleLabel = new JLabel("Adding your project experience here");
             titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
             titleLabel.setHorizontalAlignment(JLabel.CENTER);
-            /**
-             * set the field of name,time and content
+            /*
+              set the field of name,time and content
              */
             projectNameField = new JTextField(20);
             projectNameField.setHorizontalAlignment(JTextField.CENTER);
@@ -158,10 +155,10 @@ public class ProjApp extends JFrame {
             JScrollPane scrollPane = new JScrollPane(projectContentArea);
 
             // create submit and back button
-            submitButton = new JButton("Submit");
+            JButton submitButton = new JButton("Submit");
             submitButton.setPreferredSize(new Dimension(200, 30));
 
-            backButton = new JButton("Back");
+            JButton backButton = new JButton("Back");
             backButton.setPreferredSize(new Dimension(200, 30));
 
             // create the panel and add into the frame

@@ -12,12 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SkillApp extends JFrame {
-    private final ArrayList<String[]> skills;
 
     public SkillApp(String studentID) {
 
 
-        this.skills = new ArrayList<>();
+        ArrayList<String[]> skills = new ArrayList<>();
         Student s = DB.getStudent(studentID);
         if (s != null) {
             List<Student.Skill> skill = s.getSkills();
@@ -69,7 +68,7 @@ public class SkillApp extends JFrame {
                 projectDetailPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
                 //add information
 
-                JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'><h3>Skil Name:</h3>"+skill[0]+
+                JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'><h3>Skill Name:</h3>"+skill[0]+
                         "<br><h3>Skill Level:</h3>"+skill[1] +
                         "<br></body></html");
                 informationLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -127,18 +126,15 @@ public class SkillApp extends JFrame {
 
     public static class SkillForm extends JFrame {
 
-        private final JLabel titleLabel;
         private final JTextField skillNameField;
         private final JTextField skillLevelField;
-        private final JButton submitButton;
-        private final JButton backButton;
 
         public SkillForm(final String studentID) {
             super("Adding your skill here");
 
             // create titles
-            titleLabel = new JLabel("Adding your skill here");
-            titleLabel.setFont(new Font("Helvetica", 1, 20));
+            JLabel titleLabel = new JLabel("Adding your skill here");
+            titleLabel.setFont(new Font("Helvetica", Font.BOLD, 20));
             titleLabel.setHorizontalAlignment(JLabel.CENTER);
 
             // create the input box
@@ -151,9 +147,9 @@ public class SkillApp extends JFrame {
             skillLevelField.setPreferredSize(new Dimension(200, 30));
 
             // create submit and back button
-            submitButton = new JButton("Submit");
+            JButton submitButton = new JButton("Submit");
             submitButton.setPreferredSize(new Dimension(200, 30));
-            backButton = new JButton("Back");
+            JButton backButton = new JButton("Back");
             backButton.setPreferredSize(new Dimension(200, 30));
 
             // create the panel and add the components
@@ -192,8 +188,8 @@ public class SkillApp extends JFrame {
             panel.add(backButton, gbc);
 
 
-            /**
-             * Extract all the information and add them into json
+            /*
+              Extract all the information and add them into json
              */
             submitButton.addActionListener(e -> {
                 String skillName = skillNameField.getText();
