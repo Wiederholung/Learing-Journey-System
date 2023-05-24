@@ -30,6 +30,7 @@ public class ProjApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setTitle("Student Projects");
         setSize(600, 400);
+        setVisible(true);
         setLocationRelativeTo(null);
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
