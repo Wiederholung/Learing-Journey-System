@@ -47,13 +47,12 @@ public class InfoApp extends JFrame {
 
         // Create the backButton and the modifyButton
         JButton returnButton = new JButton("Return");
+        JButton modifyButton = new JButton("Modify");
         returnButton.addActionListener(e -> {
             dispose();
 
             new WelcomeApp(studentID);
         });
-
-        JButton modifyButton = new JButton("Modify");
         modifyButton.addActionListener(e -> {
             for (int i = 0; i < stuInfo.length; i++) {
                 stuInfo[i][1] = table.getValueAt(i, 1).toString();
