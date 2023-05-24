@@ -38,8 +38,8 @@ public class Student {
                 ", enroll_date='" + enroll_date + '\'' + "\n" +
                 ", grad_date='" + grad_date + '\'' + "\n" +
                 ", Courses='" + courses.toString() + '\'' + "\n" +
-                ", Honor='" + honors.toString() + '\'' + "\n" +
-                ", Project='" + projs.toString() + '\'' + "\n" +
+                ", Honors='" + honors.toString() + '\'' + "\n" +
+                ", Projects='" + projs.toString() + '\'' + "\n" +
                 ", Skills='" + skills.toString() + '\'' + "\n" +
                 '}';
     }
