@@ -55,7 +55,7 @@ public class SkillApp extends JFrame {
 
 
 
-        //Create the button of every project
+        //Create the button of every honor
         for (String[] skill : skills) {
 
             JButton projectButton = new JButton(skill[0] + " " + skill[1]);
@@ -66,18 +66,24 @@ public class SkillApp extends JFrame {
             projectButton.addActionListener(e -> {
                 JPanel projectDetailPanel = new JPanel();
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
+                projectDetailPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                //add information
+                JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'><h3>Skil Name:</h3>"+skill[0]+
+                        "<br><h3>Skill Level:</h3>"+skill[1] +
+                        "<br></body></html");
+                informationLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                informationLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                informationLabel.setMaximumSize(new Dimension(300,Integer.MAX_VALUE));
+                projectDetailPanel.add(informationLabel);
 
-                JLabel honorNameLabel = new JLabel("Honor Name: " + skill[0]);
-                JLabel honorTimeLabel = new JLabel("Honor Time: " + skill[1]);
-                JPanel detailPanel = new JPanel();
-                detailPanel.setLayout(new BoxLayout(detailPanel, BoxLayout.Y_AXIS));
-                detailPanel.add(honorNameLabel);
-                detailPanel.add(honorTimeLabel);
+
 
 
                 //add backButton and delete Button
+                JPanel infoButtonPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
                 JButton backButton1 = new JButton("Back");
                 backButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
+                backButton1.setPreferredSize(new Dimension(100,50));
                 backButton1.addActionListener(e1 -> {
                    new SkillApp(studentID);
                     dispose();
@@ -85,6 +91,7 @@ public class SkillApp extends JFrame {
 
                 JButton deleteButton = new JButton("Delete");
                 deleteButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+                deleteButton.setPreferredSize(new Dimension(100,50));
                 deleteButton.addActionListener(e12 -> {
                     int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this skill?", "Delete skill", JOptionPane.YES_NO_OPTION);
                     if (result == JOptionPane.YES_OPTION) {
@@ -95,16 +102,14 @@ public class SkillApp extends JFrame {
                     }
                 });
 
-                JPanel buttonPanel2 = new JPanel();
-                buttonPanel2.setLayout(new FlowLayout(FlowLayout.CENTER));
-                buttonPanel2.add(backButton1);
-                buttonPanel2.add(deleteButton);
-
-                detailPanel.add(buttonPanel2);
+                infoButtonPanel.add(backButton1);
+                infoButtonPanel.add(deleteButton);
                 mainPanel.setVisible(false);
-                detailPanel.setVisible(true);
-                getContentPane().add(detailPanel, BorderLayout.CENTER);
+                projectDetailPanel.add(infoButtonPanel);
+                projectDetailPanel.setVisible(true);
+                getContentPane().add(projectDetailPanel,BorderLayout.CENTER);
 
+//
             });
 
             skillPanel.add(projectButton);

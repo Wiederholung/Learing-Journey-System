@@ -72,28 +72,27 @@ public class ProjApp extends JFrame {
                 projectDetailPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
                 //add information to project
-                JLabel projectNameLabel = new JLabel("Project Name: " + project[0]);
-                projectNameLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-                projectDetailPanel.add(projectNameLabel);
+                JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'" +
+                        "<h3>Project Name:</h3>" +project[0]+
+                        "<br><h3>Project Time:</h3>"+project[1] +
+                        "<br><h3>Project Description</h3>"+project[2] +
+                        "<br></body></html");
+                informationLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                informationLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                informationLabel.setMaximumSize(new Dimension(300,Integer.MAX_VALUE));
+                projectDetailPanel.add(informationLabel);
 
-                JLabel projectTimeLabel = new JLabel("Project Time: " + project[1]);
-                projectTimeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-                projectDetailPanel.add(projectTimeLabel);
-
-                JLabel projectDescriptionLabel = new JLabel("<HTML><body style='text-align: center;'>Project Description: " + project[2]+"<body><html>");
-                projectDescriptionLabel.setHorizontalAlignment(SwingConstants.CENTER);
-                projectDescriptionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-                projectDetailPanel.setMaximumSize(new Dimension(300,Integer.MAX_VALUE));
-                projectDetailPanel.add(projectDescriptionLabel);
 
                 // add back button
+                JPanel infoButtonPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
                 JButton backButton1 = new JButton("Back");
                 backButton1.addActionListener(e1 -> {
                     mainPanel.setVisible(true);
                     projectDetailPanel.setVisible(false);
                 });
                 backButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
-                projectDetailPanel.add(backButton1);
+                backButton1.setPreferredSize(new Dimension(100,50));
+                infoButtonPanel.add(backButton1);
 
                 // add delete button
                 JButton deleteButton = new JButton("Delete");
@@ -107,7 +106,9 @@ public class ProjApp extends JFrame {
                     }
                 });
                 deleteButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-                projectDetailPanel.add(deleteButton);
+                deleteButton.setPreferredSize(new Dimension(100,50));
+                infoButtonPanel.add(deleteButton);
+                projectDetailPanel.add(infoButtonPanel);
 
 
                 mainPanel.setVisible(false);
@@ -117,11 +118,7 @@ public class ProjApp extends JFrame {
 
             projectPanel.add(projectButton);
         }
-
-
-
         mainPanel.add(projectPanel, BorderLayout.CENTER);
-
         getContentPane().add(mainPanel);
         setVisible(true);
     }
@@ -246,4 +243,5 @@ public class ProjApp extends JFrame {
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         }
     }
+
 }

@@ -64,32 +64,39 @@ public class HonorApp extends JFrame {
                 // Create new panel of the content of honors
                 JPanel projectDetailPanel = new JPanel();
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
+                projectDetailPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-                JPanel detailPanel = new JPanel();
-                detailPanel.setLayout(new GridLayout(2, 1, 0, 10));
-                detailPanel.add(new JLabel("Honor Name: " + project[0], SwingConstants.CENTER));
-                detailPanel.add(new JLabel("Honor Time: " + project[1], SwingConstants.CENTER));
+                JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'><h3>Honor Name:</h3>"+project[0]+
+                        "<br><h3>Honor Time:</h3>"+project[1] +
+                        "<br></body></html");
+                informationLabel.setHorizontalAlignment(SwingConstants.CENTER);
+                informationLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                informationLabel.setMaximumSize(new Dimension(300,Integer.MAX_VALUE));
+                projectDetailPanel.add(informationLabel);
+
 
 
 
                 // Create back button and delete button
+                JPanel infoButtonPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
                 JButton backButton1 = new JButton("Back");
                 backButton1.addActionListener(e1 -> {
                     mainPanel.setVisible(true);
                     projectDetailPanel.setVisible(false);
                 });
                 backButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
+                backButton1.setPreferredSize(new Dimension(100,50));
                 JButton deleteButton = new JButton("Delete");
                 deleteButton.addActionListener(e12 -> {
                     int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this honor?", "Delete honor", JOptionPane.YES_NO_OPTION);
                     if (result == JOptionPane.YES_OPTION) {
-                        System.out.println("success");
                         DB.writeToJson( DB.deleteHonor(project[0], project[1]));
                         new HonorApp(studentID);
                         dispose();
                     }
                 });
                 deleteButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+                deleteButton.setPreferredSize(new Dimension(100,50));
 
 
                 mainPanel.setVisible(false);
@@ -99,13 +106,13 @@ public class HonorApp extends JFrame {
                 projectDetailPanel.removeAll();
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
                 projectDetailPanel.add(Box.createVerticalGlue());
-                projectDetailPanel.add(detailPanel);
                 projectDetailPanel.add(Box.createVerticalGlue());
-                projectDetailPanel.add(backButton1);
+                projectDetailPanel.add(informationLabel);
+                infoButtonPanel.add(backButton1);
                 projectDetailPanel.add(Box.createVerticalGlue());
-                projectDetailPanel.add(deleteButton);
+                infoButtonPanel.add(deleteButton);
                 projectDetailPanel.add(Box.createVerticalGlue());
-
+                projectDetailPanel.add(infoButtonPanel);
                 getContentPane().add(projectDetailPanel, BorderLayout.CENTER);
             });
 
@@ -222,6 +229,7 @@ public class HonorApp extends JFrame {
             setLocationRelativeTo(null);
             setVisible(true);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
         }
     }
 }
