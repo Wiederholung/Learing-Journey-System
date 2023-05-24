@@ -52,7 +52,23 @@ class DBTest {
 
     @AfterAll
     static void tearDown() {
-        DB.writeToJson(DB.getStudents());
+        Student s = DB.getStudent("2020213361");
+        if (s != null) {
+            s.setName("Hu Hansan-new");
+        }
+        JsonArray sArray = DB.updateStudent(s);
+        if (sArray != null) {
+            DB.writeToJson(sArray);
+        }
+
+        s = DB.getStudent("2020213361");
+        if (s != null) {
+            s.setName("Hu Hansan");
+        }
+        sArray = DB.updateStudent(s);
+        if (sArray != null) {
+            DB.writeToJson(sArray);
+        }
     }
 
 }
