@@ -1,6 +1,7 @@
 # Student Management System
 
-This project is a simple student management system that allows you to manage student information, such as projects, honors, and skills. The system uses JSON files to store and manipulate the data.
+This project is a simple student management system that allows you to manage student information, such as projects,
+honors, and skills. The system uses JSON files to store and manipulate the data.
 
 ## Features
 
@@ -23,7 +24,8 @@ This project is a simple student management system that allows you to manage stu
 
 ## Usage
 
-- To start the system, you should run the 'Main.java' in the code, its path is: Learning-Journey-System/src/main/cn/edu/bupt/Main.java
+- To start the system, you should run the 'Main.java' in the code, its path is:
+  Learning-Journey-System/src/main/cn/edu/bupt/Main.java
 
 - We will provide you an account of our developer's account to try on the software, that is:
 - studentID: 2020213362
@@ -34,9 +36,11 @@ This project is a simple student management system that allows you to manage stu
 Feel free to submit issues or pull requests if you have any suggestions or improvements for this project.
 
 ## Contributors
+
 BUPT&QMUL students group:
+
 - Zehao Xing
-- Yitong Hu
+- [Yitong Hu](https://yitong-hu.metattri.com/)
 - Huanyu Chao
 - Haoxian Ye
 - Yichang Zhang
