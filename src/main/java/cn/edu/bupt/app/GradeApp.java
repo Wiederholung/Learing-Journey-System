@@ -60,7 +60,7 @@ public class GradeApp extends JFrame {
         });
 
         setTitle("Student Projects");
-        setSize(600, 800);
+        setSize(600, 650);
         setLocationRelativeTo(null);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

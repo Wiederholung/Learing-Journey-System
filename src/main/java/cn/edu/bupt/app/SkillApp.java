@@ -31,33 +31,36 @@ public class SkillApp extends JFrame {
 
 
         JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(new BorderLayout());
 
-        //add and back button
         JButton backButton = new JButton("Back");
-        backButton.addActionListener(e -> {
-            dispose();
-            new WelcomeApp(studentID);
-        });
         JButton addButton = new JButton("Add New");
-        addButton.addActionListener(e -> {
-            dispose();
-            new SkillForm(studentID);
-        });
         JPanel buttonPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+        JPanel skillPanel = new JPanel();
+
         buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.add(backButton);
         buttonPanel.add(addButton);
         mainPanel.add(buttonPanel, BorderLayout.NORTH);
-        JPanel skillPanel = new JPanel();
         skillPanel.setLayout(new BoxLayout(skillPanel, BoxLayout.Y_AXIS));
 
+        backButton.addActionListener(e -> {
+            dispose();
+            new WelcomeApp(studentID);
+        });
+        addButton.addActionListener(e -> {
+            dispose();
+            new SkillForm(studentID);
+        });
 
 
         //Create the button of every honor
         for (String[] skill : skills) {
 
             JButton projectButton = new JButton(skill[0] + " " + skill[1]);
+            JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'><h3>Skill Name:</h3>"+skill[0]+
+                    "<br><h3>Skill Level:</h3>"+skill[1] +
+                    "<br></body></html");
             projectButton.setPreferredSize(new Dimension(550, 50));
             projectButton.setMaximumSize(new Dimension(Short.MAX_VALUE, 50));
             projectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -67,16 +70,10 @@ public class SkillApp extends JFrame {
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
                 projectDetailPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
                 //add information
-
-                JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'><h3>Skill Name:</h3>"+skill[0]+
-                        "<br><h3>Skill Level:</h3>"+skill[1] +
-                        "<br></body></html");
                 informationLabel.setHorizontalAlignment(SwingConstants.CENTER);
                 informationLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                 informationLabel.setMaximumSize(new Dimension(300,Integer.MAX_VALUE));
                 projectDetailPanel.add(informationLabel);
-
-
 
 
                 //add backButton and delete Button
@@ -84,14 +81,17 @@ public class SkillApp extends JFrame {
                 JButton backButton1 = new JButton("Back");
                 backButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
                 backButton1.setPreferredSize(new Dimension(100,50));
-                backButton1.addActionListener(e1 -> {
-                   new SkillApp(studentID);
-                    dispose();
-                });
+
 
                 JButton deleteButton = new JButton("Delete");
                 deleteButton.setAlignmentX(Component.CENTER_ALIGNMENT);
                 deleteButton.setPreferredSize(new Dimension(100,50));
+
+
+                backButton1.addActionListener(e1 -> {
+                    new SkillApp(studentID);
+                    dispose();
+                });
                 deleteButton.addActionListener(e12 -> {
                     int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this skill?", "Delete skill", JOptionPane.YES_NO_OPTION);
                     if (result == JOptionPane.YES_OPTION) {
@@ -109,7 +109,6 @@ public class SkillApp extends JFrame {
                 projectDetailPanel.setVisible(true);
                 getContentPane().add(projectDetailPanel,BorderLayout.CENTER);
 
-//
             });
 
             skillPanel.add(projectButton);
@@ -157,37 +156,13 @@ public class SkillApp extends JFrame {
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.insets = new Insets(10, 10, 10, 10);
 
-            gbc.gridx = 0;
-            gbc.gridy = 0;
-            gbc.gridwidth = 2;
-            panel.add(titleLabel, gbc);
-
-            gbc.gridx = 0;
-            gbc.gridy = 1;
-            gbc.gridwidth = 1;
-            panel.add(new JLabel("Skill Name"), gbc);
-
-            gbc.gridx = 1;
-            gbc.gridy = 1;
-            panel.add(skillNameField, gbc);
-
-            gbc.gridx = 0;
-            gbc.gridy = 2;
-            panel.add(new JLabel("Skill Level"), gbc);
-
-            gbc.gridx = 1;
-            gbc.gridy = 2;
-            panel.add(skillLevelField, gbc);
-
-            gbc.gridx = 0;
-            gbc.gridy = 3;
-            panel.add(submitButton, gbc);
-
-            gbc.gridx = 1;
-            gbc.gridy = 3;
-            panel.add(backButton, gbc);
-
-
+            gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2; panel.add(titleLabel, gbc);
+            gbc.gridx = 0; gbc.gridy = 1; gbc.gridwidth = 1; panel.add(new JLabel("Skill Name"), gbc);
+            gbc.gridx = 1; gbc.gridy = 1; panel.add(skillNameField, gbc);
+            gbc.gridx = 0; gbc.gridy = 2; panel.add(new JLabel("Skill Level"), gbc);
+            gbc.gridx = 1; gbc.gridy = 2; panel.add(skillLevelField, gbc);
+            gbc.gridx = 0; gbc.gridy = 3; panel.add(submitButton, gbc);
+            gbc.gridx = 1; gbc.gridy = 3; panel.add(backButton, gbc);
             /*
               Extract all the information and add them into json
              */
