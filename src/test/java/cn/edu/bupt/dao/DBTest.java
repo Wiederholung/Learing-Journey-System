@@ -1,7 +1,7 @@
 package cn.edu.bupt.dao;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonArray;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,13 +26,13 @@ class DBTest {
 
     @Test
     void deleteProject() {
-        assertNotNull(DB.deleteProject("123", "123"));
+        assertNotNull(DB.deleteProject("Simulated business negotiation competition", "2023/6/2"));
         assertFalse(student.getProjs().contains(new Student.Project("123", "123", "22123123")));
     }
 
     @Test
     void deleteHonor() {
-        assertNotNull(DB.deleteHonor("123", "123"));
+        assertNotNull(DB.deleteHonor("University-level National Scholarship in 2023", "2023/6/2"));
         assertFalse(student.getHonors().contains(new Student.Honor("123", "123")));
     }
 
@@ -46,19 +46,13 @@ class DBTest {
 
     @Test
     void deleteSkill() {
-        assertNotNull(DB.deleteSkill("123", "123"));
+        assertNotNull(DB.deleteSkill("C++", "A"));
         assertFalse(student.getSkills().contains(new Student.Skill("123", "123")));
     }
 
-    @Test
-    void writeToJson() {
-        Gson gson = new Gson();
-        JsonArray jsonArray = new JsonArray();
-        jsonArray.add(gson.toJsonTree(student).getAsJsonObject());
-        DB.writeToJson(jsonArray);
+    @AfterAll
+    static void tearDown() {
+        DB.writeToJson(DB.getStudents());
     }
 
-    @Test
-    void testWriteToJson() {
-    }
 }

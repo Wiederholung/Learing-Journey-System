@@ -154,6 +154,21 @@ public class DB {
     }
 
     /**
+     * Get the JsonArray of the Students
+     *
+     * @return JsonArray of the Students
+     */
+    public static JsonArray getStudents() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
+            return JsonParser.parseReader(br).getAsJsonArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
      * Delete the Skill
      *
      * @return JsonArray that the skill is deleted
