@@ -80,8 +80,10 @@ public class ProjApp extends JFrame {
                 projectTimeLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
                 projectDetailPanel.add(projectTimeLabel);
 
-                JLabel projectDescriptionLabel = new JLabel("Project Description: " + project[2]);
+                JLabel projectDescriptionLabel = new JLabel("<HTML><body style='text-align: center;'>Project Description: " + project[2]+"<body><html>");
+                projectDescriptionLabel.setHorizontalAlignment(SwingConstants.CENTER);
                 projectDescriptionLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+                projectDetailPanel.setMaximumSize(new Dimension(300,Integer.MAX_VALUE));
                 projectDetailPanel.add(projectDescriptionLabel);
 
                 // add back button
