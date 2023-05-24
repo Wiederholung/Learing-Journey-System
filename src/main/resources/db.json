@@ -1,310 +1,997 @@
-
-[{"s_id":"2020213362",
-"password":"123123",
-"email":"daygdo@bupt.edu.cn",
-"phone":"16263529770",
-"name":"Niu Touren",
-"gender":"Male",
-"affiliation":"International School",
-"class_id":"2020215111",
-"major":"E-Commerce Engineering with Law",
-"enroll_date":"2020-09-01",
-"grad_date":"2024-07-01",
-"courses":[
-{"course_id":"3812130010","credits":"1","grade":90},
-{"course_id":"3412120039","credits":"4","grade":93},
-{"course_id":"3412110109","credits":"3","grade":75},
-{"course_id":"1052100030","credits":"0.4","grade":75},
-{"course_id":"3512191090","credits":"2","grade":69},
-{"course_id":"3412120039","credits":"4","grade":71},
-{"course_id":"3132112080","credits":"2","grade":99},
-{"course_id":"3512150001","credits":"0.3","grade":93},
-{"course_id":"3512191090","credits":"2","grade":75}],
-"projs":[
-{"proj_name":"Simulated business negotiation competition","proj_time":"2023/6/2","describe":"Won the third prize in the National College Students Simulation Business Negotiation Planning Competition"},
-{"proj_name":"Challenge Cup","proj_time":"2021/10/1","describe":"The 18th Challenge Cup National College Students Extracurricular Academic Science and Technology Works Competition, Beijing City first prize"},
-{"proj_name":"Innovation competition","proj_time":"2022/6/7","describe":"National Second prize in the 8th China Internet Plus College Students Innovation and Entrepreneurship Competition"},
-{"proj_name":"Music studio","proj_time":"2023","describe":"The Music studio project won the first prize of the 12th National College Students E-commerce Innovation Challenge Competition in Beijing"}],
-"honors":[{"honor_time":"2023/6/2","honor_name":"University-level National Scholarship in 2023"},
-{"honor_time":"2022-6-1","honor_name":"Beijing National Scholarship"},
-{"honor_time":"2023-03-01","honor_name":"University-level first-class scholarship"}],
-    "skills":[
-{"skill_name":"C++","skill_level":"A"},
-{"skill_name":"Java","skill_level":"A"},
-{"skill_name":"Python","skill_level":"A"},
-{"skill_name":"JavaScript","skill_level":"A"},
-{"skill_name":"HTML","skill_level":"A"},
-{"skill_name":"CSS","skill_level":"A"},
-{"skill_name":"SQL","skill_level":"A"},
-{"skill_name":"C","skill_level":"A"},
-{"skill_name":"C#","skill_level":"A"},
-{"skill_name":"PyTorch","skill_level":"A"}]},
-  {"s_id":"2020213361",
-    "password":"123123",
-    "email":"2020213361@bupt.edu.cn",
-    "phone":"16343928473",
-    "name":"Hu Hansan",
-    "gender":"Male",
-    "affiliation":"International School",
-    "class_id":"2020215111",
-    "major":"E-Commerce Engineering with Law",
-    "enroll_date":"2020-09-01",
-    "grad_date":"2024-07-01",
-    "courses":[
-      {"course_id":"3812130010","credits":"1","grade":91},
-      {"course_id":"3412120039","credits":"4","grade":92},
-      {"course_id":"3412110109","credits":"3","grade":77},
-      {"course_id":"1052100030","credits":"0.4","grade":76},
-      {"course_id":"3512191090","credits":"2","grade":75},
-      {"course_id":"3412120039","credits":"4","grade":60},
-      {"course_id":"3132112080","credits":"2","grade":99},
-      {"course_id":"3512150001","credits":"0.3","grade":93},
-      {"course_id":"3512191090","credits":"2","grade":78}],
-    "projs":[
-      {"proj_name":"Entrepreneurship plan competition","proj_time":"2022/8/12","describe":"Won an excellent award in the National College Student Entrepreneurship Plan Competition"},
-      {"proj_name":"Programming competition","proj_time":"2022/6/8","describe":"Won the first prize in the 10th National College Student Programming Competition"},
-      {"proj_name":"Scientific research project","proj_time":"2023/6/7","describe":"The scientific research project I participated in won the outstanding achievement award"}],
-    "honors":[{"honor_time":"2023/6/2","honor_name":"University-level National Scholarship in 2023"}],
-      "skills":[
-        {"skill_name":"C++","skill_level":"A"},
-        {"skill_name":"Java","skill_level":"A"},
-        {"skill_name":"Python","skill_level":"A"},
-        {"skill_name":"JavaScript","skill_level":"A"},
-        {"skill_name":"HTML","skill_level":"A"},
-        {"skill_name":"CSS","skill_level":"A"},
-        {"skill_name":"SQL","skill_level":"A"},
-        {"skill_name":"C","skill_level":"A"},
-        {"skill_name":"C#","skill_level":"A"},
-        {"skill_name":"PyTorch","skill_level":"A"}]},
-
-
-        {"s_id":"2020213350",
-          "password":"123123",
-          "email":"2020213350@bupt.edu.cn",
-          "phone":"17648289038",
-          "name":"Diao Deyi",
-          "gender":"Male",
-          "affiliation":"International School",
-          "class_id":"2020215112",
-          "major":"E-Commerce Engineering with Law",
-          "enroll_date":"2020-09-01",
-          "grad_date":"2024-07-01",
-          "courses":[
-            {"course_id":"3812130010","credits":"1","grade":89},
-            {"course_id":"3412120039","credits":"4","grade":87},
-            {"course_id":"3412110109","credits":"3","grade":90},
-            {"course_id":"1052100030","credits":"0.4","grade":85},
-            {"course_id":"3512191090","credits":"2","grade":70},
-            {"course_id":"3412120039","credits":"4","grade":80},
-            {"course_id":"3132112080","credits":"2","grade":97},
-            {"course_id":"3512150001","credits":"0.3","grade":96},
-            {"course_id":"3512191090","credits":"2","grade":79}],
-          "projs":[
-            {"proj_name":"Data Science Challenge","proj_time":"2021/6/2","describe":"Won the team third prize in the National College Student Data Science Challenge"},
-            {"proj_name":"Artificial Intelligence Innovation Application Competition","proj_time":"2021/10/1","describe":"Won the first prize in the National Artificial Intelligence Innovation Application Competition for College Students"}],
-          "honors":[{"honor_time":"2021/6/2","honor_name":"University-level National Scholarship in 2021"}],
-            "skills":[
-              {"skill_name":"C++","skill_level":"A"},
-              {"skill_name":"Java","skill_level":"A"},
-              {"skill_name":"Python","skill_level":"A"},
-              {"skill_name":"JavaScript","skill_level":"A"},
-              {"skill_name":"HTML","skill_level":"A"},
-              {"skill_name":"CSS","skill_level":"A"},
-              {"skill_name":"SQL","skill_level":"A"},
-              {"skill_name":"C","skill_level":"A"},
-              {"skill_name":"C#","skill_level":"A"},
-              {"skill_name":"PyTorch","skill_level":"A"}]},
-
-            {"s_id":"2020213351",
-              "password":"123123",
-              "email":"2020213351@bupt.edu.cn",
-              "phone":"13489579532",
-              "name":"Liu Sanjie",
-              "gender":"Female",
-              "affiliation":"International School",
-              "class_id":"2020215112",
-              "major":"E-Commerce Engineering with Law",
-              "enroll_date":"2020-09-01",
-              "grad_date":"2024-07-01",
-              "courses":[
-                {"course_id":"3812130010","credits":"1","grade":87},
-                {"course_id":"3412120039","credits":"4","grade":94},
-                {"course_id":"3412110109","credits":"3","grade":85},
-                {"course_id":"1052100030","credits":"0.4","grade":90},
-                {"course_id":"3512191090","credits":"2","grade":89},
-                {"course_id":"3412120039","credits":"4","grade":80},
-                {"course_id":"3132112080","credits":"2","grade":93},
-                {"course_id":"3512150001","credits":"0.3","grade":94},
-                {"course_id":"3512191090","credits":"2","grade":79}],
-              "projs":[
-                {"proj_name":"Electronic Engineering Design Competition","proj_time":"2021/9/7","describe":"Participated in the electronic engineering design competition and won the excellent Design award"},
-                {"proj_name":"Mathematical Modeling Competition","proj_time":"2022/10/15","describe":"Won the excellence Award in the National Mathematical Contest in Modeling for College Students"}],
-              "honors":[
-                {"honor_time":"2022-6-1","honor_name":"Beijing National Scholarship"}],
-
-                "skills":[
-                  {"skill_name":"C++","skill_level":"A"},
-                  {"skill_name":"Java","skill_level":"A"},
-                  {"skill_name":"Python","skill_level":"A"},
-                  {"skill_name":"JavaScript","skill_level":"A"},
-                  {"skill_name":"HTML","skill_level":"A"},
-                  {"skill_name":"CSS","skill_level":"A"},
-                  {"skill_name":"SQL","skill_level":"A"},
-                  {"skill_name":"C","skill_level":"A"},
-                  {"skill_name":"C#","skill_level":"A"},
-                  {"skill_name":"PyTorch","skill_level":"A"}]},
-
-
-
-                {"s_id":"2020213353",
-                  "password":"123123",
-                  "email":"2020213353@bupt.edu.cn",
-                  "phone":"16263529770",
-                  "name":"Li Laoba",
-                  "gender":"Male",
-                  "affiliation":"International School",
-                  "class_id":"2020215113",
-                  "major":"E-Commerce Engineering with Law",
-                  "enroll_date":"2020-09-01",
-                  "grad_date":"2024-07-01",
-                  "courses":[
-                    {"course_id":"3812130010","credits":"1","grade":95},
-                    {"course_id":"3412120039","credits":"4","grade":84},
-                    {"course_id":"3412110109","credits":"3","grade":80},
-                    {"course_id":"1052100030","credits":"0.4","grade":80},
-                    {"course_id":"3512191090","credits":"2","grade":72},
-                    {"course_id":"3412120039","credits":"4","grade":78},
-                    {"course_id":"3132112080","credits":"2","grade":99},
-                    {"course_id":"3512150001","credits":"0.3","grade":91},
-                    {"course_id":"3512191090","credits":"2","grade":80}],
-                  "projs":[
-                    {"proj_name":"Technology Entrepreneurship Competition","proj_time":"2022/11/24","describe":"Won the first prize of the team in the science and technology entrepreneurship competition in the field of computer and business"},
-                    {"proj_name":"Challenge Cup","proj_time":"2021/10/1","describe":"The 18th Challenge Cup National College Students Extracurricular Academic Science and Technology Works Competition, Beijing City first prize"}],
-                  "honors":[
-                    {"honor_time":"2023-03-01","honor_name":"University-level first-class scholarship"}],
-                    "skills":[
-                      {"skill_name":"C++","skill_level":"A"},
-                      {"skill_name":"Java","skill_level":"A"},
-                      {"skill_name":"Python","skill_level":"A"},
-                      {"skill_name":"JavaScript","skill_level":"A"},
-                      {"skill_name":"HTML","skill_level":"A"},
-                      {"skill_name":"CSS","skill_level":"A"},
-                      {"skill_name":"SQL","skill_level":"A"},
-                      {"skill_name":"C","skill_level":"A"},
-                      {"skill_name":"C#","skill_level":"A"},
-                      {"skill_name":"PyTorch","skill_level":"A"}]},
-
-                    {"s_id":"2020213356",
-                      "password":"123123",
-                      "email":"2020213356@bupt.edu.cn",
-                      "phone":"15209830927",
-                      "name":"Gao Qilan",
-                      "gender":"Female",
-                      "affiliation":"International School",
-                      "class_id":"2020215111",
-                      "major":"E-Commerce Engineering with Law",
-                      "enroll_date":"2020-09-01",
-                      "grad_date":"2024-07-01",
-                      "courses":[
-                        {"course_id":"3812130010","credits":"1","grade":96},
-                        {"course_id":"3412120039","credits":"4","grade":93},
-                        {"course_id":"3412110109","credits":"3","grade":89},
-                        {"course_id":"1052100030","credits":"0.4","grade":90},
-                        {"course_id":"3512191090","credits":"2","grade":92},
-                        {"course_id":"3412120039","credits":"4","grade":85},
-                        {"course_id":"3132112080","credits":"2","grade":97},
-                        {"course_id":"3512150001","credits":"0.3","grade":91},
-                        {"course_id":"3512191090","credits":"2","grade":87}],
-                      "projs":[
-                        {"proj_name":"Simulated business negotiation competition","proj_time":"2023/6/2","describe":"Won the third prize in the National College Students Simulation Business Negotiation Planning Competition"},
-                        {"proj_name":"Financial Data Analysis Competition","proj_time":"2021/10/1","describe":"Participated in the financial data analysis competition and won the best Data mining award"},
-                        {"proj_name":"Marketing Planning Competition","proj_time":"2022/10/15","describe":"Participated in the marketing planning competition and won the best marketing scheme award"}],
-                      "honors":[{"honor_time":"2023/6/2","honor_name":"University-level National Scholarship in 2023"},
-                        {"honor_time":"2022-6-1","honor_name":"University-level National Scholarship in 2022"},
-                        {"honor_time":"2021-6-1","honor_name":"University-level National Scholarship in 2021"}],
-                        "skills":[
-                          {"skill_name":"C++","skill_level":"A"},
-                          {"skill_name":"Java","skill_level":"A"},
-                          {"skill_name":"Python","skill_level":"A"},
-                          {"skill_name":"JavaScript","skill_level":"A"},
-                          {"skill_name":"HTML","skill_level":"A"},
-                          {"skill_name":"CSS","skill_level":"A"},
-                          {"skill_name":"SQL","skill_level":"A"},
-                          {"skill_name":"C","skill_level":"A"},
-                          {"skill_name":"C#","skill_level":"A"},
-                          {"skill_name":"PyTorch","skill_level":"A"}]},
-
-                        {"s_id":"2020213355",
-                          "password":"123123",
-                          "email":"daygdo@bupt.edu.cn",
-                          "phone":"14320934023",
-                          "name":"Gao Qiqiang",
-                          "gender":"Male",
-                          "affiliation":"International School",
-                          "class_id":"2020215111",
-                          "major":"E-Commerce Engineering with Law",
-                          "enroll_date":"2020-09-01",
-                          "grad_date":"2024-07-01",
-                          "courses":[
-                            {"course_id":"3812130010","credits":"1","grade":70},
-                            {"course_id":"3412120039","credits":"4","grade":75},
-                            {"course_id":"3412110109","credits":"3","grade":65},
-                            {"course_id":"1052100030","credits":"0.4","grade":75},
-                            {"course_id":"3512191090","credits":"2","grade":69},
-                            {"course_id":"3412120039","credits":"4","grade":71},
-                            {"course_id":"3132112080","credits":"2","grade":80},
-                            {"course_id":"3512150001","credits":"0.3","grade":81},
-                            {"course_id":"3512191090","credits":"2","grade":75}],
-                          "projs":[
-                            {"proj_name":"Literary creation competition","proj_time":"2021/8/21","describe":"Participated in the literary creation competition won the best award"}],
-                          "honors":[],
-                            "skills":[
-                              {"skill_name":"C++","skill_level":"A"},
-                              {"skill_name":"Java","skill_level":"A"},
-                              {"skill_name":"Python","skill_level":"A"},
-                              {"skill_name":"JavaScript","skill_level":"A"},
-                              {"skill_name":"HTML","skill_level":"A"},
-                              {"skill_name":"CSS","skill_level":"A"},
-                              {"skill_name":"SQL","skill_level":"A"},
-                              {"skill_name":"C","skill_level":"A"},
-                              {"skill_name":"C#","skill_level":"A"},
-                              {"skill_name":"PyTorch","skill_level":"A"}]},
-
-                            {"s_id":"2020213365",
-                              "password":"123123",
-                              "email":"2020213365@bupt.edu.cn",
-                              "phone":"12980649834",
-                              "name":"Deng Ziqi",
-                              "gender":"Female",
-                              "affiliation":"International School",
-                              "class_id":"2020215112",
-                              "major":"E-Commerce Engineering with Law",
-                              "enroll_date":"2020-09-01",
-                              "grad_date":"2024-07-01",
-                              "courses":[
-                                {"course_id":"3812130010","credits":"1","grade":96},
-                                {"course_id":"3412120039","credits":"4","grade":93},
-                                {"course_id":"3412110109","credits":"3","grade":80},
-                                {"course_id":"1052100030","credits":"0.4","grade":79},
-                                {"course_id":"3512191090","credits":"2","grade":80},
-                                {"course_id":"3412120039","credits":"4","grade":77},
-                                {"course_id":"3132112080","credits":"2","grade":99},
-                                {"course_id":"3512150001","credits":"0.3","grade":92},
-                                {"course_id":"3512191090","credits":"2","grade":73}],
-                              "projs":[
-                                {"proj_name":"Singing competition","proj_time":"2020/10/12","describe":"Won the best Singer award"},
-                                {"proj_name":"Project Management Challenge","proj_time":"2021/7/1","describe":"Individual third prize in the Project Management Challenge in the Computer and Business field"},
-                                {"proj_name":"Marketing Strategy Design Competition","proj_time":"2022/7/12","describe":"Participated in the marketing strategy design competition and won the best marketing promotion award"}],
-                              "honors":[{"honor_time":"2023/6/2","honor_name":"University-level National Scholarship in 2023"},
-                                {"honor_time":"2023-03-01","honor_name":"University-level first-class scholarship"}],
-                                "skills":[
-                                  {"skill_name":"C++","skill_level":"A"},
-                                  {"skill_name":"Java","skill_level":"A"},
-                                  {"skill_name":"Python","skill_level":"A"},
-                                  {"skill_name":"JavaScript","skill_level":"A"},
-                                  {"skill_name":"HTML","skill_level":"A"},
-                                  {"skill_name":"CSS","skill_level":"A"},
-                                  {"skill_name":"SQL","skill_level":"A"},
-                                  {"skill_name":"C","skill_level":"A"},
-                                  {"skill_name":"C#","skill_level":"A"},
-                                  {"skill_name":"PyTorch","skill_level":"A"}]}]
+[
+  {
+    "s_id": "2020213362",
+    "password": "123123",
+    "email": "daygdo@bupt.edu.cn",
+    "phone": "16263529770",
+    "name": "Niu Touren",
+    "gender": "Male",
+    "affiliation": "International School",
+    "class_id": "2020215111",
+    "major": "E-Commerce Engineering with Law",
+    "enroll_date": "2020-09-01",
+    "grad_date": "2024-07-01",
+    "courses": [
+      {
+        "course_id": "3812130010",
+        "credits": "1",
+        "grade": 90
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 93
+      },
+      {
+        "course_id": "3412110109",
+        "credits": "3",
+        "grade": 75
+      },
+      {
+        "course_id": "1052100030",
+        "credits": "0.4",
+        "grade": 75
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 69
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 71
+      },
+      {
+        "course_id": "3132112080",
+        "credits": "2",
+        "grade": 99
+      },
+      {
+        "course_id": "3512150001",
+        "credits": "0.3",
+        "grade": 93
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 75
+      }
+    ],
+    "projs": [
+      {
+        "proj_name": "Simulated business negotiation competition",
+        "proj_time": "2023/6/2",
+        "describe": "Won the third prize in the National College Students Simulation Business Negotiation Planning Competition"
+      },
+      {
+        "proj_name": "Challenge Cup",
+        "proj_time": "2021/10/1",
+        "describe": "The 18th Challenge Cup National College Students Extracurricular Academic Science and Technology Works Competition, Beijing City first prize"
+      },
+      {
+        "proj_name": "Innovation competition",
+        "proj_time": "2022/6/7",
+        "describe": "National Second prize in the 8th China Internet Plus College Students Innovation and Entrepreneurship Competition"
+      },
+      {
+        "proj_name": "Music studio",
+        "proj_time": "2023",
+        "describe": "The Music studio project won the first prize of the 12th National College Students E-commerce Innovation Challenge Competition in Beijing"
+      }
+    ],
+    "honors": [
+      {
+        "honor_time": "2023/6/2",
+        "honor_name": "University-level National Scholarship in 2023"
+      },
+      {
+        "honor_time": "2022-6-1",
+        "honor_name": "Beijing National Scholarship"
+      },
+      {
+        "honor_time": "2023-03-01",
+        "honor_name": "University-level first-class scholarship"
+      }
+    ],
+    "skills": [
+      {
+        "skill_name": "C++",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Java",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Python",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "JavaScript",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "HTML",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "CSS",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "SQL",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C#",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "PyTorch",
+        "skill_level": "A"
+      }
+    ]
+  },
+  {
+    "s_id": "2020213361",
+    "password": "123123",
+    "email": "2020213361@bupt.edu.cn",
+    "phone": "16343928473",
+    "name": "Hu Hansan",
+    "gender": "Male",
+    "affiliation": "International School",
+    "class_id": "2020215111",
+    "major": "E-Commerce Engineering with Law",
+    "enroll_date": "2020-09-01",
+    "grad_date": "2024-07-01",
+    "courses": [
+      {
+        "course_id": "3812130010",
+        "credits": "1",
+        "grade": 91
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 92
+      },
+      {
+        "course_id": "3412110109",
+        "credits": "3",
+        "grade": 77
+      },
+      {
+        "course_id": "1052100030",
+        "credits": "0.4",
+        "grade": 76
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 75
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 60
+      },
+      {
+        "course_id": "3132112080",
+        "credits": "2",
+        "grade": 99
+      },
+      {
+        "course_id": "3512150001",
+        "credits": "0.3",
+        "grade": 93
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 78
+      }
+    ],
+    "projs": [
+      {
+        "proj_name": "Entrepreneurship plan competition",
+        "proj_time": "2022/8/12",
+        "describe": "Won an excellent award in the National College Student Entrepreneurship Plan Competition"
+      },
+      {
+        "proj_name": "Programming competition",
+        "proj_time": "2022/6/8",
+        "describe": "Won the first prize in the 10th National College Student Programming Competition"
+      },
+      {
+        "proj_name": "Scientific research project",
+        "proj_time": "2023/6/7",
+        "describe": "The scientific research project I participated in won the outstanding achievement award"
+      }
+    ],
+    "honors": [
+      {
+        "honor_time": "2023/6/2",
+        "honor_name": "University-level National Scholarship in 2023"
+      }
+    ],
+    "skills": [
+      {
+        "skill_name": "C++",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Java",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Python",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "JavaScript",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "HTML",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "CSS",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "SQL",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C#",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "PyTorch",
+        "skill_level": "A"
+      }
+    ]
+  },
+  {
+    "s_id": "2020213350",
+    "password": "123123",
+    "email": "2020213350@bupt.edu.cn",
+    "phone": "17648289038",
+    "name": "Diao Deyi",
+    "gender": "Male",
+    "affiliation": "International School",
+    "class_id": "2020215112",
+    "major": "E-Commerce Engineering with Law",
+    "enroll_date": "2020-09-01",
+    "grad_date": "2024-07-01",
+    "courses": [
+      {
+        "course_id": "3812130010",
+        "credits": "1",
+        "grade": 89
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 87
+      },
+      {
+        "course_id": "3412110109",
+        "credits": "3",
+        "grade": 90
+      },
+      {
+        "course_id": "1052100030",
+        "credits": "0.4",
+        "grade": 85
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 70
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 80
+      },
+      {
+        "course_id": "3132112080",
+        "credits": "2",
+        "grade": 97
+      },
+      {
+        "course_id": "3512150001",
+        "credits": "0.3",
+        "grade": 96
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 79
+      }
+    ],
+    "projs": [
+      {
+        "proj_name": "Data Science Challenge",
+        "proj_time": "2021/6/2",
+        "describe": "Won the team third prize in the National College Student Data Science Challenge"
+      },
+      {
+        "proj_name": "Artificial Intelligence Innovation Application Competition",
+        "proj_time": "2021/10/1",
+        "describe": "Won the first prize in the National Artificial Intelligence Innovation Application Competition for College Students"
+      }
+    ],
+    "honors": [
+      {
+        "honor_time": "2021/6/2",
+        "honor_name": "University-level National Scholarship in 2021"
+      }
+    ],
+    "skills": [
+      {
+        "skill_name": "C++",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Java",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Python",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "JavaScript",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "HTML",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "CSS",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "SQL",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C#",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "PyTorch",
+        "skill_level": "A"
+      }
+    ]
+  },
+  {
+    "s_id": "2020213351",
+    "password": "123123",
+    "email": "2020213351@bupt.edu.cn",
+    "phone": "13489579532",
+    "name": "Liu Sanjie",
+    "gender": "Female",
+    "affiliation": "International School",
+    "class_id": "2020215112",
+    "major": "E-Commerce Engineering with Law",
+    "enroll_date": "2020-09-01",
+    "grad_date": "2024-07-01",
+    "courses": [
+      {
+        "course_id": "3812130010",
+        "credits": "1",
+        "grade": 87
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 94
+      },
+      {
+        "course_id": "3412110109",
+        "credits": "3",
+        "grade": 85
+      },
+      {
+        "course_id": "1052100030",
+        "credits": "0.4",
+        "grade": 90
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 89
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 80
+      },
+      {
+        "course_id": "3132112080",
+        "credits": "2",
+        "grade": 93
+      },
+      {
+        "course_id": "3512150001",
+        "credits": "0.3",
+        "grade": 94
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 79
+      }
+    ],
+    "projs": [
+      {
+        "proj_name": "Electronic Engineering Design Competition",
+        "proj_time": "2021/9/7",
+        "describe": "Participated in the electronic engineering design competition and won the excellent Design award"
+      },
+      {
+        "proj_name": "Mathematical Modeling Competition",
+        "proj_time": "2022/10/15",
+        "describe": "Won the excellence Award in the National Mathematical Contest in Modeling for College Students"
+      }
+    ],
+    "honors": [
+      {
+        "honor_time": "2022-6-1",
+        "honor_name": "Beijing National Scholarship"
+      }
+    ],
+    "skills": [
+      {
+        "skill_name": "C++",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Java",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Python",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "JavaScript",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "HTML",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "CSS",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "SQL",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C#",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "PyTorch",
+        "skill_level": "A"
+      }
+    ]
+  },
+  {
+    "s_id": "2020213353",
+    "password": "123123",
+    "email": "2020213353@bupt.edu.cn",
+    "phone": "16263529770",
+    "name": "Li Laoba",
+    "gender": "Male",
+    "affiliation": "International School",
+    "class_id": "2020215113",
+    "major": "E-Commerce Engineering with Law",
+    "enroll_date": "2020-09-01",
+    "grad_date": "2024-07-01",
+    "courses": [
+      {
+        "course_id": "3812130010",
+        "credits": "1",
+        "grade": 95
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 84
+      },
+      {
+        "course_id": "3412110109",
+        "credits": "3",
+        "grade": 80
+      },
+      {
+        "course_id": "1052100030",
+        "credits": "0.4",
+        "grade": 80
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 72
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 78
+      },
+      {
+        "course_id": "3132112080",
+        "credits": "2",
+        "grade": 99
+      },
+      {
+        "course_id": "3512150001",
+        "credits": "0.3",
+        "grade": 91
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 80
+      }
+    ],
+    "projs": [
+      {
+        "proj_name": "Technology Entrepreneurship Competition",
+        "proj_time": "2022/11/24",
+        "describe": "Won the first prize of the team in the science and technology entrepreneurship competition in the field of computer and business"
+      },
+      {
+        "proj_name": "Challenge Cup",
+        "proj_time": "2021/10/1",
+        "describe": "The 18th Challenge Cup National College Students Extracurricular Academic Science and Technology Works Competition, Beijing City first prize"
+      }
+    ],
+    "honors": [
+      {
+        "honor_time": "2023-03-01",
+        "honor_name": "University-level first-class scholarship"
+      }
+    ],
+    "skills": [
+      {
+        "skill_name": "C++",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Java",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Python",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "JavaScript",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "HTML",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "CSS",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "SQL",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C#",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "PyTorch",
+        "skill_level": "A"
+      }
+    ]
+  },
+  {
+    "s_id": "2020213356",
+    "password": "123123",
+    "email": "2020213356@bupt.edu.cn",
+    "phone": "15209830927",
+    "name": "Gao Qilan",
+    "gender": "Female",
+    "affiliation": "International School",
+    "class_id": "2020215111",
+    "major": "E-Commerce Engineering with Law",
+    "enroll_date": "2020-09-01",
+    "grad_date": "2024-07-01",
+    "courses": [
+      {
+        "course_id": "3812130010",
+        "credits": "1",
+        "grade": 96
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 93
+      },
+      {
+        "course_id": "3412110109",
+        "credits": "3",
+        "grade": 89
+      },
+      {
+        "course_id": "1052100030",
+        "credits": "0.4",
+        "grade": 90
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 92
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 85
+      },
+      {
+        "course_id": "3132112080",
+        "credits": "2",
+        "grade": 97
+      },
+      {
+        "course_id": "3512150001",
+        "credits": "0.3",
+        "grade": 91
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 87
+      }
+    ],
+    "projs": [
+      {
+        "proj_name": "Simulated business negotiation competition",
+        "proj_time": "2023/6/2",
+        "describe": "Won the third prize in the National College Students Simulation Business Negotiation Planning Competition"
+      },
+      {
+        "proj_name": "Financial Data Analysis Competition",
+        "proj_time": "2021/10/1",
+        "describe": "Participated in the financial data analysis competition and won the best Data mining award"
+      },
+      {
+        "proj_name": "Marketing Planning Competition",
+        "proj_time": "2022/10/15",
+        "describe": "Participated in the marketing planning competition and won the best marketing scheme award"
+      }
+    ],
+    "honors": [
+      {
+        "honor_time": "2023/6/2",
+        "honor_name": "University-level National Scholarship in 2023"
+      },
+      {
+        "honor_time": "2022-6-1",
+        "honor_name": "University-level National Scholarship in 2022"
+      },
+      {
+        "honor_time": "2021-6-1",
+        "honor_name": "University-level National Scholarship in 2021"
+      }
+    ],
+    "skills": [
+      {
+        "skill_name": "C++",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Java",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Python",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "JavaScript",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "HTML",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "CSS",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "SQL",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C#",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "PyTorch",
+        "skill_level": "A"
+      }
+    ]
+  },
+  {
+    "s_id": "2020213355",
+    "password": "123123",
+    "email": "daygdo@bupt.edu.cn",
+    "phone": "14320934023",
+    "name": "Gao Qiqiang",
+    "gender": "Male",
+    "affiliation": "International School",
+    "class_id": "2020215111",
+    "major": "E-Commerce Engineering with Law",
+    "enroll_date": "2020-09-01",
+    "grad_date": "2024-07-01",
+    "courses": [
+      {
+        "course_id": "3812130010",
+        "credits": "1",
+        "grade": 70
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 75
+      },
+      {
+        "course_id": "3412110109",
+        "credits": "3",
+        "grade": 65
+      },
+      {
+        "course_id": "1052100030",
+        "credits": "0.4",
+        "grade": 75
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 69
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 71
+      },
+      {
+        "course_id": "3132112080",
+        "credits": "2",
+        "grade": 80
+      },
+      {
+        "course_id": "3512150001",
+        "credits": "0.3",
+        "grade": 81
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 75
+      }
+    ],
+    "projs": [
+      {
+        "proj_name": "Literary creation competition",
+        "proj_time": "2021/8/21",
+        "describe": "Participated in the literary creation competition won the best award"
+      }
+    ],
+    "honors": [],
+    "skills": [
+      {
+        "skill_name": "C++",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Java",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Python",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "JavaScript",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "HTML",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "CSS",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "SQL",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C#",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "PyTorch",
+        "skill_level": "A"
+      }
+    ]
+  },
+  {
+    "s_id": "2020213365",
+    "password": "123123",
+    "email": "2020213365@bupt.edu.cn",
+    "phone": "12980649834",
+    "name": "Deng Ziqi",
+    "gender": "Female",
+    "affiliation": "International School",
+    "class_id": "2020215112",
+    "major": "E-Commerce Engineering with Law",
+    "enroll_date": "2020-09-01",
+    "grad_date": "2024-07-01",
+    "courses": [
+      {
+        "course_id": "3812130010",
+        "credits": "1",
+        "grade": 96
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 93
+      },
+      {
+        "course_id": "3412110109",
+        "credits": "3",
+        "grade": 80
+      },
+      {
+        "course_id": "1052100030",
+        "credits": "0.4",
+        "grade": 79
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 80
+      },
+      {
+        "course_id": "3412120039",
+        "credits": "4",
+        "grade": 77
+      },
+      {
+        "course_id": "3132112080",
+        "credits": "2",
+        "grade": 99
+      },
+      {
+        "course_id": "3512150001",
+        "credits": "0.3",
+        "grade": 92
+      },
+      {
+        "course_id": "3512191090",
+        "credits": "2",
+        "grade": 73
+      }
+    ],
+    "projs": [
+      {
+        "proj_name": "Singing competition",
+        "proj_time": "2020/10/12",
+        "describe": "Won the best Singer award"
+      },
+      {
+        "proj_name": "Project Management Challenge",
+        "proj_time": "2021/7/1",
+        "describe": "Individual third prize in the Project Management Challenge in the Computer and Business field"
+      },
+      {
+        "proj_name": "Marketing Strategy Design Competition",
+        "proj_time": "2022/7/12",
+        "describe": "Participated in the marketing strategy design competition and won the best marketing promotion award"
+      }
+    ],
+    "honors": [
+      {
+        "honor_time": "2023/6/2",
+        "honor_name": "University-level National Scholarship in 2023"
+      },
+      {
+        "honor_time": "2023-03-01",
+        "honor_name": "University-level first-class scholarship"
+      }
+    ],
+    "skills": [
+      {
+        "skill_name": "C++",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Java",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "Python",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "JavaScript",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "HTML",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "CSS",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "SQL",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "C#",
+        "skill_level": "A"
+      },
+      {
+        "skill_name": "PyTorch",
+        "skill_level": "A"
+      }
+    ]
+  }
+]
