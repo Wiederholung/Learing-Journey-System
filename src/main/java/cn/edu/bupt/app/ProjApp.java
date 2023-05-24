@@ -95,6 +95,7 @@ public class ProjApp extends JFrame {
                 infoButtonPanel.add(backButton1);
 
                 // add delete button
+
                 JButton deleteButton = new JButton("Delete");
                 deleteButton.addActionListener(e12 -> {
                     int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this project?", "Delete Project", JOptionPane.YES_NO_OPTION);

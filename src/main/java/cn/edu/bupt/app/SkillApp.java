@@ -68,6 +68,7 @@ public class SkillApp extends JFrame {
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
                 projectDetailPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
                 //add information
+
                 JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'><h3>Skil Name:</h3>"+skill[0]+
                         "<br><h3>Skill Level:</h3>"+skill[1] +
                         "<br></body></html");

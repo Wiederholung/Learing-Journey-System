@@ -65,7 +65,7 @@ public class HonorApp extends JFrame {
                 JPanel projectDetailPanel = new JPanel();
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
                 projectDetailPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
-
+                //Show the information
                 JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'><h3>Honor Name:</h3>"+project[0]+
                         "<br><h3>Honor Time:</h3>"+project[1] +
                         "<br></body></html");
