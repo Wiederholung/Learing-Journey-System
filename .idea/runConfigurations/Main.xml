@@ -1,11 +1,11 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
-    <option name="MAIN_CLASS_NAME" value="cn.edu.bupt.Main" />
+    <option name="MAIN_CLASS_NAME" value="com.metattri.Main" />
     <module name="Learing-Journey-System" />
     <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="cn.edu.bupt.*" />
+        <option name="PATTERN" value="com.metattri.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
