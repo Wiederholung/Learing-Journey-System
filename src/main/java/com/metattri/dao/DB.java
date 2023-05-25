@@ -1,9 +1,5 @@
-/**
-
- This class encapsulates the data access operations for Student objects,
- including reading, modifying, and writing methods involving Student.json files.
- */
 package com.metattri.dao;
+
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -14,7 +10,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class DB {private static final String FILE_PATH = "src/main/resources/db.json";
+/**
+ * This class encapsulates the data access operations for Student objects,
+ * including reading, modifying, and writing methods involving Student.json files.
+ */
+public class DB {
+    private static final String FILE_PATH = "src/main/resources/db.json";
     private static final Gson gson = new Gson(); // GSON Object
 
     /**

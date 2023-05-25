@@ -1,11 +1,11 @@
-/**
- * All class of student, all the getter and setter
- * can be found in this class
- */
 package com.metattri.dao;
 
 import java.util.List;
 
+/**
+ * All class of student, all the getter and setter
+ * can be found in this class
+ */
 public class Student {
     private String s_id;
     private String password;
@@ -210,6 +210,12 @@ public class Student {
         private String proj_time;
         private String describe;
 
+        public Project(String proj_name, String proj_time, String describe) {
+            this.proj_name = proj_name;
+            this.proj_time = proj_time;
+            this.describe = describe;
+        }
+
         @Override
         public String toString() {
             return "Project{" +
@@ -217,12 +223,6 @@ public class Student {
                     ", proj_time='" + proj_time + '\'' +
                     ", describe='" + describe + '\'' +
                     '}';
-        }
-
-        public Project(String proj_name, String proj_time, String describe) {
-            this.proj_name = proj_name;
-            this.proj_time = proj_time;
-            this.describe = describe;
         }
 
         public String getProj_name() {
