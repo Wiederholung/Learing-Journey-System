@@ -1,4 +1,4 @@
-# Student Management System
+# Learning Journey System
 
 This project is a simple student management system that allows you to manage student information, such as projects,
 honors, and skills. The system uses JSON files to store and manipulate the data.
@@ -25,7 +25,7 @@ honors, and skills. The system uses JSON files to store and manipulate the data.
 ## Usage
 
 - To start the system, you should run the 'Main.java' in the code, its path is:
-  Learning-Journey-System/src/main/cn/edu/bupt/Main.java
+  Learning-Journey-System/src/main/java/com/metattri/Main.java
 
 - We will provide you an account of our developer's account to try on the software, that is:
 - studentID: 2020213362
@@ -37,7 +37,7 @@ Feel free to submit issues or pull requests if you have any suggestions or impro
 
 ## Contributors
 
-BUPT&QMUL students group:
+BUPT & QMUL student group:
 
 - Zehao Xing
 - [Yitong Hu](https://yitong-hu.metattri.com/)
@@ -45,7 +45,3 @@ BUPT&QMUL students group:
 - Haoxian Ye
 - Yichang Zhang
 - Shuo Xiu
-
-## License
-
-This project is open-source and available under the MIT License 
