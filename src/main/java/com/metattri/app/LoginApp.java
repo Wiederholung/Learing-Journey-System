@@ -1,20 +1,35 @@
-
-/**
-
- The LoginApp class represents the login interface of the system.
- It provides a graphical user interface (GUI) for users to enter their student ID and password.
- Upon successful login, the user is redirected to the WelcomeApp.
- */
 package com.metattri.app;
+
 import com.metattri.dao.DB;
 import com.metattri.dao.Student;
 
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * The LoginApp class represents the login interface of the system.
+ * It provides a graphical user interface (GUI) for users to enter their student ID and password.
+ * Upon successful login, the user is redirected to the WelcomeApp.
+ */
 public class LoginApp extends JFrame {
     private JTextField idTextField;
     private JPasswordField passwordField;
+
+    /**
+     * Initializes the LoginApp by setting up the look and feel, creating the title panel, and login panel.
+     * Sets the size, location, and visibility of the LoginApp window.
+     */
+    public LoginApp() {
+        initializeLookAndFeel();
+        createTitlePanel();
+        createLoginPanel();
+        setSize(600, 300);
+        pack();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        setVisible(true);
+    }
 
     /**
      * Initializes the look and feel of the application to Nimbus.
@@ -28,7 +43,7 @@ public class LoginApp extends JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                javax.swing.UnsupportedLookAndFeelException ex) {
+                 javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }
@@ -110,21 +125,5 @@ public class LoginApp extends JFrame {
             }
         });
         add(loginPanel, BorderLayout.CENTER);
-    }
-
-    /**
-     * Initializes the LoginApp by setting up the look and feel, creating the title panel, and login panel.
-     * Sets the size, location, and visibility of the LoginApp window.
-     */
-    public LoginApp() {
-        initializeLookAndFeel();
-        createTitlePanel();
-        createLoginPanel();
-        setSize(600, 300);
-        pack();
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
-        setVisible(true);
     }
 }

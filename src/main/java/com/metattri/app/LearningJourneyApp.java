@@ -1,6 +1,3 @@
-/**
- * This class represents the Learning Journey interface that shows a student's achievements during their time at BUPT & QMUL.
- */
 package com.metattri.app;
 
 import com.metattri.dao.DB;

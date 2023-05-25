@@ -1,6 +1,3 @@
-/**
- * This class is used to screen student scores and calculate their average points and GPA.
- */
 package com.metattri.app;
 
 import com.metattri.dao.DB;

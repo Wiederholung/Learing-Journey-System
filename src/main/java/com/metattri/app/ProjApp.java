@@ -1,4 +1,3 @@
-
 package com.metattri.app;
 
 import com.metattri.dao.DB;
@@ -8,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * this class is used to show all the information of project and make some operation on it
  */
@@ -72,23 +72,23 @@ public class ProjApp extends JFrame {
 
                 //add information to project
                 JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'" +
-                        "<h3>Project Name:</h3>" +project[0]+
-                        "<br><h3>Project Time:</h3>"+project[1] +
-                        "<br><h3>Project Description</h3>"+project[2] +
+                        "<h3>Project Name:</h3>" + project[0] +
+                        "<br><h3>Project Time:</h3>" + project[1] +
+                        "<br><h3>Project Description</h3>" + project[2] +
                         "<br></body></html");
                 informationLabel.setHorizontalAlignment(SwingConstants.CENTER);
                 informationLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-                informationLabel.setMaximumSize(new Dimension(300,Integer.MAX_VALUE));
+                informationLabel.setMaximumSize(new Dimension(300, Integer.MAX_VALUE));
                 projectDetailPanel.add(informationLabel);
                 // add back button
-                JPanel infoButtonPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
+                JPanel infoButtonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
                 JButton backButton1 = new JButton("Back");
                 backButton1.addActionListener(e1 -> {
                     mainPanel.setVisible(true);
                     projectDetailPanel.setVisible(false);
                 });
                 backButton1.setAlignmentX(Component.CENTER_ALIGNMENT);
-                backButton1.setPreferredSize(new Dimension(100,50));
+                backButton1.setPreferredSize(new Dimension(100, 50));
                 infoButtonPanel.add(backButton1);
                 // add delete button
                 JButton deleteButton = new JButton("Delete");
@@ -96,13 +96,13 @@ public class ProjApp extends JFrame {
                     int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this project?", "Delete Project", JOptionPane.YES_NO_OPTION);
                     if (result == JOptionPane.YES_OPTION) {
                         System.out.println("success");
-                       DB.writeToJson( DB.deleteProject(project[0], project[1]));
+                        DB.writeToJson(DB.deleteProject(project[0], project[1]));
                         new ProjApp(studentID);
                         dispose();
                     }
                 });
                 deleteButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-                deleteButton.setPreferredSize(new Dimension(100,50));
+                deleteButton.setPreferredSize(new Dimension(100, 50));
                 infoButtonPanel.add(deleteButton);
                 projectDetailPanel.add(infoButtonPanel);
                 mainPanel.setVisible(false);
@@ -166,15 +166,36 @@ public class ProjApp extends JFrame {
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.insets = new Insets(10, 10, 10, 10);
 
-            gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2; panel.add(titleLabel, gbc);
-            gbc.gridx = 0; gbc.gridy = 1; gbc.gridwidth = 1; panel.add(new JLabel("Project Name:"), gbc);
-            gbc.gridx = 1; gbc.gridy = 1; panel.add(projectNameField, gbc);
-            gbc.gridx = 0; gbc.gridy = 2; panel.add(new JLabel("Project Time:"), gbc);
-            gbc.gridx = 1; gbc.gridy = 2; panel.add(projectTimeField, gbc);
-            gbc.gridx = 0; gbc.gridy = 3; panel.add(new JLabel("Project Content:"), gbc);
-            gbc.gridx = 1; gbc.gridy = 3; panel.add(scrollPane, gbc);
-            gbc.gridx = 0; gbc.gridy = 4; gbc.gridwidth = 1; panel.add(submitButton, gbc);
-            gbc.gridx = 1; gbc.gridy = 4; panel.add(backButton, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            gbc.gridwidth = 2;
+            panel.add(titleLabel, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 1;
+            gbc.gridwidth = 1;
+            panel.add(new JLabel("Project Name:"), gbc);
+            gbc.gridx = 1;
+            gbc.gridy = 1;
+            panel.add(projectNameField, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 2;
+            panel.add(new JLabel("Project Time:"), gbc);
+            gbc.gridx = 1;
+            gbc.gridy = 2;
+            panel.add(projectTimeField, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 3;
+            panel.add(new JLabel("Project Content:"), gbc);
+            gbc.gridx = 1;
+            gbc.gridy = 3;
+            panel.add(scrollPane, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 4;
+            gbc.gridwidth = 1;
+            panel.add(submitButton, gbc);
+            gbc.gridx = 1;
+            gbc.gridy = 4;
+            panel.add(backButton, gbc);
 
             submitButton.addActionListener(e -> {
                 String projectName = projectNameField.getText();
@@ -186,7 +207,7 @@ public class ProjApp extends JFrame {
                 List<Student.Project> projs;
                 if (s != null) {
                     projs = s.getProjs();
-                    if(projectName.equals("") || projectTime.equals("") || projectContent.equals("")){
+                    if (projectName.equals("") || projectTime.equals("") || projectContent.equals("")) {
                         JOptionPane.showMessageDialog(null, "Please fill in all fields!");
                         return;
                     }

@@ -7,11 +7,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * The main application window for displaying student honors.
  */
 public class HonorApp extends JFrame {
     private final ArrayList<String[]> honors;
+
     /**
      * Constructs the HonorApp window.
      *
@@ -53,7 +55,6 @@ public class HonorApp extends JFrame {
         });
 
 
-
         //Create the button of every honors
         for (String[] project : honors) {
 
@@ -63,30 +64,28 @@ public class HonorApp extends JFrame {
             projectButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
 
-
             projectButton.addActionListener(e -> {
                 //Show the information
                 JPanel projectDetailPanel = new JPanel();
-                JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'><h3>Honor Name:</h3>"+project[0]+
-                        "<br><h3>Honor Time:</h3>"+project[1] +
+                JLabel informationLabel = new JLabel("<HTML><body style='text-align: center;'><h3>Honor Name:</h3>" + project[0] +
+                        "<br><h3>Honor Time:</h3>" + project[1] +
                         "<br></body></html");
                 projectDetailPanel.setLayout(new BoxLayout(projectDetailPanel, BoxLayout.Y_AXIS));
                 projectDetailPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
                 informationLabel.setHorizontalAlignment(SwingConstants.CENTER);
                 informationLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-                informationLabel.setMaximumSize(new Dimension(300,Integer.MAX_VALUE));
+                informationLabel.setMaximumSize(new Dimension(300, Integer.MAX_VALUE));
                 projectDetailPanel.add(informationLabel);
 
 
-
                 // Create back button and delete button
-                JPanel infoButtonPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
+                JPanel infoButtonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
                 JButton returnButton = new JButton("Back");
                 JButton deleteButton = new JButton("Delete");
                 returnButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-                returnButton.setPreferredSize(new Dimension(100,50));
+                returnButton.setPreferredSize(new Dimension(100, 50));
                 deleteButton.setAlignmentX(Component.CENTER_ALIGNMENT);
-                deleteButton.setPreferredSize(new Dimension(100,50));
+                deleteButton.setPreferredSize(new Dimension(100, 50));
 
                 returnButton.addActionListener(e1 -> {
                     mainPanel.setVisible(true);
@@ -95,7 +94,7 @@ public class HonorApp extends JFrame {
                 deleteButton.addActionListener(e12 -> {
                     int result = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this honor?", "Delete honor", JOptionPane.YES_NO_OPTION);
                     if (result == JOptionPane.YES_OPTION) {
-                        DB.writeToJson( DB.deleteHonor(project[0], project[1]));
+                        DB.writeToJson(DB.deleteHonor(project[0], project[1]));
                         new HonorApp(studentID);
                         dispose();
                     }
@@ -128,6 +127,7 @@ public class HonorApp extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+
     /**
      * The form for adding a new honor.
      */
@@ -135,6 +135,7 @@ public class HonorApp extends JFrame {
 
         private final JTextField projectTimeField;
         private final JTextArea projectContentArea;
+
         /**
          * Constructs the HonorForm window.
          *
@@ -168,13 +169,30 @@ public class HonorApp extends JFrame {
             GridBagConstraints gbc = new GridBagConstraints();
             gbc.insets = new Insets(10, 10, 10, 10);
 
-            gbc.gridx = 0; gbc.gridy = 0; gbc.gridwidth = 2; panel.add(titleLabel, gbc);
-            gbc.gridx = 0; gbc.gridy = 1; gbc.gridwidth = 1; panel.add(new JLabel("Honor Time:"), gbc);
-            gbc.gridx = 1; gbc.gridy = 1; panel.add(projectTimeField, gbc);
-            gbc.gridx = 0; gbc.gridy = 2; panel.add(new JLabel("Honor Content:"), gbc);
-            gbc.gridx = 1; gbc.gridy = 2; panel.add(scrollPane, gbc);
-            gbc.gridx = 0; gbc.gridy = 3; gbc.gridwidth = 1; panel.add(submitButton, gbc);
-            gbc.gridx = 1; gbc.gridy = 3; panel.add(backButton, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            gbc.gridwidth = 2;
+            panel.add(titleLabel, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 1;
+            gbc.gridwidth = 1;
+            panel.add(new JLabel("Honor Time:"), gbc);
+            gbc.gridx = 1;
+            gbc.gridy = 1;
+            panel.add(projectTimeField, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 2;
+            panel.add(new JLabel("Honor Content:"), gbc);
+            gbc.gridx = 1;
+            gbc.gridy = 2;
+            panel.add(scrollPane, gbc);
+            gbc.gridx = 0;
+            gbc.gridy = 3;
+            gbc.gridwidth = 1;
+            panel.add(submitButton, gbc);
+            gbc.gridx = 1;
+            gbc.gridy = 3;
+            panel.add(backButton, gbc);
 
             //Add the honors into JSON
             submitButton.addActionListener(e -> {

@@ -1,7 +1,3 @@
-/**
- * The InfoApp class represents an interface that displays and allows modification of a student's basic information.
- * The interface includes a table with the student's information and buttons for returning and modifying the data.
- */
 package com.metattri.app;
 
 import com.metattri.dao.DB;
@@ -11,6 +7,10 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * The InfoApp class represents an interface that displays and allows modification of a student's basic information.
+ * The interface includes a table with the student's information and buttons for returning and modifying the data.
+ */
 public class InfoApp extends JFrame {
     String[][] stuInfo;
 

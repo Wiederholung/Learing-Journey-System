@@ -1,9 +1,5 @@
-/**
-
- The main interface of the learning journey application for an International School.
- It provides navigation to various functions in the project.
- */
 package com.metattri.app;
+
 import com.metattri.dao.DB;
 import com.metattri.dao.Student;
 
@@ -11,6 +7,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+/**
+ * The main interface of the learning journey application for an International School.
+ * It provides navigation to various functions in the project.
+ */
 public class WelcomeApp extends JFrame {
     private final String studentID;
 
