@@ -1,6 +1,5 @@
 /**
- * This is the Learning Journey Interface
- * to show student's achievement during the time in BUPT&QMUL
+ * This class represents the Learning Journey interface that shows a student's achievements during their time at BUPT & QMUL.
  */
 package com.metattri.app;
 
@@ -13,6 +12,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
+/**
+ * The LearningJourneyApp class extends JFrame and provides the functionality to display the learning journey information of a student.
+ */
 public class LearningJourneyApp extends JFrame {
     private int days;
     private int courses;
@@ -23,10 +25,13 @@ public class LearningJourneyApp extends JFrame {
     private String lessons;
     private double score;
 
+    /**
+     * Constructs a LearningJourneyApp object for the given student ID.
+     *
+     * @param studentID the ID of the student
+     */
     public LearningJourneyApp(String studentID) {
-        /*
-          Calculate the variables that shown in the interface
-         */
+        // Calculate the variables to be shown in the interface
         Student student = DB.getStudent(studentID);
         LocalDate enroll_date;
         if (student != null) {
@@ -48,9 +53,7 @@ public class LearningJourneyApp extends JFrame {
             major = student.getMajor();
         }
 
-        /*
-          Set the text use HTML tags
-         */
+        // Create and configure the GUI components
         JFrame frame = new JFrame("Learning Journey");
         frame.setSize(500, 500);
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 200, 20));
@@ -60,11 +63,11 @@ public class LearningJourneyApp extends JFrame {
         }
         JLabel label2 = new JLabel("<html><h2 style='text-align:center;'>Enjoy your Learning journey in BUPT and QMUL!</h2></html>");
         JLabel label3 = new JLabel("<html><h3 style='text-align:center;'>Now you have joined us for <font size='6'>" + days + "</font> days!</h3></html>");
-        JLabel label4 = new JLabel("<html><h3 style='text-align:center;'>You have learned <font size='6'>" + courses + "</font> subjects, receive a wealth knowledge!</h3></html>");
-        JLabel label5 = new JLabel("<html><h3 style='text-align:center;'>Overall, you performed best in the subject <font size='6'>" + lessons + "</font>, scored <font size='6'>" + score + "</font> ! How excellent you are!</h3></html>");
+        JLabel label4 = new JLabel("<html><h3 style='text-align:center;'>You have learned <font size='6'>" + courses + "</font> subjects, receiving a wealth of knowledge!</h3></html>");
+        JLabel label5 = new JLabel("<html><h3 style='text-align:center;'>Overall, you performed best in the subject <font size='6'>" + lessons + "</font>, scoring <font size='6'>" + score + "</font>! How excellent you are!</h3></html>");
         JLabel label6 = new JLabel("<html><h3 style='text-align:center;'>Until now, you have gained <font size='6'>" + numOfHonors + "</font> honors/scholarships!</h3></html>");
-        JLabel label7 = new JLabel("<html><h3 style='text-align:center;'>You have completed <font size='6'>" + numOfProjects + "</font> during these time. <br>--the difficulties you beat will become your glories!</h3></html>");
-        JLabel label8 = new JLabel("<html><h3 style='text-align:center;'>In <font size='6'>" + dateOfGradual + "</font>, you will receive a bachelor’s degree of ： <br>" + "<font size='12'>" + major + "</font>" + " ! <br>That is a significant step you take in your career and we believe you will be excellent in the future!</font></h3></html>");
+        JLabel label7 = new JLabel("<html><h3 style='text-align:center;'>You have completed <font size='6'>" + numOfProjects + "</font> projects during this time. <br>--the difficulties youbeat will become your glories!</h3></html>");
+        JLabel label8 = new JLabel("<html><h3 style='text-align:center;'>In <font size='6'>" + dateOfGradual + "</font>, you will receive a bachelor’s degree of:<br>" + "<font size='12'>" + major + "</font>" + "!<br>That is a significant step you take in your career, and we believe you will be excellent in the future!</font></h3></html>");
 
         if (label1 != null) {
             label1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -86,10 +89,7 @@ public class LearningJourneyApp extends JFrame {
         panel.add(label7);
         panel.add(label8);
 
-
-        /*
-          set the back Button
-         */
+        // Set up the back button
         JButton backButton = new JButton("Back");
         backButton.setPreferredSize(new Dimension(200, 50));
         panel.add(backButton);
@@ -97,6 +97,7 @@ public class LearningJourneyApp extends JFrame {
             frame.dispose();
             new WelcomeApp(studentID);
         });
+
         frame.setSize(800, 800);
         frame.getContentPane().add(panel);
         frame.setLocationRelativeTo(null);

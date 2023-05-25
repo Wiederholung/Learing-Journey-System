@@ -1,8 +1,11 @@
+
 /**
- * This class is the login interface of the system
+
+ The LoginApp class represents the login interface of the system.
+ It provides a graphical user interface (GUI) for users to enter their student ID and password.
+ Upon successful login, the user is redirected to the WelcomeApp.
  */
 package com.metattri.app;
-
 import com.metattri.dao.DB;
 import com.metattri.dao.Student;
 
@@ -13,18 +16,9 @@ public class LoginApp extends JFrame {
     private JTextField idTextField;
     private JPasswordField passwordField;
 
-    public LoginApp() {
-        initializeLookAndFeel();
-        createTitlePanel();
-        createLoginPanel();
-        setSize(600, 300);
-        pack();
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
-        setVisible(true);
-    }
-
+    /**
+     * Initializes the look and feel of the application to Nimbus.
+     */
     private void initializeLookAndFeel() {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -34,11 +28,14 @@ public class LoginApp extends JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                 javax.swing.UnsupportedLookAndFeelException ex) {
+                javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
     }
 
+    /**
+     * Creates the title panel with the application title and subtitle.
+     */
     private void createTitlePanel() {
         JPanel titlePanel = new JPanel(new BorderLayout());
         JLabel titleLabel = new JLabel("    Learning Journey Application for International School    ");
@@ -53,6 +50,9 @@ public class LoginApp extends JFrame {
         add(titlePanel, BorderLayout.NORTH);
     }
 
+    /**
+     * Creates the login panel with input fields for student ID and password, as well as a login button.
+     */
     private void createLoginPanel() {
         JPanel loginPanel = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -95,10 +95,13 @@ public class LoginApp extends JFrame {
 
         loginButton.addActionListener(e -> {
             String studentID = idTextField.getText();
-            String password = new String(passwordField.getPassword());
+            String password = new String(passwordField.getPassword
+                    ());
             boolean loginSuccess = false;
             Student s = DB.getStudent(studentID);
-            if (s != null && s.getPassword().equals(password)) loginSuccess = true;
+            if (s != null && s.getPassword().equals(password)) {
+                loginSuccess = true;
+            }
             if (loginSuccess) {
                 new WelcomeApp(studentID);
                 dispose();
@@ -106,7 +109,22 @@ public class LoginApp extends JFrame {
                 JOptionPane.showMessageDialog(LoginApp.this, "Invalid StudentID or Password!", "Login Failed", JOptionPane.ERROR_MESSAGE);
             }
         });
-
         add(loginPanel, BorderLayout.CENTER);
+    }
+
+    /**
+     * Initializes the LoginApp by setting up the look and feel, creating the title panel, and login panel.
+     * Sets the size, location, and visibility of the LoginApp window.
+     */
+    public LoginApp() {
+        initializeLookAndFeel();
+        createTitlePanel();
+        createLoginPanel();
+        setSize(600, 300);
+        pack();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setResizable(false);
+        setVisible(true);
     }
 }

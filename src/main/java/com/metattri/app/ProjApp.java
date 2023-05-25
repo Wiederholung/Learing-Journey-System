@@ -1,6 +1,4 @@
-/**
- * this class is used to show all the information of project and make some operation on it
- */
+
 package com.metattri.app;
 
 import com.metattri.dao.DB;
@@ -10,9 +8,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * this class is used to show all the information of project and make some operation on it
+ */
 public class ProjApp extends JFrame {
-
+    /**
+     * Constructs a ProjApp object with the given student ID.
+     *
+     * @param studentID the ID of the student
+     */
     public ProjApp(String studentID) {
         ArrayList<String[]> projects = new ArrayList<>();
         Student s = DB.getStudent(studentID);
@@ -113,13 +117,20 @@ public class ProjApp extends JFrame {
         setVisible(true);
     }
 
-
+    /**
+     * A JFrame class for adding project experience.
+     */
     public static class ProjForm extends JFrame {
 
         private final JTextField projectNameField;
         private final JTextField projectTimeField;
         private final JTextArea projectContentArea;
 
+        /**
+         * Constructs a ProjForm object.
+         *
+         * @param studentID the ID of the student
+         */
         public ProjForm(final String studentID) {
             super("Adding your project experience here");
 

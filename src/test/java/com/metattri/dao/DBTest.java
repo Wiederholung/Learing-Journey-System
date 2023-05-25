@@ -60,7 +60,6 @@ class DBTest {
         if (sArray != null) {
             DB.writeToJson(sArray);
         }
-
         s = DB.getStudent("2020213361");
         if (s != null) {
             s.setName("Hu Hansan");

@@ -1,6 +1,6 @@
 /**
- * this class is used to show all the basic information of student
- * We can modify the information in this interface
+ * The InfoApp class represents an interface that displays and allows modification of a student's basic information.
+ * The interface includes a table with the student's information and buttons for returning and modifying the data.
  */
 package com.metattri.app;
 
@@ -14,13 +14,18 @@ import java.awt.*;
 public class InfoApp extends JFrame {
     String[][] stuInfo;
 
+    /**
+     * Constructs a new instance of the InfoApp class.
+     *
+     * @param studentID the ID of the student
+     */
     public InfoApp(String studentID) {
-        // set the title
+        // Set the title
         JLabel titleLabel = new JLabel("Your Status Information", SwingConstants.CENTER);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 24));
         titleLabel.setBorder(new EmptyBorder(10, 0, 10, 0));
 
-        // create the forms
+        // Create the forms
         stuInfo = loadStudentData(studentID);
         String[] COLUMN_NAMES = {"Info", "Value"};
         JTable table = new JTable(stuInfo, COLUMN_NAMES);
@@ -44,13 +49,11 @@ public class InfoApp extends JFrame {
             infoPanel.add(label, gbc);
         }
 
-
-        // Create the backButton and the modifyButton
+        // Create the returnButton and the modifyButton
         JButton returnButton = new JButton("Return");
         JButton modifyButton = new JButton("Modify");
         returnButton.addActionListener(e -> {
             dispose();
-
             new WelcomeApp(studentID);
         });
         modifyButton.addActionListener(e -> {
@@ -73,7 +76,6 @@ public class InfoApp extends JFrame {
         setContentPane(contentPanel);
         contentPanel.add(buttonPanel, BorderLayout.SOUTH);
 
-
         setTitle("Your Status Information");
         setSize(500, 400);
         setLocationRelativeTo(null);
@@ -82,10 +84,10 @@ public class InfoApp extends JFrame {
     }
 
     /**
-     * load the student data into array
+     * Loads the student data into a two-dimensional array.
      *
-     * @param studentID ID of student
-     * @return an Array that save the basic information of student
+     * @param studentID the ID of the student
+     * @return an array that saves the basic information of the student
      */
     private String[][] loadStudentData(String studentID) {
         String[][] data = new String[8][2];
@@ -104,10 +106,10 @@ public class InfoApp extends JFrame {
     }
 
     /**
-     * Write the student data into JSON
+     * Writes the student data to the JSON file.
      *
-     * @param studentID ID of student, Use to locate the json object
-     * @param data      Array of information
+     * @param studentID the ID of the student, used to locate the JSON object
+     * @param data      the array of information to be written
      */
     private void writeStudentData(String studentID, String[][] data) {
         Student s = DB.getStudent(studentID);
@@ -133,3 +135,4 @@ public class InfoApp extends JFrame {
         JOptionPane.showMessageDialog(null, "Modify Successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 }
+

@@ -1,5 +1,5 @@
 /**
- * this class is used to screen student's score ,and calculate their average points and GPA
+ * This class is used to screen student scores and calculate their average points and GPA.
  */
 package com.metattri.app;
 
@@ -10,9 +10,17 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * A GUI application for displaying student grades and calculating statistics.
+ */
 public class GradeApp extends JFrame {
     private final ArrayList<String[]> courses;
 
+    /**
+     * Constructs a GradeApp object for the given student ID.
+     *
+     * @param studentID the ID of the student
+     */
     public GradeApp(String studentID) {
         this.courses = new ArrayList<>();
 
@@ -40,7 +48,7 @@ public class GradeApp extends JFrame {
         mainPanel.add(scrollPane, BorderLayout.CENTER);
         add(mainPanel);
 
-        //Create back and add Button
+        // Create back and add Button
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
             dispose();
@@ -55,7 +63,7 @@ public class GradeApp extends JFrame {
         mainPanel.add(buttonPanel, BorderLayout.NORTH);
         // Click the add button to pop up the dialog box and print the statistics.
         addButton.addActionListener(e -> {
-            double[] statInfo = getStatics();
+            double[] statInfo = getStatistics();
             JOptionPane.showMessageDialog(null, "Weighted Average Mark: " + statInfo[0] + "\n" + "GPA: " + statInfo[1], "Statistic Information", JOptionPane.INFORMATION_MESSAGE);
         });
 
@@ -66,7 +74,12 @@ public class GradeApp extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    public double[] getStatics() {
+    /**
+     * Calculates the weighted average mark and GPA based on the student's courses.
+     *
+     * @return an array containing the weighted average mark at index 0 and GPA at index 1
+     */
+    public double[] getStatistics() {
         double[] statInfo = new double[2];
         double wam = 0;
         double gpa = 0;

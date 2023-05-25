@@ -1,9 +1,9 @@
 /**
- * This class encapsulates some reading
- * , modifying and writing methods involving Student.json files.
+
+ This class encapsulates the data access operations for Student objects,
+ including reading, modifying, and writing methods involving Student.json files.
  */
 package com.metattri.dao;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
@@ -14,11 +14,15 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class DB {
-
-    private static final String FILE_PATH = "src/main/resources/db.json";
+public class DB {private static final String FILE_PATH = "src/main/resources/db.json";
     private static final Gson gson = new Gson(); // GSON Object
 
+    /**
+     * Exports a Student object as a JsonArray.
+     *
+     * @param student The Student object to export.
+     * @return A JsonArray containing the exported Student object.
+     */
     public static JsonArray exportStudent(Student student) {
         try {
             JsonObject jsonStudent = gson.toJsonTree(student).getAsJsonObject();
@@ -32,11 +36,11 @@ public class DB {
     }
 
     /**
-     * Delete the student's project
+     * Deletes a project from the student's records.
      *
-     * @param name project's name
-     * @param time project's time
-     * @return An array of student's object
+     * @param name The name of the project to delete.
+     * @param time The time of the project to delete.
+     * @return An array of student objects after deleting the project.
      */
     public static JsonArray deleteProject(String name, String time) {
         try {
@@ -68,13 +72,15 @@ public class DB {
         return null;
     }
 
-
     /**
-     * Delete student's Honor
+     * Deletes a honor from the student's records.
+     *
+     * @param honor_name The name of the honor to delete.
+     * @param honor_time The time of the honor to delete.
+     * @return An array of student objects after deleting the honor.
      */
     public static JsonArray deleteHonor(String honor_name, String honor_time) {
         try {
-
             BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
             JsonArray jsonArray = JsonParser.parseReader(br).getAsJsonArray();
 
@@ -96,7 +102,9 @@ public class DB {
                 }
             }
 
-            // 将JSON数组写回文件
+            // Write the JSON array back to the file
+            writeToJson(jsonArray);
+
             return jsonArray;
         } catch (IOException e) {
             e.printStackTrace();
@@ -104,11 +112,12 @@ public class DB {
         return null;
     }
 
+
     /**
-     * Transfer a student object into JsonArray, in order to write them into JSON file.
+     * Updates a student object and converts it into a JsonArray for writing to the JSON file.
      *
-     * @param student student object that are modified
-     * @return JsonArray Object
+     * @param student The modified student object.
+     * @return A JsonArray representing the updated student objects.
      */
     public static JsonArray updateStudent(Student student) {
         try {
@@ -130,10 +139,10 @@ public class DB {
     }
 
     /**
-     * Get the Student Object by the ID of the Students
+     * Retrieves a Student object by the student's ID.
      *
-     * @param sId Student's ID
-     * @return Student Object
+     * @param sId The ID of the student.
+     * @return The Student object with the specified ID.
      */
     public static Student getStudent(String sId) {
         try {
@@ -153,9 +162,9 @@ public class DB {
     }
 
     /**
-     * Get the JsonArray of the Students
+     * Retrieves the JsonArray of student objects.
      *
-     * @return JsonArray of the Students
+     * @return The JsonArray of student objects.
      */
     public static JsonArray getStudents() {
         try {
@@ -168,9 +177,11 @@ public class DB {
     }
 
     /**
-     * Delete the Skill
+     * Deletes a skill from the student's records.
      *
-     * @return JsonArray that the skill is deleted
+     * @param skill_name  The name of the skill to delete.
+     * @param skill_level The level of the skill to delete.
+     * @return An array of student objects after deleting the skill.
      */
     public static JsonArray deleteSkill(String skill_name, String skill_level) {
         try {
@@ -200,11 +211,10 @@ public class DB {
         return null;
     }
 
-
     /**
-     * Write the Student Object into JSON file
+     * Writes a JsonArray to the JSON file.
      *
-     * @param jsonArray JsonArray Object
+     * @param jsonArray The JsonArray to write.
      */
     public static void writeToJson(JsonArray jsonArray) {
         try {
@@ -218,8 +228,10 @@ public class DB {
     }
 
     /**
-     * Write the Student Object into JSON file
-     * by setting a specific path
+     * Writes a JsonArray to the JSON file at a specified path.
+     *
+     * @param jsonArray The JsonArray to write.
+     * @param path      The path of the JSON file.
      */
     public static void writeToJson(JsonArray jsonArray, String path) {
         try {
@@ -231,6 +243,5 @@ public class DB {
             e.printStackTrace();
         }
     }
-
-
 }
+

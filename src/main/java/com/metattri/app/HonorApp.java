@@ -1,6 +1,3 @@
-/**
- * this class is used to show all the information of honor and make some operation on it
- */
 package com.metattri.app;
 
 import com.metattri.dao.DB;
@@ -10,10 +7,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * The main application window for displaying student honors.
+ */
 public class HonorApp extends JFrame {
     private final ArrayList<String[]> honors;
-
+    /**
+     * Constructs the HonorApp window.
+     *
+     * @param studentID The ID of the student.
+     */
     public HonorApp(String studentID) {
         this.honors = new ArrayList<>();
         Student s = DB.getStudent(studentID);
@@ -125,12 +128,18 @@ public class HonorApp extends JFrame {
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-
+    /**
+     * The form for adding a new honor.
+     */
     public static class HonorForm extends JFrame {
 
         private final JTextField projectTimeField;
         private final JTextArea projectContentArea;
-
+        /**
+         * Constructs the HonorForm window.
+         *
+         * @param studentID The ID of the student.
+         */
         public HonorForm(final String studentID) {
             super("Adding your honor here");
 
