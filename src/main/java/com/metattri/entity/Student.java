@@ -1,4 +1,4 @@
-package com.metattri.dao;
+package com.metattri.entity;
 
 import java.util.List;
 

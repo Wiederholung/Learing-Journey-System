@@ -1,6 +1,7 @@
 package com.metattri.dao;
 
 import com.google.gson.JsonArray;
+import com.metattri.entity.Student;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

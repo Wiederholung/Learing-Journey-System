@@ -1,7 +1,7 @@
 package com.metattri.app;
 
 import com.metattri.dao.DB;
-import com.metattri.dao.Student;
+import com.metattri.entity.Student;
 
 import javax.swing.*;
 import java.awt.*;
