@@ -7,6 +7,7 @@ honors, and skills. The system uses JSON files to store and manipulate the data.
 
 - Add, update, and delete student information
 - Manage student projects, honors, and skills
+- Generate student Learning Journey reports
 - Read and write data to JSON files
 
 ## Getting Started
@@ -14,30 +15,41 @@ honors, and skills. The system uses JSON files to store and manipulate the data.
 ### Prerequisites
 
 - Java Development Kit (JDK) 18 or higher
-- A Java IDE (e.g., IntelliJ IDEA, Eclipse)
+- Maven
+- IntelliJ IDEA (_recommended_)
 
 ### Installation
 
-1. Clone the repository or download the source code.
-2. Open the project in your Java IDE.
-3. Build and run the project.
+1. Clone the repository:
+
+   ```shell
+   git clone https://github.com/Wiederholung/Learing-Journey-System.git
+   ```
+2. Navigate to the directory where you downloaded the repository:
+
+   ```shell
+   cd Learing-Journey-System
+   ```
+   Optional: open the project in IDEA
+3. Compile: `mvn compile`
+4. Run unit tests: `mvn test`
 
 ## Usage
 
-- To start the system, you should run the 'Main.java' in the code, its path is:
-  Learning-Journey-System/src/main/java/com/metattri/Main.java
+Run the program: `mvn exec:java`
 
-- We will provide you an account of our developer's account to try on the software, that is:
+We will provide you an account of our developer's account to try on the software:
+
 - studentID: 2020213362
 - password: 123123
 
-## Contributing
+## Documentation
 
-Feel free to submit issues or pull requests if you have any suggestions or improvements for this project.
+- [User Manual](UserManual.pdf)
+- [JavadDoc](doc/javadoc/index.html)
+- [UML Diagram](doc/UML.png)
 
 ## Contributors
-
-BUPT & QMUL student group:
 
 - Zehao Xing
 - [Yitong Hu](https://yitong-hu.metattri.com/)

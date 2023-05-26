@@ -32,5 +32,27 @@
             <scope>compile</scope>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>com.metattri.Main</mainClass>
+                    <!-- 其他配置参数 -->
+                </configuration>
+            </plugin>
+            <!-- 其他插件配置 -->
+        </plugins>
+        <!-- 其他构建配置 -->
+    </build>
 
 </project>
