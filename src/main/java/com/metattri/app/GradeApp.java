@@ -61,7 +61,7 @@ public class GradeApp extends JFrame {
         // Click the add button to pop up the dialog box and print the statistics.
         addButton.addActionListener(e -> {
             double[] statInfo = getStatistics();
-            JOptionPane.showMessageDialog(null, "Weighted Average Mark: " + statInfo[0] + "\n" + "GPA: " + statInfo[1], "Statistic Information", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Weighted Average Mark: " + String.format("%.2f",statInfo[0]) + "\n" + "GPA: " + String.format("%.2f",statInfo[1]), "Statistic Information", JOptionPane.INFORMATION_MESSAGE);
         });
 
         setTitle("Student Projects");
