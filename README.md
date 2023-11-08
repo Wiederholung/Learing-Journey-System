@@ -1,5 +1,7 @@
 # Learning Journey System
 
+> Group Project of EBU6304 Software Engineering (2022/23)
+
 This project is a simple student management system that allows you to manage student information, such as projects,
 honors, and skills. The system uses JSON files to store and manipulate the data.
 
